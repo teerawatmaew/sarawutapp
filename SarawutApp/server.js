@@ -93,6 +93,14 @@ app.get('/checkresult', function (request, response) {
     response.render('checkresult.ejs');
 });
 
+app.get('/viewreport', function (request, response) {
+    response.render('answerreport.ejs');
+});
+
+app.get('/info', function (request, response) {
+    response.render('creatureinfo.ejs');
+});
+
 app.get('/admin-profile.ejs', function (request, response) {
     connection.query('SELECT * FROM accounts WHERE id = 1', (err, results) => {
         if (err) {
