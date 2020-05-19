@@ -24,6 +24,24 @@ Author E-mail: naimlasker@gmail.com
 /* Mobile Layout: 320px */
 /* Wide Mobile Layout: 480px */
 /*---------------------------------------------------- */
+/*My Style etc*/
+table {
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+table#result tr:nth-child(even) {
+  background-color: #eee;
+}
+table#result tr:nth-child(odd) {
+ background-color: #fff;
+}
+table#result th {
+  background-color: #ADE0FF;
+}
+
+
 /*----------------------------------------------------*/
 body {
   line-height: 24px;

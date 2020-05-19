@@ -81,16 +81,16 @@ app.get('/user', function (request, response) {
 //<======= all site =======>
 //<========================>
 
-app.get('/index', function (request, response) {
-    response.render('firstpage.ejs');
-});
-
 app.get('/loginpage', function (request, response) {
     response.render('login.ejs');
 });
 
 app.get('/report', function (request, response) {
     response.render('report.ejs');
+});
+
+app.get('/checkresult', function (request, response) {
+    response.render('checkresult.ejs');
 });
 
 app.get('/admin-profile.ejs', function (request, response) {
