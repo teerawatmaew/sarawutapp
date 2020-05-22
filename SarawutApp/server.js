@@ -97,8 +97,16 @@ app.get('/viewreport', function (request, response) {
     response.render('answerreport.ejs');
 });
 
+app.get('/systeminfo', function (request, response) {
+    response.render('learningsysteminfo.ejs');
+});
+
 app.get('/info', function (request, response) {
     response.render('creatureinfo.ejs');
+});
+
+app.get('/userprofile', function (request, response) {
+    response.render('userprofile.ejs');
 });
 
 app.get('/admin-profile.ejs', function (request, response) {

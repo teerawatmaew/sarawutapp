@@ -45,7 +45,10 @@
                                     <input type="text" class="form-control" id="subject" placeholder="หัวข้อ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'หัวข้อ'">
                                 </div>
 								<div class="form-group">
-									<input type="file" id="picturefile" name="filename">
+									<div class="custom-file">
+										<input type="file" class="custom-file-input" id="customFile">
+										<label class="custom-file-label" for="customFile">เลือกไฟล์รูปภาพ(ถ้ามี)</label>
+									</div>
 								</div>
                                 <div class="form-group">
                                     <textarea class="form-control mb-10" rows="5" name="message" placeholder="เนื้อหาที่ต้องการแจ้ง" onfocus="this.placeholder = ''" onblur="this.placeholder = 'เนื้อหาที่ต้องการแจ้ง'" required=""></textarea>
