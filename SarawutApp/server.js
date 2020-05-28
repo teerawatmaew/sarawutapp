@@ -109,6 +109,16 @@ app.get('/userprofile', function (request, response) {
     response.render('userprofile.ejs');
 });
 
+//<=============================>
+//<======= learning site =======>
+//<=============================>
+
+app.get('/userstatus', function (request, response) {
+    response.render('./user/userindex.ejs');
+});
+
+
+
 app.get('/admin-profile.ejs', function (request, response) {
     connection.query('SELECT * FROM accounts WHERE id = 1', (err, results) => {
         if (err) {
