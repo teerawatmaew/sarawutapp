@@ -113,7 +113,7 @@ app.get('/userprofile', function (request, response) {
 //<======= learning site =======>
 //<=============================>
 
-app.get('/userstatus', function (request, response) {
+app.get('/userindex', function (request, response) {
     response.render('./user/userindex.ejs');
 });
 
@@ -121,6 +121,29 @@ app.get('/selectlesson', function (request, response) {
     response.render('./user/selectlesson.ejs');
 });
 
+app.get('/pretest', function (request, response) {
+    response.render('./lesson/pretest.ejs');
+});
+
+app.get('/posttest', function (request, response) {
+    response.render('./lesson/posttest.ejs');
+});
+
+app.get('/detail02', function (request, response) {
+    response.render('./lesson/detail02.ejs');
+});
+
+app.get('/detail03', function (request, response) {
+    response.render('./lesson/detail03.ejs');
+});
+
+app.get('/detail/(:id)', function (request, response) {
+    response.render('./lesson/detail(:id).ejs');
+});
+
+app.get('/lesson/(:id)', function (request, response) {
+    response.render('./lesson/lesson(:id).ejs');
+});
 
 
 app.get('/admin-profile.ejs', function (request, response) {
