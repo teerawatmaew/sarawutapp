@@ -117,6 +117,10 @@ app.get('/userstatus', function (request, response) {
     response.render('./user/userindex.ejs');
 });
 
+app.get('/selectlesson', function (request, response) {
+    response.render('./user/selectlesson.ejs');
+});
+
 
 
 app.get('/admin-profile.ejs', function (request, response) {
