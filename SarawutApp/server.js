@@ -3,7 +3,7 @@ process.env.PWD = process.cwd()
 
 var mysql = require('mysql');
 var express = require('express');
-var cookieParser = require('cookie-parser');
+var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
 
@@ -15,6 +15,12 @@ var connection = mysql.createConnection({
     password: '1234',
     database: 'lms'
 });
+
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -42,6 +48,8 @@ app.post('/login', function (request, response) {
     var password = request.body.password;
     connection.query('SELECT * FROM accounts WHERE student_number = ? AND birthdaypass = ?', [username, password], function (error, results, fields) {
         if (results.length > 0) {
+            request.session.loggedin = true;
+            request.session.username = username;
             response.send('Welcome back Student');
         } else {
             response.send('Incorrect Username and/or Password!');
@@ -132,17 +140,58 @@ app.get('/posttest', function (request, response) {
 app.get('/detail02', function (request, response) {
     response.render('./lesson/detail02.ejs');
 });
-
 app.get('/detail03', function (request, response) {
     response.render('./lesson/detail03.ejs');
 });
-
-app.get('/detail/(:id)', function (request, response) {
-    response.render('./lesson/detail(:id).ejs');
+app.get('/detail04', function (request, response) {
+    response.render('./lesson/detail04.ejs');
+});
+app.get('/detail05', function (request, response) {
+    response.render('./lesson/detail05.ejs');
+});
+app.get('/detail06', function (request, response) {
+    response.render('./lesson/detail06.ejs');
+});
+app.get('/detail07', function (request, response) {
+    response.render('./lesson/detail07.ejs');
+});
+app.get('/detail08', function (request, response) {
+    response.render('./lesson/detail08.ejs');
+});
+app.get('/detail09', function (request, response) {
+    response.render('./lesson/detail09.ejs');
+});
+app.get('/detail10', function (request, response) {
+    response.render('./lesson/detail10.ejs');
 });
 
-app.get('/lesson/(:id)', function (request, response) {
-    response.render('./lesson/lesson(:id).ejs');
+
+app.get('/lesson02', function (request, response) {
+    response.render('./lesson/lesson02.ejs');
+});
+app.get('/lesson03', function (request, response) {
+    response.render('./lesson/lesson03.ejs');
+});
+app.get('/lesson04', function (request, response) {
+    response.render('./lesson/lesson04.ejs');
+});
+app.get('/lesson05', function (request, response) {
+    response.render('./lesson/lesson05.ejs');
+});
+app.get('/lesson06', function (request, response) {
+    response.render('./lesson/lesson06.ejs');
+});
+app.get('/lesson07', function (request, response) {
+    response.render('./lesson/lesson07.ejs');
+});
+app.get('/lesson08', function (request, response) {
+    response.render('./lesson/lesson08.ejs');
+});
+app.get('/lesson09', function (request, response) {
+    response.render('./lesson/lesson09.ejs');
+});
+app.get('/lesson10', function (request, response) {
+    response.render('./lesson/lesson10.ejs');
 });
 
 
