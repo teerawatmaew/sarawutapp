@@ -17,10 +17,11 @@ var connection = mysql.createConnection({
 });
 
 app.use(session({
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: true
-}));
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: 60000 }
+}))
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
