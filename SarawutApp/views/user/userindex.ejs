@@ -22,11 +22,11 @@
 
 <body>
 	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-		<a href="/" class="genric-btn default circle">ย้อนกลับ</a>
+		<a href="/logout" class="genric-btn default circle">ย้อนกลับ</a>
 		<span>Home</span>
-		<h4>ชื่อ-สกุล : ธีรวัฒน์  ผ่องสกุล</h4>
-		<h4>รหัสประจำตัวนักเรียน : 05850</h4>
-		<a href="/" class="genric-btn danger circle">ออกจากระบบ</a>
+		<h4>ชื่อ-สกุล : <%= sess.name %></h4>
+		<h4>รหัสประจำตัวนักเรียน : <%= sess.student_number %></h4>
+		<a href="/logout" class="genric-btn danger circle">ออกจากระบบ</a>
 	</nav>
 	<br>
 	<!--================Contact Area =================-->

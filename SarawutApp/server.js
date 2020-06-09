@@ -45,13 +45,14 @@ app.get('/', function (request, response) {
 //<===================>
 
 app.post('/login', function (request, response) {
-    var username = request.body.username;
+    var username = request.body.student_number;
     var password = request.body.password;
     connection.query('SELECT * FROM accounts WHERE student_number = ? AND birthdaypass = ?', [username, password], function (error, results, fields) {
         if (results.length > 0) {
-            request.session.loggedin = true;
-            request.session.username = username;
-            response.send('Welcome back Student');
+            let sess = request.session;
+            sess.name = results[0].firstname + " " + results[0].surname;
+            sess.student_number = results[0].student_number;
+            response.render('./user/userindex.ejs', { sess: sess });
         } else {
             response.send('Incorrect Username and/or Password!');
         }
@@ -59,9 +60,25 @@ app.post('/login', function (request, response) {
     });
 });
 
+app.use(function (request, response, next) {
+    response.locals.sess = request.session;
+    next();
+});
+
+app.get('/session', (request, response) => {
+    let sess = request.session;
+    console.log(sess);
+    response.status(200).send('name = ' + sess.name + '  ' + 'id = ' + sess.student_number);
+});
+
 
 app.get('/logout', function (request, response) {
-    response.redirect('/');
+    request.session.destroy((err) => {
+        if (err) {
+            return console.log(err);
+        }
+        response.redirect('/');
+    });
 });
 
 //<=====================>
