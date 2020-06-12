@@ -21,18 +21,18 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="row button-group-area">
-			<div class="col">
-				<a href="/detail05" class="genric-btn default circle">ย้อนกลับ</a>
-			</div>
-			<div class="col-9 float-center">
-				<a href="/" class="genric-btn danger circle">ออกจากระบบ</a>
-			</div>
-			<div class="col">
-			</div>
-		</div>
-	</div>
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+    <a href="/detail05" class="genric-btn default circle">ย้อนกลับ</a>
+    <span>Home</span>
+    <h4>
+      ชื่อ-สกุล : <%= sess.name %>
+    </h4>
+    <h4>
+      รหัสประจำตัวนักเรียน : <%= sess.student_number %>
+    </h4>
+    <a href="/logout" class="genric-btn danger circle">ออกจากระบบ</a>
+  </nav>
+  <br>
 	<!-- Start Align Area -->
 			<div class="whole-wrap">
 				<div class="container">
