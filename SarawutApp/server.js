@@ -119,7 +119,7 @@ app.get('/checkresult', function (request, response) {
     response.render('checkresult.ejs');
 });
 
-app.get('/viewreport', function (request, response) {
+app.get('/answerreport', function (request, response) {
     response.render('answerreport.ejs');
 });
 
@@ -158,6 +158,22 @@ app.get('/posttest', function (request, response) {
 app.get('/detail02', function (request, response) {
     response.render('./lesson/detail02.ejs');
 });
+app.get('/lesson02', function (request, response) {
+    response.render('./lesson/lesson02.ejs');
+});
+app.get('/lesson02-1', function (request, response) {
+    response.render('./lesson/lesson02-1.ejs');
+});
+app.get('/lesson02-2', function (request, response) {
+    response.render('./lesson/lesson02-2.ejs');
+});
+app.get('/lesson02-3', function (request, response) {
+    response.render('./lesson/lesson02-3.ejs');
+});
+app.get('/lesson02-4', function (request, response) {
+    response.render('./lesson/lesson02-4.ejs');
+});
+
 app.get('/detail03', function (request, response) {
     response.render('./lesson/detail03.ejs');
 });
@@ -184,9 +200,6 @@ app.get('/detail10', function (request, response) {
 });
 
 
-app.get('/lesson02', function (request, response) {
-    response.render('./lesson/lesson02.ejs');
-});
 app.get('/lesson03', function (request, response) {
     response.render('./lesson/lesson03.ejs');
 });
