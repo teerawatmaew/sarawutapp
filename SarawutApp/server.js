@@ -155,6 +155,10 @@ app.get('/posttest', function (request, response) {
     response.render('./lesson/posttest.ejs');
 });
 
+app.get('/assessmentform', function (request, response) {
+    response.render('./lesson/assessmentform.ejs');
+});
+
 app.get('/detail02', function (request, response) {
     response.render('./lesson/detail02.ejs');
 });
@@ -177,6 +181,19 @@ app.get('/lesson02-4', function (request, response) {
 app.get('/detail03', function (request, response) {
     response.render('./lesson/detail03.ejs');
 });
+app.get('/lesson03-1', function (request, response) {
+    response.render('./lesson/lesson03-1.ejs');
+});
+app.get('/lesson03-2', function (request, response) {
+    response.render('./lesson/lesson03-2.ejs');
+});
+app.get('/lesson03-3', function (request, response) {
+    response.render('./lesson/lesson03-3.ejs');
+});
+app.get('/lesson03-4', function (request, response) {
+    response.render('./lesson/lesson03-4.ejs');
+});
+
 app.get('/detail04', function (request, response) {
     response.render('./lesson/detail04.ejs');
 });
