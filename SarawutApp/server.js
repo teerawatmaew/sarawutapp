@@ -161,22 +161,49 @@ app.get('/assessmentform', function (request, response) {
 
 //======= lesson01 =======
 app.get('/detail01', function (request, response) {
-    response.render('./lesson/detail01.ejs');
+    response.render('./lesson/01/detail01.ejs');
 });
 app.get('/lesson01', function (request, response) {
-    response.render('./lesson/lesson01.ejs');
+    response.render('./lesson/01/lesson01.ejs');
 });
 app.get('/lesson01-1', function (request, response) {
-    response.render('./lesson/lesson01-1.ejs');
+    response.render('./lesson/01/lesson01-1.ejs');
 });
 app.get('/lesson01-2', function (request, response) {
-    response.render('./lesson/lesson01-2.ejs');
+    response.render('./lesson/01/lesson01-2.ejs');
 });
 app.get('/lesson01-3', function (request, response) {
-    response.render('./lesson/lesson01-3.ejs');
+    response.render('./lesson/01/lesson01-3.ejs');
 });
 app.get('/lesson01-4', function (request, response) {
-    response.render('./lesson/lesson01-4.ejs');
+    response.render('./lesson/01/lesson01-4.ejs');
+});
+app.get('/lesson01-5', function (request, response) {
+    response.render('./lesson/01/lesson01-5.ejs');
+});
+app.get('/lesson01-6', function (request, response) {
+    response.render('./lesson/01/lesson01-6.ejs');
+});
+app.get('/lesson01-7', function (request, response) {
+    response.render('./lesson/01/lesson01-7.ejs');
+});
+app.get('/lesson01-8', function (request, response) {
+    response.render('./lesson/01/lesson01-8.ejs');
+});
+app.get('/lesson01-9', function (request, response) {
+    response.render('./lesson/01/lesson01-9.ejs');
+});
+app.get('/lesson01-10', function (request, response) {
+    response.render('./lesson/01/lesson01-10.ejs');
+});
+app.get('/lesson01-11', function (request, response) {
+    response.render('./lesson/01/lesson01-11.ejs');
+});
+app.get('/lesson01-12', function (request, response) {
+    response.render('./lesson/01/lesson01-12.ejs');
+});
+app.get('/lesson01-13', function (request, response) {
+    response.render('./lesson/01/lesson01-13.ejs');
 });
 
 //======= lesson02 =======
