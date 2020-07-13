@@ -175,6 +175,9 @@ app.get('/lesson01-2', function (request, response) {
 app.get('/lesson01-3', function (request, response) {
     response.render('./lesson/01/lesson01-3.ejs');
 });
+app.get('/lesson01-3-1', function (request, response) {
+    response.render('./lesson/01/lesson01-3-1.ejs');
+});
 app.get('/lesson01-4', function (request, response) {
     response.render('./lesson/01/lesson01-4.ejs');
 });
