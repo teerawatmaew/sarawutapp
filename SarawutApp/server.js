@@ -103,6 +103,11 @@ app.get('/user', function (request, response) {
     });
 });
 
+app.get('/getscore', function (req, res) {
+
+
+});
+
 //<========================>
 //<======= all site =======>
 //<========================>
@@ -205,28 +210,28 @@ app.get('/lesson01-11', function (request, response) {
 app.get('/lesson01-12', function (request, response) {
     response.render('./lesson/01/lesson01-12.ejs');
 });
-app.get('/lesson01-13', function (request, response) {
-    response.render('./lesson/01/lesson01-13.ejs');
-});
 
 //======= lesson02 =======
 app.get('/detail02', function (request, response) {
-    response.render('./lesson/detail02.ejs');
+    response.render('./lesson/02/detail02.ejs');
 });
 app.get('/lesson02', function (request, response) {
-    response.render('./lesson/lesson02.ejs');
+    response.render('./lesson/02/lesson02.ejs');
 });
 app.get('/lesson02-1', function (request, response) {
-    response.render('./lesson/lesson02-1.ejs');
+    response.render('./lesson/02/lesson02-1.ejs');
 });
 app.get('/lesson02-2', function (request, response) {
-    response.render('./lesson/lesson02-2.ejs');
+    response.render('./lesson/02/lesson02-2.ejs');
 });
 app.get('/lesson02-3', function (request, response) {
-    response.render('./lesson/lesson02-3.ejs');
+    response.render('./lesson/02/lesson02-3.ejs');
+});
+app.get('/lesson02-3-1', function (request, response) {
+    response.render('./lesson/02/lesson02-3-1.ejs');
 });
 app.get('/lesson02-4', function (request, response) {
-    response.render('./lesson/lesson02-4.ejs');
+    response.render('./lesson/02/lesson02-4.ejs');
 });
 
 //======= lesson03 =======
