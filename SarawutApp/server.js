@@ -6,6 +6,7 @@ var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
+const { GoogleSpreadsheet } = require('google-spreadsheet');
 
 var app = express();
 
@@ -104,7 +105,8 @@ app.get('/user', function (request, response) {
 });
 
 app.get('/getscore', function (req, res) {
-
+    // spreadsheet key is the long id in the sheets URL
+    const doc = new GoogleSpreadsheet('<the sheet ID from the url>');
 
 });
 
