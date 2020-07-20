@@ -6,6 +6,10 @@ var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var path = require('path');
+
+const fs = require('fs');
+const readline = require('readline');
+const { google } = require('googleapis');
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 
 var app = express();
@@ -106,7 +110,8 @@ app.get('/user', function (request, response) {
 
 app.get('/getscore', function (req, res) {
     // spreadsheet key is the long id in the sheets URL
-    const doc = new GoogleSpreadsheet('<the sheet ID from the url>');
+    //const doc = new GoogleSpreadsheet('<the sheet ID from the url>');
+    const doc = new GoogleSpreadsheet('<1e5EMwnGJNzkpCKdXJGR9VdjDDKQxhKWjTYgxwuhcOJc>');
 
 });
 
@@ -140,6 +145,14 @@ app.get('/info', function (request, response) {
 
 app.get('/userprofile', function (request, response) {
     response.render('userprofile.ejs');
+});
+
+//<==========================>
+//<======= admin site =======>
+//<==========================>
+
+app.get('/adminindex', function (request, response) {
+    response.render('./admin/adminindex.ejs');
 });
 
 //<=============================>
