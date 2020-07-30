@@ -24,6 +24,21 @@
 			height:50px;
 			line-height:35px;
 		}
+		img.post {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 10px;
+			width: 50%;
+			height: 200px;
+		}
+		div.horizontal{
+			flex-direction: row;
+		}
+		.main {
+			background-image: url('img/mw/edu-bg-2.jpg');
+			background-size: cover;
+		}
 	</style>
 </head>
 
@@ -44,7 +59,7 @@
 
 	<!-- Start Align Area -->
 		<section class="frequently_area">
-			<div class="whole-wrap">
+			<div class="whole-wrap main">
 				<div class="container">
 					<div class="button-group-area mt-40 text-center">
 						<a href="/userprofile" role="button" class="btn btn-primary circle button-lg menu">ระบบสมาชิก</a>
@@ -55,44 +70,87 @@
 					</div>
 					<div class="section-top-border text-left">
 						<h2 class="mb-30 title_color">กระดานข่าวสาร</h2>
-						<div class="row">
-							<div class="col-md-9">
-								<div class="card">
-									 <h5 class="card-header">ปรับปรุงเว็บไซต์เรียบร้อยแล้ว</h5>
-									<div class="card-body">
-										<blockquote class="blockquote mb-0">
-											<p>ขณะนี้เว็บไซต์สามารถใช้งานได้ปรกติแล้ว</p>
-											<footer class="blockquote-footer">ผู้ดูแลระบบ <cite title="Source Title">01-01-2021 00:00</cite></footer>
-										</blockquote>
+						<div class="tab-content">
+							<div class="row">
+								<div class="col-md-9">
+									<div class="list-group horizontal text-center" id="list-tab" role="tablist">
+										<a class="list-group-item list-group-item-action active" id="list-dashboard" data-toggle="list" href="#dashboard" role="tab" aria-controls="dashboard">ประกาศจากเว็บไซต์</a>
+										<a class="list-group-item list-group-item-action" id="list-answer" data-toggle="list" href="#answer" role="tab" aria-controls="answer">ถาม-ตอบปัญหาที่ได้รับแจ้ง</a>
+									</div>
+									<br>
+									<div class="tab-content" id="nav-tabContent">
+										<div class="tab-pane fade show active" id="dashboard" role="tabpanel" aria-labelledby="list-dashboard">
+											<div class="card">
+												<h5 class="card-header">ปรับปรุงเว็บไซต์เรียบร้อยแล้ว</h5>
+												<div class="card-body">
+													<blockquote class="blockquote mb-0">
+														<p>ขณะนี้เว็บไซต์สามารถใช้งานได้ปรกติแล้ว</p>
+														<footer class="blockquote-footer">ผู้ดูแลระบบ <cite title="Source Title">01-01-2021 00:00</cite></footer>
+													</blockquote>
+												</div>
+											</div>
+											<br>
+											<div class="card">
+												<h5 class="card-header">ประกาศการปรับปรุงเว็บไซต์</h5>
+												<div class="card-body">
+													<blockquote class="blockquote mb-0">
+														<p>เว็บไซต์จะไม่สามารถใช้งานได้ในช่วงเวลา 02:00 ของวันที่ 30-12-2020 ถึงเวลา 23:59 ของวันที่ 31-12-2020 ขออภัยในความไม่สะดวก</p>
+														<footer class="blockquote-footer">ผู้ดูแลระบบ <cite title="Source Title">29-12-2020 12:13</cite></footer>
+													</blockquote>
+												</div>
+											</div>
+											<br>
+											<div class="card">
+												<h5 class="card-header">ประกาศแรกของเว็บไซต์</h5>
+												<div class="card-body">
+													<blockquote class="blockquote mb-0">
+														<p>ยินดีต้อนรับผู้ใช้งานทุกท่าน</p>
+														<footer class="blockquote-footer">ผู้พัฒนา <cite title="Source Title">15-04-2020 20:20</cite></footer>
+													</blockquote>
+												</div>
+											</div>
+											<br>
+										</div>
+
+										<div class="tab-pane fade" id="answer" role="tabpanel" aria-labelledby="list-answer">
+											<div class="card">
+												<img src="img/mw/edu-logo.jpg" class="card-img-top post center" alt="...">
+												<div class="card-body">
+													<h5 class="card-title">จะเข้าสู่บทเรียนได้ยังไง?</h5>
+													<p class="card-text">หาปุ่มเข้าสู่บทเรียนไม่เจอ อยากรู้ว่าจะเข้าไปดูเนื้อหาได้ยังไง..</p>
+												</div>
+												<ul class="list-group list-group-flush">
+													<li class="list-group-item">
+														<p class="sample-text">
+															<b>ตอบ : </b>นักเรียนต้องทำการกดเข้าสู่ระบบก่อน แล้วกรอกข้อมูลให้ถูกต้องจึงจะเข้าสู่บทเรียนได้
+														</p>
+													</li>
+												</ul>
+											</div>
+											<br>
+											<div class="card">
+												<img src="img/mw/edu-logo.jpg" class="card-img-top post center" alt="...">
+												<div class="card-body">
+													<h5 class="card-title">จะเข้าสู่บทเรียนได้ยังไง?</h5>
+													<p class="card-text">หาปุ่มเข้าสู่บทเรียนไม่เจอ อยากรู้ว่าจะเข้าไปดูเนื้อหาได้ยังไง..</p>
+												</div>
+												<ul class="list-group list-group-flush">
+													<li class="list-group-item">
+														<p class="sample-text">
+															<b>ตอบ : </b>นักเรียนต้องทำการกดเข้าสู่ระบบก่อน แล้วกรอกข้อมูลให้ถูกต้องจึงจะเข้าสู่บทเรียนได้
+														</p>
+													</li>
+												</ul>
+											</div>
+										</div>
 									</div>
 								</div>
-								<br>
-								<div class="card">
-									 <h5 class="card-header">ประกาศการปรับปรุงเว็บไซต์</h5>
-									<div class="card-body">
-										<blockquote class="blockquote mb-0">
-											<p>เว็บไซต์จะไม่สามารถใช้งานได้ในช่วงเวลา 02:00 ของวันที่ 30-12-2020 ถึงเวลา 23:59 ของวันที่ 31-12-2020 ขออภัยในความไม่สะดวก</p>
-											<footer class="blockquote-footer">ผู้ดูแลระบบ <cite title="Source Title">29-12-2020 12:13</cite></footer>
-										</blockquote>
-									</div>
-								</div>
-								<br>
-								<div class="card">
-									 <h5 class="card-header">ประกาศแรกของเว็บไซต์</h5>
-									<div class="card-body">
-										<blockquote class="blockquote mb-0">
-											<p>ยินดีต้อนรับผู้ใช้งานทุกท่าน</p>
-											<footer class="blockquote-footer">ผู้พัฒนา <cite title="Source Title">15-04-2020 20:20</cite></footer>
-										</blockquote>
-									</div>
-								</div>
-								<br>
-							</div>
-							<div class="col-md-3">
-								<div class="new_games_item">
-									<img src="img/mw/education.jpg" alt="">
-									<div class="upcoming_title">
-										<h3><a href="/info">ข้อมูลผู้พัฒนา</a></h3>
+								<div class="col-md-3">
+									<div class="new_games_item">
+										<img src="img/mw/edu-logo.jpg" alt="">
+										<div class="upcoming_title">
+											<h3><a href="/info">ข้อมูลผู้พัฒนา</a></h3>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -101,7 +159,6 @@
 				</div>
 			</div>
 		</section>
-
 	<!--================Footer Area =================-->
 	<%- include('partials/footermenu.ejs'); -%>
 	<!--==============End Footer Area ===============-->

@@ -131,10 +131,6 @@ app.get('/checkresult', function (request, response) {
     response.render('checkresult.ejs');
 });
 
-app.get('/answerreport', function (request, response) {
-    response.render('answerreport.ejs');
-});
-
 app.get('/systeminfo', function (request, response) {
     response.render('learningsysteminfo.ejs');
 });
@@ -153,6 +149,9 @@ app.get('/userprofile', function (request, response) {
 
 app.get('/adminindex', function (request, response) {
     response.render('./admin/adminindex.ejs');
+});
+app.get('/answerreport', function (request, response) {
+    response.render('./admin/answerreport.ejs');
 });
 app.get('/managecourse', function (request, response) {
     response.render('./admin/managecourse.ejs');
