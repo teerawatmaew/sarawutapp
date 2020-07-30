@@ -18,21 +18,28 @@
 	<link rel="stylesheet" href="vendors/flaticon/flaticon.css">
 	<!-- main css -->
 	<link rel="stylesheet" href="css/style.css">
+	<style>
+		a.menu {
+			width:170px;
+			height:50px;
+			line-height:35px;
+		}
+	</style>
 </head>
 
 <body>
 	
 	<!--================Home Banner Area =================-->
 	<section class="banner_area">
-            <div class="banner_inner d-flex align-items-center">
-            	<div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
-				<div class="container">
-					<div class="banner_content text-center">
-						<h2>หน้าแรก</h2>
-					</div>
+        <div class="banner_inner d-flex align-items-center">
+            <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background=""></div>
+			<div class="container">
+				<div class="banner_content text-center">
+					<h2>หน้าแรก</h2>
 				</div>
-            </div>
-        </section>
+			</div>
+		</div>
+    </section>
 	<!--================End Home Banner Area =================-->
 
 	<!-- Start Align Area -->
@@ -40,23 +47,50 @@
 			<div class="whole-wrap">
 				<div class="container">
 					<div class="button-group-area mt-40 text-center">
-						<a href="/userprofile" class="genric-btn primary circle">ระบบสมาชิก</a>
-						<a href="/systeminfo" class="genric-btn success circle">ระบบการเรียน</a>
-						<a href="/loginpage" style="width:175px;height:60px" class="genric-btn info circle e-large rounded-circle"><p>เข้าสู่ระบบ</p></a>
-						<a href="/checkresult" class="genric-btn warning circle">ตรวจสอบผลการเรียน</a>
-						<a href="/report" class="genric-btn danger circle">แจ้งปัญหา</a>
+						<a href="/userprofile" role="button" class="btn btn-primary circle button-lg menu">ระบบสมาชิก</a>
+						<a href="/systeminfo" role="button" class="btn btn-success circle button-lg menu">ระบบการเรียน</a>
+						<a href="/loginpage" style="width:200px;height:100px;line-height:100px;" role="button" class="btn btn-info circle e-large rounded-circle"><p>เข้าสู่ระบบ</p></a>
+						<a href="/checkresult" role="button" class="btn btn-warning circle button-lg menu">ตรวจสอบผลการเรียน</a>
+						<a href="/report" role="button" class="btn btn-danger circle button-lg menu">แจ้งปัญหา</a>
 					</div>
-					<br>
 					<div class="section-top-border text-left">
 						<h2 class="mb-30 title_color">กระดานข่าวสาร</h2>
 						<div class="row">
 							<div class="col-md-9">
-								<p class="text-right">Over time, even the most sophisticated, memory packed computer can begin to run slow if we don’t do something to prevent it. The reason why has less to do with how computers are made and how they age and more to do with the way we use them. You see, all of the daily tasks that we do on our PC from running programs to downloading and deleting software can make our computer sluggish. To keep this from happening, you need to understand the reasons why your PC is getting slower and do something to keep your PC running at its best. You can do this through regular maintenance and PC performance optimization programs</p>
-								<p class="text-right">Before we discuss all of the things that could be affecting your PC’s performance, let’s talk a little about what symptoms</p>
+								<div class="card">
+									 <h5 class="card-header">ปรับปรุงเว็บไซต์เรียบร้อยแล้ว</h5>
+									<div class="card-body">
+										<blockquote class="blockquote mb-0">
+											<p>ขณะนี้เว็บไซต์สามารถใช้งานได้ปรกติแล้ว</p>
+											<footer class="blockquote-footer">ผู้ดูแลระบบ <cite title="Source Title">01-01-2021 00:00</cite></footer>
+										</blockquote>
+									</div>
+								</div>
+								<br>
+								<div class="card">
+									 <h5 class="card-header">ประกาศการปรับปรุงเว็บไซต์</h5>
+									<div class="card-body">
+										<blockquote class="blockquote mb-0">
+											<p>เว็บไซต์จะไม่สามารถใช้งานได้ในช่วงเวลา 02:00 ของวันที่ 30-12-2020 ถึงเวลา 23:59 ของวันที่ 31-12-2020 ขออภัยในความไม่สะดวก</p>
+											<footer class="blockquote-footer">ผู้ดูแลระบบ <cite title="Source Title">29-12-2020 12:13</cite></footer>
+										</blockquote>
+									</div>
+								</div>
+								<br>
+								<div class="card">
+									 <h5 class="card-header">ประกาศแรกของเว็บไซต์</h5>
+									<div class="card-body">
+										<blockquote class="blockquote mb-0">
+											<p>ยินดีต้อนรับผู้ใช้งานทุกท่าน</p>
+											<footer class="blockquote-footer">ผู้พัฒนา <cite title="Source Title">15-04-2020 20:20</cite></footer>
+										</blockquote>
+									</div>
+								</div>
+								<br>
 							</div>
 							<div class="col-md-3">
 								<div class="new_games_item">
-									<img src="img/b_map1.png" alt="">
+									<img src="img/mw/education.jpg" alt="">
 									<div class="upcoming_title">
 										<h3><a href="/info">ข้อมูลผู้พัฒนา</a></h3>
 									</div>
@@ -69,28 +103,8 @@
 		</section>
 
 	<!--================Footer Area =================-->
-	<footer class="footer_area section_gap_top">
-		<div class="container">
-			<div class="row single-footer-widget">
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="copy_right_text">
-						<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="social_widget">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-dribbble"></i></a>
-						<a href="#"><i class="fa fa-behance"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!--================End Footer Area =================-->
+	<%- include('partials/footermenu.ejs'); -%>
+	<!--==============End Footer Area ===============-->
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

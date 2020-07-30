@@ -154,6 +154,12 @@ app.get('/userprofile', function (request, response) {
 app.get('/adminindex', function (request, response) {
     response.render('./admin/adminindex.ejs');
 });
+app.get('/managecourse', function (request, response) {
+    response.render('./admin/managecourse.ejs');
+});
+app.get('/managescore', function (request, response) {
+    response.render('./admin/managescore.ejs');
+});
 
 //<=============================>
 //<======= learning site =======>
