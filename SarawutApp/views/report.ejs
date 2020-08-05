@@ -18,72 +18,59 @@
 	<link rel="stylesheet" href="vendors/flaticon/flaticon.css">
 	<!-- main css -->
 	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.main {
+			background-image: url('img/mw/edu-bg-2.jpg');
+			background-size: cover;
+		}
+	</style>
 </head>
 
 <body>
 	<div class="button-group-area mt-40">
 		<a href="/" class="genric-btn default circle">ย้อนกลับ</a>
 	</div>
+	<hr>
 	<!--================Contact Area =================-->
-        <section>
-            <div class="container">
-                <div class="comment-form">
-					<h4>แจ้งปัญหาการใช้งาน</h4>
-                        <form>
-                            <div class="form-group form-inline">
-                                  <div class="form-group col-lg-6 col-md-6 name">
-                                    <input type="text" class="form-control" id="firstname" placeholder="ชื่อ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ชื่อ'">
-                                  </div>
-                                  <div class="form-group col-lg-6 col-md-6">
-                                    <input type="text" class="form-control" id="surname" placeholder="นามสกุล" onfocus="this.placeholder = ''" onblur="this.placeholder = 'นามสกุล'">
-                                  </div>										
-                                </div>
-								<div class="form-group">
-                                    <input type="text" class="form-control" id="student_id" placeholder="เลขประจำตัวนักเรียน" onfocus="this.placeholder = ''" onblur="this.placeholder = 'เลขประจำตัวนักเรียน'">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" id="subject" placeholder="หัวข้อ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'หัวข้อ'">
-                                </div>
-								<div class="form-group">
-									<div class="custom-file">
-										<input type="file" class="custom-file-input" id="customFile">
-										<label class="custom-file-label" for="customFile">เลือกไฟล์รูปภาพ(ถ้ามี)</label>
-									</div>
-								</div>
-                                <div class="form-group">
-                                    <textarea class="form-control mb-10" rows="5" name="message" placeholder="เนื้อหาที่ต้องการแจ้ง" onfocus="this.placeholder = ''" onblur="this.placeholder = 'เนื้อหาที่ต้องการแจ้ง'" required=""></textarea>
-                                </div>
-                                <a href="#" class="primary-btn primary_btn">ส่งข้อมูล</a>	
-                            </form>
-                        </div>
+    <section class="main">
+        <div class="container">
+			<br>
+			<div class="comment-form">
+				<h4>แจ้งปัญหาการใช้งาน</h4>
+                <form>
+                    <div class="form-group form-inline">
+						<div class="form-group col-lg-6 col-md-6 name">
+							<input type="text" class="form-control" id="firstname" placeholder="ชื่อ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ชื่อ'">
+						</div>
+                        <div class="form-group col-lg-6 col-md-6">
+	                        <input type="text" class="form-control" id="surname" placeholder="นามสกุล" onfocus="this.placeholder = ''" onblur="this.placeholder = 'นามสกุล'">
+                        </div>										
+                    </div>
+					<div class="form-group">
+                        <input type="text" class="form-control" id="student_id" placeholder="เลขประจำตัวนักเรียน" onfocus="this.placeholder = ''" onblur="this.placeholder = 'เลขประจำตัวนักเรียน'">
+					</div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="subject" placeholder="หัวข้อ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'หัวข้อ'">
+                    </div>
+					<div class="form-group">
+						<div class="custom-file">
+							<input type="file" class="custom-file-input" id="customFile">
+							<label class="custom-file-label" for="customFile">เลือกไฟล์รูปภาพ(ถ้ามี)</label>
+						</div>
+					</div>
+                    <div class="form-group">
+                        <textarea class="form-control mb-10" rows="5" name="message" placeholder="เนื้อหาที่ต้องการแจ้ง" onfocus="this.placeholder = ''" onblur="this.placeholder = 'เนื้อหาที่ต้องการแจ้ง'" required=""></textarea>
+                    </div>
+                    <a href="#" class="primary-btn primary_btn">ส่งข้อมูล</a>	
+                </form>
             </div>
-        </section>
-        <!--================Contact Area =================-->
-
+			<br>
+        </div>
+    </section>
+    <!--================Contact Area =================-->
 
     <!--================Footer Area =================-->
-	<footer class="footer_area section_gap_top">
-		<div class="container">
-			<div class="row single-footer-widget">
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="copy_right_text">
-						<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="social_widget">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-dribbble"></i></a>
-						<a href="#"><i class="fa fa-behance"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</footer>
+	<%- include('partials/footermenu.ejs'); -%>
 	<!--================End Footer Area =================-->
 
 	<!-- Optional JavaScript -->

@@ -143,6 +143,23 @@ app.get('/userprofile', function (request, response) {
     response.render('userprofile.ejs');
 });
 
+app.get('/edituserprofile/(:id)', function (request, response) {
+    var id = request.params.id;
+    var firstname = request.body.editfirstname;
+    var surname = request.body.editsurname;
+    var studentno = request.body.editstudentno;
+    var birthdate = request.body.editbirthdate;
+    var birthdatepass = request.body.editbirthdatepass;
+    connection.query('UPDATE accounts SET firstname=?, surname=?, studentno=?, birthdate=? birthdatepass=? WHERE id=?', [firstname, surname, studentno, birthdate, birthdatepass,id], (err, result) => {
+        if (err) {
+            throw err;
+        } else {
+            response.render('userprofile.ejs');
+        }
+    });
+});
+
+
 //<==========================>
 //<======= admin site =======>
 //<==========================>

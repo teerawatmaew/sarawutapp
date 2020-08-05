@@ -18,199 +18,70 @@
 	<link rel="stylesheet" href="vendors/flaticon/flaticon.css">
 	<!-- main css -->
 	<link rel="stylesheet" href="css/style.css">
+	<style>
+		.main {
+			background-image: url('img/mw/edu-bg-2.jpg');
+			background-size: cover;
+		}
+	</style>
 </head>
 
 <body>
 	<div class="button-group-area mt-40">
 		<a href="/" class="genric-btn default circle">ย้อนกลับ</a>
 	</div>
-
+	<br>
 	<div class="whole-wrap">
 		<div class="container">
 			<div class="section-top-border">
-				<h3 class="text-center">ระบบสมาชิก</h3>
-				<div class="row">
-					<div class="col-3">
+				<div class="row justify-content-md-center">
+					<div class="col-8">
 						<aside class="single_sidebar_widget post_category_widget">
-                                <h4 class="widget_title">ข้อมูลผู้ใช้งาน</h4>
-                                <ul class="list cat-list">
-                                    <li>
-                                        <a href="#" class="d-flex justify-content-between">
-                                            <p>ชื่อ</p>
-                                            <p>สมศักดิ์</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="d-flex justify-content-between">
-                                            <p>นามสกุล</p>
-                                            <p>รักการเรียน</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="d-flex justify-content-between">
-                                            <p>เลขประจำตัว</p>
-                                            <p>123456</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="d-flex justify-content-between">
-                                            <p>จำนวนครั้งที่ได้รับการช่วยเหลือรวม</p>
-                                            <p>12</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="d-flex justify-content-between">
-                                            <p>คะแนนเฉลี่ย</p>
-                                            <p>15</p>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="d-flex justify-content-between">
-                                            <p>ความสำเร็จ</p>
-                                            <p>100 %</p>
-                                        </a>
-                                    </li>										
-                                </ul>
-                                <div class="br"></div>
-                            </aside>
-					</div>
-					<div class="col-9">
-						<table id="result">
-					<thead>
-						<tr>
-							<th scope="col">บทที่</th>
-							<th scope="col">คะแนนก่อนเรียน</th>
-							<th scope="col">คะแนนแบบฝึก</th>
-							<th scope="col">การเสริมต่อจำนวน</th>
-							<th scope="col">ระดับการเสริมต่อ</th>
-							<th scope="col">คะแนนหลังเรียน</th>
-						</tr>
-					</thead>
-					<tbody>
-								<tr>
-									<td>1</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-								</tr>
-								<tr>
-									<td>5</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-								</tr>
-								<tr>
-									<td>6</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-								</tr>
-								<tr>
-									<td>7</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-								</tr>
-								<tr>
-									<td>8</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-								</tr>
-								<tr>
-									<td>9</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-								</tr>
-								<tr>
-									<td>10</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-								</tr>
-								<tr>
-									<td colspan="3">
-										<div class="button-group-area mt-40 text-right">
-											<a href="#" class="genric-btn primary circle">ผลการเรียนก่อน</a>
-											<a href="#" class="genric-btn warning circle">ผลการเรียนหลัง</a>
-										</div>
-									</td>
-									<td colspan="3" rowspan="3">
-										ค่าเฉลี่ยต่างๆ<br>
-										S.D.<br>
-										ค่าเฉลี่ยคะแนน
-									</td>
-								</tr>
-							</tbody>
-						</table>
+                            <h4 class="widget_title">ข้อมูลผู้ใช้งาน</h4>
+							<hr>
+							<table class="table table-striped">
+								<tbody>
+									<tr>
+										<th scope="row">ชื่อ</th>
+										<td class="text-left">ธีรวัฒน์</td>
+									</tr>
+									<tr>
+										<th scope="row">นามสกุล</th>
+										<td class="text-left">ผ่องสกุล</td>
+									</tr>
+									<tr>
+										<th scope="row">เลขประจำตัวนักเรียน</th>
+										<td class="text-left">05850</td>
+									</tr>
+									<tr>
+										<th scope="row">วัน-เดือน-ปีเกิด(พ.ศ.)</th>
+										<td class="text-left">06-07-2536</td>
+									</tr>
+									<tr>
+										<th scope="row">คะแนนทดสอบก่อนเรียน</th>
+										<td class="text-left">-</td>
+									</tr>
+									<tr>
+										<th scope="row">คะแนนทดสอบหลังเรียน</th>
+										<td class="text-left">-</td>
+									</tr>
+									<tr>
+										<th scope="row">ผลสำเร็จทางการเรียน</th>
+										<td class="text-left">0%</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="button-group-area mt-40 text-center">
+								<a href="/" role="button" class="btn btn-warning circle button-lg">กลับหน้าแรก</a>
+							</div>
+                        </aside>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
     <!--================Footer Area =================-->
-	<footer class="footer_area section_gap_top">
-		<div class="container">
-			<div class="row single-footer-widget">
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="copy_right_text">
-						<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="social_widget">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-dribbble"></i></a>
-						<a href="#"><i class="fa fa-behance"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</footer>
+	<%- include('partials/footermenu.ejs'); -%>
 	<!--================End Footer Area =================-->
 
 	<!-- Optional JavaScript -->
