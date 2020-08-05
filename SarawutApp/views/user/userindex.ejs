@@ -169,14 +169,45 @@
 				</tbody>
 			</table>
 			<div class="button-group-area mt-40 text-right">
-				<a href="/selectlesson" class="genric-btn info circle">เข้าสู่บทเรียน(ต่อ)</a>
+				<a data-toggle="modal" href="#myModal" class="genric-btn info circle">เข้าสู่บทเรียน</a>
 			</div>
 		</div>
 	</section>
     <!--================Contact Area =================-->
-
 	<br>
+	<div class="modal hide fade" id="myModal" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">ข้อความจากอาจารย์</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<!--img src="img/sticker/Talk/01.png" alt=""-->
+					<script type="text/javascript">
+                        var random_images_array = ["01.png", "02.png", "03.png", "04.png", "05.png", "06.png", "07.png"];
 
+                        function getRandomImage(imgAr, path) {
+                            path = path || 'images/'; // default path here
+                            var num = Math.floor(Math.random() * imgAr.length);
+                            var img = imgAr[num];
+                            var imgStr = '<img style="height:200px;width:200px;" src="' + path + img + '" alt="">';
+                            document.write(imgStr); document.close();
+						}
+
+                        getRandomImage(random_images_array, "img/sticker/Talk/");
+                    </script>
+					<p>พร้อมเข้าสู่บทเรียนแล้วหรือยัง ?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+					<a class="btn btn-primary" href="/selectlesson" role="button">เข้าสู่บทเรียน</a>
+				</div>
+			</div>
+		</div>
+	</div>
     <!--================Footer Area =================-->
 	<footer class="footer_area section_gap_top">
 		<div class="container">
@@ -201,7 +232,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 
 	</footer>
 	<!--================End Footer Area =================-->
-
+	
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="js/jquery-3.2.1.min.js"></script>

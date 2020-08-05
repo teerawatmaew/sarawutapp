@@ -49,7 +49,7 @@ app.get('/', function (request, response) {
 //<====== login ======>
 //<===================>
 
-app.post('/login', function (request, response) {
+app.post('/loginstudy', function (request, response) {
     var username = request.body.student_number;
     var password = request.body.password;
     connection.query('SELECT * FROM accounts WHERE student_number = ? AND birthdaypass = ?', [username, password], function (error, results, fields) {
@@ -65,6 +65,33 @@ app.post('/login', function (request, response) {
     });
 });
 
+app.post('/loginprofile', function (request, response) {
+    var username = request.body.student_number;
+    var password = request.body.password;
+    connection.query('SELECT * FROM accounts WHERE student_number = ? AND birthdaypass = ?', [username, password], function (error, results, fields) {
+        if (results.length > 0) {
+            response.render('userprofile.ejs', { results: results });
+        } else {
+            response.send('Incorrect Username and/or Password!');
+        }
+        response.end();
+    });
+});
+
+app.post('/logincheck', function (request, response) {
+    var username = request.body.student_number;
+    var password = request.body.password;
+    connection.query('SELECT * FROM accounts WHERE student_number = ? AND birthdaypass = ?', [username, password], function (error, results, fields) {
+        if (results.length > 0) {
+            response.render('checkresult.ejs', { results: results });
+        } else {
+            response.send('Incorrect Username and/or Password!');
+        }
+        response.end();
+    });
+});
+
+//=========================== for send session to every page after login ============================
 app.use(function (request, response, next) {
     response.locals.sess = request.session;
     next();
@@ -108,6 +135,39 @@ app.get('/user', function (request, response) {
     });
 });
 
+app.put('/edituser/(:id)', function (request, response) {
+    var id = request.params.id;
+    var firstname = request.body.editfirstname;
+    var surname = request.body.editsurname;
+    var studentno = request.body.editstudentno;
+    var birthdate = request.body.editbirthdate;
+    var birthdatepass = request.body.editbirthdatepass;
+    connection.query('UPDATE accounts SET firstname=?, surname=?, studentno=?, birthdate=? birthdatepass=? WHERE id=?', [firstname, surname, studentno, birthdate, birthdatepass, id], (err, result) => {
+        if (err) {
+            throw err;
+        } else {
+            response.render('userprofile.ejs');
+        }
+    });
+});
+
+app.post('/sentreport', function (request, response) {
+    var firstname = request.body.firstname;
+    var surname = request.body.surname;
+    var student_number = request.body.student_number;
+    var topic = request.body.topic;
+    var image = request.body.image;
+    var detail = request.body.detail;
+    connection.query('INSERT INTO accounts(firstname,surname,student_number,topic,image,datail) VALUES(?,?,?,?,?,?)', [firstname, surname, student_number, topic, image, detail], function (error, results, fields) {
+        if (results.length > 0) {
+            response.render('firstpage.ejs');
+        } else {
+            response.send('Can not sent your report. Please try again later...');
+        }
+        response.end();
+    });
+});
+
 app.get('/getscore', function (req, res) {
     // spreadsheet key is the long id in the sheets URL
     //const doc = new GoogleSpreadsheet('<the sheet ID from the url>');
@@ -121,6 +181,14 @@ app.get('/getscore', function (req, res) {
 
 app.get('/loginpage', function (request, response) {
     response.render('login.ejs');
+});
+
+app.get('/loginprofile', function (request, response) {
+    response.render('loginprofile.ejs');
+});
+
+app.get('/logincheckresult', function (request, response) {
+    response.render('logincheckresult.ejs');
 });
 
 app.get('/report', function (request, response) {
@@ -141,22 +209,6 @@ app.get('/info', function (request, response) {
 
 app.get('/userprofile', function (request, response) {
     response.render('userprofile.ejs');
-});
-
-app.get('/edituserprofile/(:id)', function (request, response) {
-    var id = request.params.id;
-    var firstname = request.body.editfirstname;
-    var surname = request.body.editsurname;
-    var studentno = request.body.editstudentno;
-    var birthdate = request.body.editbirthdate;
-    var birthdatepass = request.body.editbirthdatepass;
-    connection.query('UPDATE accounts SET firstname=?, surname=?, studentno=?, birthdate=? birthdatepass=? WHERE id=?', [firstname, surname, studentno, birthdate, birthdatepass,id], (err, result) => {
-        if (err) {
-            throw err;
-        } else {
-            response.render('userprofile.ejs');
-        }
-    });
 });
 
 
