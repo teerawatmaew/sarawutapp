@@ -22,39 +22,98 @@
 
 <body>
 	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-		<a href="/logout" class="genric-btn default circle">ย้อนกลับ</a>
+		<a href="/adminindex" class="genric-btn default circle">ย้อนกลับ</a>
 		<h4>ยินดีต้อนรับ อาจารย์ <%= sess.name %></h4>
 		<a href="/logout" class="genric-btn danger circle">ออกจากระบบ</a>
 	</nav>
 	<br>
 	<!--================Contact Area =================-->
-    
-
-
-    <!--================Contact Area =================-->
-	<br>
-    <!--================Footer Area =================-->
-	<footer class="footer_area section_gap_top">
-		<div class="container">
-			<div class="row single-footer-widget">
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="copy_right_text">
-						<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+	<h3 class="text-center">กระทู้แยกตามบท</h3>
+	<hr>
+	<div class="row justify-content-md-center">
+		<div class="row col-lg-6">
+			<div class="col-lg-6">
+				<div class="media post_item">
+					<img src="img/blog/popular-post/post1.jpg" alt="post">
+					<div class="media-body">
+						<a href="#"><h3>กระทู้บทที่ 1</h3></a>
+						<p>บทนำ</p>
 					</div>
 				</div>
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="social_widget">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-dribbble"></i></a>
-						<a href="#"><i class="fa fa-behance"></i></a>
+				<div class="media post_item">
+					<img src="img/blog/popular-post/post2.jpg" alt="post">
+					<div class="media-body">
+						<a href="#"><h3>กระทู้บทที่ 2</h3></a>
+						<p>อุปมา</p>
+					</div>
+				</div>
+				<div class="media post_item">
+					<img src="img/blog/popular-post/post3.jpg" alt="post">
+					<div class="media-body">
+						<a href="#"><h3>กระทู้บทที่ 3</h3></a>
+						<p>อุปลักษณ์</p>
+					</div>
+				</div>
+				<div class="media post_item">
+					<img src="img/blog/popular-post/post4.jpg" alt="post">
+					<div class="media-body">
+						<a href="#"><h3>กระทู้บทที่ 4</h3></a>
+						<p>บุคคลวัต / บุคลาธิษฐาน</p>
+					</div>
+				</div>
+				<div class="media post_item">
+					<img src="img/blog/popular-post/post1.jpg" alt="post">
+					<div class="media-body">
+						<a href="#"><h3>กระทู้บทที่ 5</h3></a>
+						<p>อติพจน์</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-6">
+				<div class="media post_item">
+					<img src="img/blog/popular-post/post1.jpg" alt="post">
+					<div class="media-body">
+						<a href="#"><h3>กระทู้บทที่ 6</h3></a>
+						<p>อรรถวิภาษ / ปฏิพากย์</p>
+					</div>
+				</div>
+				<div class="media post_item">
+					<img src="img/blog/popular-post/post2.jpg" alt="post">
+					<div class="media-body">
+						<a href="#"><h3>กระทู้บทที่ 7</h3></a>
+						<p>วิภาษ / ปฏิวาทะ / ปฏิพจน์</p>
+					</div>
+				</div>
+				<div class="media post_item">
+					<img src="img/blog/popular-post/post3.jpg" alt="post">
+					<div class="media-body">
+						<a href="#"><h3>กระทู้บทที่ 8</h3></a>
+						<p>สัทพจน์</p>
+					</div>
+				</div>
+				<div class="media post_item">
+					<img src="img/blog/popular-post/post4.jpg" alt="post">
+					<div class="media-body">
+						<a href="#"><h3>กระทู้บทที่ 9</h3></a>
+						<p>นามนัย</p>
+					</div>
+				</div>
+				<div class="media post_item">
+					<img src="img/blog/popular-post/post1.jpg" alt="post">
+					<div class="media-body">
+						<a href="#"><h3>กระทู้บทที่ 10</h3></a>
+						<p>สัญลักษณ์</p>
 					</div>
 				</div>
 			</div>
 		</div>
-	</footer>
+    </div>
+	<br>
+    <!--================Contact Area =================-->
+	
+    <!--================Footer Area =================-->
+	<%- include('../partials/footeruser.ejs'); -%>
 	<!--================End Footer Area =================-->
 
 	<!-- Optional JavaScript -->

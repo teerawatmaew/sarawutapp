@@ -219,14 +219,14 @@ app.get('/userprofile', function (request, response) {
 app.get('/adminindex', function (request, response) {
     response.render('./admin/adminindex.ejs');
 });
+app.get('/managereport', function (request, response) {
+    response.render('./admin/managereport.ejs');
+});
 app.get('/answerreport', function (request, response) {
     response.render('./admin/answerreport.ejs');
 });
 app.get('/managecourse', function (request, response) {
     response.render('./admin/managecourse.ejs');
-});
-app.get('/managescore', function (request, response) {
-    response.render('./admin/managescore.ejs');
 });
 
 //<=============================>

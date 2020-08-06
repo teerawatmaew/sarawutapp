@@ -37,22 +37,17 @@
 					<div class="col-4">
 						<div class="list-group">
 							<a href="managecourse" class="list-group-item list-group-item-action">
-								จัดการบทเรียน
-								<span class="badge badge-primary badge-pill">14</span>
+								จัดการบทเรียน<span class="badge badge-primary badge-pill">14</span>
 							</a>
-							<a href="#" class="list-group-item list-group-item-action">
-								จัดการคะแนนนักเรียน
-								<span class="badge badge-primary badge-pill">12</span>
-							</a>
-							<a href="#" class="list-group-item list-group-item-action">
-								ปัญหาที่แจ้งเข้ามา
-								<span class="badge badge-primary badge-pill">22</span>
+							<a href="/managereport" class="list-group-item list-group-item-action">
+								ปัญหาที่แจ้งเข้ามา<span class="badge badge-primary badge-pill">22</span>
 							</a>
 							<a href="/logout" class="list-group-item list-group-item-action">ออกจากระบบ</a>
 						</div>
 					</div>
 					<div class="col-8">
 						<div class="comment-form text-center">
+							<h4>จัดการส่วนการเรียน</h4>
 							<form class="form-inline">
 								<label class="my-1 mr-2" for="selectlesson">ส่วนการเรียนที่ต้องการเปิด</label>
 								<select class="custom-select my-1 mr-sm-2" id="selectlesson">
@@ -83,7 +78,7 @@
                                 <div class="form-group">
                                     <textarea class="form-control mb-10" rows="5" name="message" placeholder="เนื้อหา" onfocus="this.placeholder = ''" onblur="this.placeholder = 'เนื้อหา'" required=""></textarea>
                                 </div>
-                                <a href="#" class="primary-btn primary_btn">โพสต์ประกาศ</a>	
+                                <a href="#" class="primary-btn primary_btn">โพสต์ประกาศใหม่</a>	
                             </form>
                         </div>
 					</div>
@@ -91,32 +86,12 @@
 			</div>
 		</div>
 	</div>
-    <!--================Contact Area =================-->
 	<br>
+    <!--================Contact Area =================-->
+	
 
     <!--================Footer Area =================-->
-	<footer class="footer_area section_gap_top">
-		<div class="container">
-			<div class="row single-footer-widget">
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="copy_right_text">
-						<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="social_widget">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-dribbble"></i></a>
-						<a href="#"><i class="fa fa-behance"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</footer>
+	<%- include('../partials/footeruser.ejs'); -%>
 	<!--================End Footer Area =================-->
 
 	<!-- Optional JavaScript -->
