@@ -169,68 +169,15 @@
 				</tbody>
 			</table>
 			<div class="button-group-area mt-40 text-right">
-				<a data-toggle="modal" href="#myModal" class="genric-btn info circle">เข้าสู่บทเรียน</a>
+				<a href="/selectlesson" class="genric-btn info circle">เข้าสู่บทเรียน</a>
 			</div>
 		</div>
 	</section>
-    <!--================Contact Area =================-->
 	<br>
-	<div class="modal hide fade" id="myModal" tabindex="-1">
-		<div class="modal-dialog modal-dialog-centered">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title">ข้อความจากอาจารย์</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body text-center">
-					<!--img src="img/sticker/Talk/01.png" alt=""-->
-					<script type="text/javascript">
-                        var random_images_array = ["01.png", "02.png", "03.png", "04.png", "05.png", "06.png", "07.png"];
+    <!--================Contact Area =================-->
 
-                        function getRandomImage(imgAr, path) {
-                            path = path || 'images/'; // default path here
-                            var num = Math.floor(Math.random() * imgAr.length);
-                            var img = imgAr[num];
-                            var imgStr = '<img style="height:200px;width:200px;" src="' + path + img + '" alt="">';
-                            document.write(imgStr); document.close();
-						}
-
-                        getRandomImage(random_images_array, "img/sticker/Talk/");
-                    </script>
-					<p>พร้อมเข้าสู่บทเรียนแล้วหรือยัง ?</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
-					<a class="btn btn-primary" href="/selectlesson" role="button">เข้าสู่บทเรียน</a>
-				</div>
-			</div>
-		</div>
-	</div>
     <!--================Footer Area =================-->
-	<footer class="footer_area section_gap_top">
-		<div class="container">
-			<div class="row single-footer-widget">
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="copy_right_text">
-						<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="social_widget">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-dribbble"></i></a>
-						<a href="#"><i class="fa fa-behance"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</footer>
+	<%- include('../partials/footeruser.ejs'); -%>
 	<!--================End Footer Area =================-->
 	
 	<!-- Optional JavaScript -->

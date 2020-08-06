@@ -32,7 +32,7 @@
     <section>
 		<div class="row justify-content-md-center">
 			<div class="jumbotron col-lg-8 col-sm-8">
-				<h2>วัตถุประสงค์</h2>
+				<h2>วัตถุประสงค์บทที่ 1</h2>
 				<hr>
 				<div>
 					<ol class="ordered-list">
@@ -50,11 +50,46 @@
 					</ol>
 				</div>
 				<hr>
-				<a class="btn btn-primary btn-lg" href="/lesson01" role="button">เข้าสู่บทเรียน</a>
+				<a class="btn btn-primary btn-lg" data-toggle="modal" href="#myModal" role="button">เข้าสู่บทเรียน</a>
 			</div>
 		</div>
     </section>
     <!--================Contact Area =================-->
+	<div class="modal hide fade" id="myModal" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">ข้อความจากอาจารย์</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<script type="text/javascript">
+                        var random_images_array = ["01.png", "02.png", "03.png", "04.png", "05.png", "06.png", "07.png"];
+
+                        function getRandomImage(imgAr, path) {
+                            path = path || 'images/'; // default path here
+                            var num = Math.floor(Math.random() * imgAr.length);
+                            var img = imgAr[num];
+                            var imgStr = '<img style="height:200px;width:200px;" src="' + path + img + '" alt="">';
+                            document.write(imgStr); document.close();
+						}
+
+                        getRandomImage(random_images_array, "img/sticker/Talk/");
+                    </script>
+					<p>พร้อมเข้าสู่บทเรียนแล้วหรือยัง ?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+					<a class="btn btn-primary" href="/lesson01" role="button">เข้าสู่บทเรียน</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--================Footer Area =================-->
+	<%- include('../../partials/footeruser.ejs'); -%>
+	<!--================End Footer Area =================-->
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

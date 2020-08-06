@@ -260,6 +260,9 @@ app.get('/detail01', function (request, response) {
 app.get('/lesson01', function (request, response) {
     response.render('./lesson/01/lesson01.ejs');
 });
+app.get('/lesson01-firsttest', function (request, response) {
+    response.render('./lesson/01/lesson01-firsttest.ejs');
+});
 app.get('/lesson01-1', function (request, response) {
     response.render('./lesson/01/lesson01-1.ejs');
 });
@@ -271,6 +274,9 @@ app.get('/lesson01-3', function (request, response) {
 });
 app.get('/lesson01-3-1', function (request, response) {
     response.render('./lesson/01/lesson01-3-1.ejs');
+});
+app.get('/lesson01-3-ask', function (request, response) {
+    response.render('./lesson/01/lesson01-3-ask.ejs');
 });
 app.get('/lesson01-4', function (request, response) {
     response.render('./lesson/01/lesson01-4.ejs');

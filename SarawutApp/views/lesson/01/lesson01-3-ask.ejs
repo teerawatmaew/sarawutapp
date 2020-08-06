@@ -22,7 +22,7 @@
 
 	<body>
 		<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-			<a href="/detail01" class="genric-btn default circle">ย้อนกลับ</a>
+			<a href="/detail01" class="genric-btn default circle">ย้อนกลับ</a
 			<span>Home</span>
 			<h4>ชื่อ-สกุล : <%= sess.name %></h4>
 			<h4>รหัสประจำตัวนักเรียน : <%= sess.student_number %></h4>
@@ -30,61 +30,63 @@
 		</nav>
 		<br>
 	<!-- Start Align Area -->
-			<div class="whole-wrap">
-				<div class="container">
-					<h2 class="text-center">เรียนรู้เพิ่มเติมบทที่ 1 ครั้งที่ 1</h2>
-					<div class="section-top-border">
-						<div class="row">
-							<div class="col-3">
-								<div class="list-group" id="list-tab" role="tablist">
-									<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">คำตอบจากอาจารย์ที่ปรึกษา</a>
-								</div>
-							</div>
-							<div class="col-9">
-								<div class="tab-content" id="nav-tabContent">
-									<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-										<section>
-											<div class="container">
-												<div class="section-top-border text-left">
-													<h3 class="mb-30 title_color">เลือก ๑ บรรทัดแล้วอธิบายการอุปมาตามความเข้าใจ</h3>
-													<div class="row">
-														<div class="col-md-9 text-center">
-															<img src="img/mw/2-9.PNG" alt="" class="img-fluid">
-														</div>
-														<div class="col-md-3">
-															<div class="blog_info text-right">
-																<ul class="blog_meta list">
-																	<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
-																</ul>
-															</div>
-														</div>
+	<div class="whole-wrap">
+		<div class="container">
+			<h2 class="text-center">เรียนรู้เพิ่มเติมครั้งที่ 1 - ถามคำถาม</h2>
+			<div class="section-top-border">
+				<div class="row">
+					<div class="col-3">
+						<div class="list-group" id="list-tab" role="tablist">
+							<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">ความเห็นที่ต้องการถาม</a>
+						</div>
+					</div>
+					<div class="col-9">
+						<div class="tab-content" id="nav-tabContent">
+							<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+								<section>
+									<div class="container">
+										<div class="section-top-border text-left">
+											<h3 class="mb-30 title_color">เลือก ๑ บรรทัดแล้วอธิบายการอุปมาตามความเข้าใจ</h3>
+											<div class="row">
+												<div class="col-md-9 text-center">
+													<img src="img/mw/2-9.PNG" alt="" class="img-fluid">
+												</div>
+												<div class="col-md-3">
+													<div class="blog_info text-right">
+														<ul class="blog_meta list">
+															<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
+														</ul>
 													</div>
 												</div>
-												<div class="comment-form">
-													<h3>ความคิดเห็นของ 05850 ธีรวัฒน์ ผ่องสกุล</h3>
-													<p class="text-center">ข้อ 1 จากคำว่า....</p>
-												</div>
-												<div class="comment-form">
-													<h3>คำถามของคุณ</h3>
-													<p class="text-center">ทำไมส่วน.....นี้ถึงมีความหมายเช่นนี้</p>
-												</div>
-												<div class="comment-form">
-													<h3>คำตอบจากระบบ</h3>
-													<p class="text-center">ข้อนี้ที่เลือกตอบแบบนี้เพราะ.....</p>
-												</div>
-												<br>
 											</div>
-										</section>
-										<div class="button-group-area text-right">
-											<a href="/lesson01-4" class="genric-btn default">ต่อไป</a>
 										</div>
+										<div class="comment-form">
+											<h3>ความคิดเห็นของ 05850 ธีรวัฒน์ ผ่องสกุล</h3>
+											<p class="text-center">ข้อ 1 จากคำว่า....</p>
+										</div>
+										<div class="comment-form">
+											<form action="postcomment02" method="POST">
+												<div class="form-group">
+													<textarea class="form-control mb-10" rows="5" name="message" placeholder="เนื้อหา..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'เนื้อหา...'" required=""></textarea>
+												</div>
+												<input type="submit" value="ส่งความเห็น" name="login">	
+											</form>
+										</div>
+										<div class="row">
+											<div class="button-group-area text-center">
+												<a href="/lesson01-3-1" class="genric-btn primary">ต่อไป</a>
+											</div>
+										</div>
+										<br>
 									</div>
-								</div>
+								</section>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
 
     <!--================Footer Area =================-->
 	<%- include('../../partials/footeruser.ejs'); -%>
