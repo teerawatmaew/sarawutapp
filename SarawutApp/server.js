@@ -263,47 +263,63 @@ app.get('/lesson01', function (request, response) {
 app.get('/lesson01-firsttest', function (request, response) {
     response.render('./lesson/01/lesson01-firsttest.ejs');
 });
-app.get('/lesson01-1', function (request, response) {
-    response.render('./lesson/01/lesson01-1.ejs');
+
+app.get('/lesson01-1-w1', function (request, response) {
+    response.render('./lesson/01/lesson01-1-w1.ejs');
 });
-app.get('/lesson01-2', function (request, response) {
-    response.render('./lesson/01/lesson01-2.ejs');
+app.get('/lesson01-1-w2', function (request, response) {
+    response.render('./lesson/01/lesson01-1-w2.ejs');
 });
-app.get('/lesson01-3', function (request, response) {
-    response.render('./lesson/01/lesson01-3.ejs');
+app.get('/lesson01-1-w3', function (request, response) {
+    response.render('./lesson/01/lesson01-1-w3.ejs');
 });
+app.get('/lesson01-1-w4', function (request, response) {
+    response.render('./lesson/01/lesson01-1-w4.ejs');
+});
+app.get('/lesson01-1-w5', function (request, response) {
+    response.render('./lesson/01/lesson01-1-w5.ejs');
+});
+app.get('/lesson01-1-2', function (request, response) {
+    response.render('./lesson/01/lesson01-1-2.ejs');
+});
+app.get('/lesson01-1-3', function (request, response) {
+    response.render('./lesson/01/lesson01-1-3.ejs');
+});
+app.get('/lesson01-1-3-1', function (request, response) {
+    response.render('./lesson/01/lesson01-1-3-1.ejs');
+});
+app.get('/lesson01-1-3-ask', function (request, response) {
+    response.render('./lesson/01/lesson01-1-3-ask.ejs');
+});
+app.get('/lesson01-secondtest', function (request, response) {
+    response.render('./lesson/01/lesson01-secondtest.ejs');
+});
+
+app.get('/lesson01-2-1', function (request, response) {
+    response.render('./lesson/01/lesson01-2-1.ejs');
+});
+app.get('/lesson01-2-2', function (request, response) {
+    response.render('./lesson/01/lesson01-2-2.ejs');
+});
+app.get('/lesson01-thirdtest', function (request, response) {
+    response.render('./lesson/01/lesson01-thirdtest.ejs');
+});
+
 app.get('/lesson01-3-1', function (request, response) {
     response.render('./lesson/01/lesson01-3-1.ejs');
 });
-app.get('/lesson01-3-ask', function (request, response) {
-    response.render('./lesson/01/lesson01-3-ask.ejs');
+app.get('/lesson01-3-2', function (request, response) {
+    response.render('./lesson/01/lesson01-3-2.ejs');
 });
-app.get('/lesson01-4', function (request, response) {
-    response.render('./lesson/01/lesson01-4.ejs');
+app.get('/lesson01-3-webboard', function (request, response) {
+    response.render('./lesson/01/lesson01-3-webboard.ejs');
 });
-app.get('/lesson01-5', function (request, response) {
-    response.render('./lesson/01/lesson01-5.ejs');
+app.get('/lesson01-fourthtest', function (request, response) {
+    response.render('./lesson/01/lesson01-fourthtest.ejs');
 });
-app.get('/lesson01-6', function (request, response) {
-    response.render('./lesson/01/lesson01-6.ejs');
-});
-app.get('/lesson01-7', function (request, response) {
-    response.render('./lesson/01/lesson01-7.ejs');
-});
-app.get('/lesson01-8', function (request, response) {
-    response.render('./lesson/01/lesson01-8.ejs');
-});
-app.get('/lesson01-9', function (request, response) {
-    response.render('./lesson/01/lesson01-9.ejs');
-});
-app.get('/lesson01-10', function (request, response) {
-    response.render('./lesson/01/lesson01-10.ejs');
-});
-app.get('/lesson01-11', function (request, response) {
-    response.render('./lesson/01/lesson01-11.ejs');
-});
-app.get('/lesson01-12', function (request, response) {
-    response.render('./lesson/01/lesson01-12.ejs');
+
+app.get('/lesson01-4-1', function (request, response) {
+    response.render('./lesson/01/lesson01-4-1.ejs');
 });
 
 //======= lesson02 =======

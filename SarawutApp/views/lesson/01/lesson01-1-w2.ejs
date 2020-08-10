@@ -33,35 +33,57 @@
 	<!--================Contact Area =================-->
 	<section>
         <div class="container">
-			<div class="section-top-border text-left">
-				<h3 class="mb-30 title_color">เลือก ๑ บรรทัดแล้วอธิบายการอุปมาตามความเข้าใจ</h3>
-				<div class="row">
-					<div class="col-md-9 text-center">
-						<img src="img/mw/2-9.PNG" alt="" class="img-fluid">
+			<div class="row">
+				<div class="col-3">
+					<div class="list-group" id="list-tab" role="tablist">
+						<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">ใบงานที่</a>
 					</div>
-					<div class="col-md-3">
-						<div class="blog_info text-right">
-                            <ul class="blog_meta list">
-								<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
-                            </ul>
-                        </div>
+				</div>
+				<div class="col-9">
+					<div class="tab-content" id="nav-tabContent">
+						<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+							<h3>เสริมต่อครั้งที่ 1 แบบฝึกที่ 2 บทนำ</h3>
+							<hr>
+							<form action="postcomment/1/1/1" method="POST">
+								<div class="mt-10">
+									<img src="img/lesson/02/02-1-2-1.png" alt="post" />
+									<input type="text" class="single-input" name="1" placeholder="ข้อ 1." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 1.'" required></textarea>
+								</div>
+								<br>
+								<div class="mt-10">
+									<img src="img/lesson/02/02-1-2-2.png" alt="post" />
+									<input type="text" class="single-input" name="2" placeholder="ข้อ 2." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 2.'" required></textarea>
+								</div>
+								<br>
+								<div class="mt-10">
+									<img src="img/lesson/02/02-1-2-3.png" alt="post" />
+									<input type="text" class="single-input" name="3" placeholder="ข้อ 3." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 3.'" required></textarea>
+								</div>
+								<br>
+								<div class="mt-10">
+									<img src="img/lesson/02/02-1-2-4.png" alt="post" />
+									<input type="text" class="single-input" name="4" placeholder="ข้อ 4." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 4.'" required></textarea>
+								</div>
+								<br>
+								<div class="mt-10">
+									<img src="img/lesson/02/02-1-2-5.png" alt="post" />
+									<input type="text" class="single-input" name="5" placeholder="ข้อ 5." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 5.'" required></textarea>
+								</div>
+								<br>
+								<div class="mt-10 text-center">
+									<button type="submit" class="btn btn-primary mb-2">ส่งคำตอบ</button>	
+								</div>
+							</form>
+							<div class="row">
+								<div class="button-group-area text-center">
+									<a href="/userindex" class="genric-btn primary">จบบทเรียน</a>
+								</div>
+							</div>
+							<br>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="comment-form">
-				<form action="postcomment02" method="POST">
-					<div class="form-group">
-                        <textarea class="form-control mb-10" rows="5" name="message" placeholder="เนื้อหา..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'เนื้อหา...'" required=""></textarea>
-                    </div>
-                    <input type="submit" value="ส่งความเห็น" name="login">	
-                </form>
-            </div>
-			<div class="row">
-				<div class="button-group-area text-center">
-					<a href="/userindex" class="genric-btn primary">จบบทเรียน</a>
-                </div>
-			</div>
-			<br>
         </div>
     </section>    
     <!--================Contact Area =================-->

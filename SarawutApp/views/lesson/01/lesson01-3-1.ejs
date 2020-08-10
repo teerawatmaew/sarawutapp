@@ -1,92 +1,95 @@
 ﻿<!doctype html>
 <html lang="en">
 
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="icon" href="img/favicon.png" type="image/png">
-		<title>บทที่ 1</title>
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="css/bootstrap.css">
-		<link rel="stylesheet" href="vendors/linericon/style.css">
-		<link rel="stylesheet" href="css/font-awesome.min.css">
-		<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-		<link rel="stylesheet" href="css/magnific-popup.css">
-		<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-		<link rel="stylesheet" href="vendors/animate-css/animate.css">
-		<link rel="stylesheet" href="vendors/flaticon/flaticon.css">
-		<!-- main css -->
-		<link rel="stylesheet" href="css/style.css">
-	</head>
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+	<title>บทที่ 1</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="vendors/linericon/style.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+	<link rel="stylesheet" href="vendors/animate-css/animate.css">
+	<link rel="stylesheet" href="vendors/flaticon/flaticon.css">
+	<!-- main css -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
 
-	<body>
-		<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-			<a href="/detail01" class="genric-btn default circle">ย้อนกลับ</a>
-			<span>Home</span>
-			<h4>ชื่อ-สกุล : <%= sess.name %></h4>
-			<h4>รหัสประจำตัวนักเรียน : <%= sess.student_number %></h4>
-			<a href="/logout" class="genric-btn danger circle">ออกจากระบบ</a>
-		</nav>
-		<br>
-	<!-- Start Align Area -->
-			<div class="whole-wrap">
-				<div class="container">
-					<h2 class="text-center">เรียนรู้เพิ่มเติมบทที่ 1 ครั้งที่ 1</h2>
-					<div class="section-top-border">
-						<div class="row">
-							<div class="col-3">
-								<div class="list-group" id="list-tab" role="tablist">
-									<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">คำตอบจากอาจารย์ที่ปรึกษา</a>
-								</div>
-							</div>
-							<div class="col-9">
-								<div class="tab-content" id="nav-tabContent">
-									<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
-										<section>
-											<div class="container">
-												<div class="section-top-border text-left">
-													<h3 class="mb-30 title_color">เลือก ๑ บรรทัดแล้วอธิบายการอุปมาตามความเข้าใจ</h3>
-													<div class="row">
-														<div class="col-md-9 text-center">
-															<img src="img/mw/2-9.PNG" alt="" class="img-fluid">
-														</div>
-														<div class="col-md-3">
-															<div class="blog_info text-right">
-																<ul class="blog_meta list">
-																	<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
-																</ul>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="comment-form">
-													<h3>ความคิดเห็นของ 05850 ธีรวัฒน์ ผ่องสกุล</h3>
-													<p class="text-center">ข้อ 1 จากคำว่า....</p>
-												</div>
-												<div class="comment-form">
-													<h3>คำถามของคุณ</h3>
-													<p class="text-center">ทำไมส่วน.....นี้ถึงมีความหมายเช่นนี้</p>
-												</div>
-												<div class="comment-form">
-													<h3>คำตอบจากระบบ</h3>
-													<p class="text-center">ข้อนี้ที่เลือกตอบแบบนี้เพราะ.....</p>
-												</div>
-												<br>
-											</div>
-										</section>
-										<div class="button-group-area text-right">
-											<a href="/lesson01-4" class="genric-btn default">ต่อไป</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+<body>
+	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+		<a href="/detail01" class="genric-btn default circle">ย้อนกลับ</a>
+		<span>Home</span>
+		<h4>ชื่อ-สกุล : <%= sess.name %></h4>
+		<h4>รหัสประจำตัวนักเรียน : <%= sess.student_number %></h4>
+		<a href="/logout" class="genric-btn danger circle">ออกจากระบบ</a>
+	</nav>
+	<br>
+
+	<!--================Contact Area =================-->
+	<section>
+        <div class="container">
+			<div class="row">
+				<div class="col-3">
+					<div class="list-group" id="list-tab" role="tablist">
+						<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">ใบงานที่</a>
 					</div>
 				</div>
-			</div>
+				<div class="col-9">
+					<div class="tab-content" id="nav-tabContent">
+						<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+							<h3>เสริมต่อครั้งที่ 3 แบบฝึกที่ 1 บทนำ</h3>
+							<hr>
+							<form action="postcomment/1/1/1" method="POST">
+								<div class="mt-10">
+									<img src="img/lesson/02/02-1-1-1.png" alt="post" />
+									<input type="text" class="single-input" name="1" placeholder="ข้อ 1." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 1.'" required></textarea>
+								</div>
+								<br>
+								<div class="mt-10">
+									<img src="img/lesson/02/02-1-1-2.png" alt="post" />
+									<input type="text" class="single-input" name="2" placeholder="ข้อ 2." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 2.'" required></textarea>
+								</div>
+								<br>
+								<div class="mt-10">
+									<img src="img/lesson/02/02-1-1-3.png" alt="post" />
+									<input type="text" class="single-input" name="3" placeholder="ข้อ 3." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 3.'" required></textarea>
+								</div>
+								<br>
+								<div class="mt-10">
+									<img src="img/lesson/02/02-1-1-4.png" alt="post" />
+									<input type="text" class="single-input" name="4" placeholder="ข้อ 4." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 4.'" required></textarea>
+								</div>
+								<br>
+								<div class="mt-10">
+									<img src="img/lesson/02/02-1-1-5.png" alt="post" />
+									<input type="text" class="single-input" name="5" placeholder="ข้อ 5." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 5.'" required></textarea>
+								</div>
+								<br>
+								<div class="mt-10 text-center">
+									<button type="submit" class="btn btn-primary mb-2">ส่งคำตอบ</button>	
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="row">
+						<div class="button-group-area text-center">
+							<a href="/lesson01-3-2" class="genric-btn primary">ต่อไป</a>
+						</div>
+					</div>
+					<br>
+				</div>
 
-    <!--================Footer Area =================-->
+			</div>
+		</div>
+    </section>    
+    <!--================Contact Area =================-->
+
+	<!--================Footer Area =================-->
 	<%- include('../../partials/footeruser.ejs'); -%>
 	<!--================End Footer Area =================-->
 
@@ -112,4 +115,3 @@
 </body>
 
 </html>
-
