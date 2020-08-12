@@ -279,6 +279,9 @@ app.get('/lesson01-1-w4', function (request, response) {
 app.get('/lesson01-1-w5', function (request, response) {
     response.render('./lesson/01/lesson01-1-w5.ejs');
 });
+app.get('/lesson01-1-w6', function (request, response) {
+    response.render('./lesson/01/lesson01-1-w6.ejs');
+});
 app.get('/lesson01-1-2', function (request, response) {
     response.render('./lesson/01/lesson01-1-2.ejs');
 });
@@ -313,6 +316,18 @@ app.get('/lesson01-3-2', function (request, response) {
 });
 app.get('/lesson01-3-webboard', function (request, response) {
     response.render('./lesson/01/lesson01-3-webboard.ejs');
+});
+app.get('/lesson01-3-webboard-1', function (request, response) {
+    response.render('./lesson/01/lesson01-3-webboard-1.ejs');
+});
+app.get('/lesson01-3-webboard-2', function (request, response) {
+    response.render('./lesson/01/lesson01-3-webboard-2.ejs');
+});
+app.get('/lesson01-3-webboard-3', function (request, response) {
+    response.render('./lesson/01/lesson01-3-webboard-3.ejs');
+});
+app.get('/lesson01-3-webboard-4', function (request, response) {
+    response.render('./lesson/01/lesson01-3-webboard-4.ejs');
 });
 app.get('/lesson01-fourthtest', function (request, response) {
     response.render('./lesson/01/lesson01-fourthtest.ejs');
