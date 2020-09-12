@@ -57,7 +57,12 @@ app.post('/loginstudy', function (request, response) {
             let sess = request.session;
             sess.name = results[0].firstname + " " + results[0].surname;
             sess.student_number = results[0].student_number;
-            response.render('./user/userindex.ejs', { sess: sess });
+            if (results[0].firstname == 'Sarawut') {
+                response.render('./admin/adminindex.ejs', { sess: sess });
+            }
+            else {
+                response.render('./user/userindex.ejs', { sess: sess });
+            }
         } else {
             response.send('Incorrect Username and/or Password!');
         }
@@ -72,9 +77,8 @@ app.post('/loginprofile', function (request, response) {
         if (results.length > 0) {
             response.render('userprofile.ejs', { results: results });
         } else {
-            response.send('Incorrect Username and/or Password!');
+            response.send('Error 404 data not found.');
         }
-        response.end();
     });
 });
 
@@ -83,7 +87,13 @@ app.post('/logincheck', function (request, response) {
     var password = request.body.password;
     connection.query('SELECT * FROM accounts WHERE student_number = ? AND birthdaypass = ?', [username, password], function (error, results, fields) {
         if (results.length > 0) {
-            response.render('checkresult.ejs', { results: results });
+            connection.query('SELECT * FROM result WHERE student_number = ?', [username], function (error, results, fields) {
+                if (results.length > 0) {
+                    response.render('checkresult.ejs', { results: results });
+                } else {
+                    response.send('Error 404 data not found.');
+                }
+            });
         } else {
             response.send('Incorrect Username and/or Password!');
         }

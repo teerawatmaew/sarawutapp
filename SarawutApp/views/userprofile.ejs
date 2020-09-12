@@ -43,31 +43,19 @@
 								<tbody>
 									<tr>
 										<th scope="row">ชื่อ</th>
-										<td class="text-left">ธีรวัฒน์</td>
+										<td class="text-left"><%= results[0].firstname %></td>
 									</tr>
 									<tr>
 										<th scope="row">นามสกุล</th>
-										<td class="text-left">ผ่องสกุล</td>
+										<td class="text-left"><%= results[0].surname %></td>
 									</tr>
 									<tr>
 										<th scope="row">เลขประจำตัวนักเรียน</th>
-										<td class="text-left">05850</td>
+										<td class="text-left"><%= results[0].student_number %></td>
 									</tr>
 									<tr>
 										<th scope="row">วัน-เดือน-ปีเกิด(พ.ศ.)</th>
-										<td class="text-left">06-07-2536</td>
-									</tr>
-									<tr>
-										<th scope="row">คะแนนทดสอบก่อนเรียน</th>
-										<td class="text-left">-</td>
-									</tr>
-									<tr>
-										<th scope="row">คะแนนทดสอบหลังเรียน</th>
-										<td class="text-left">-</td>
-									</tr>
-									<tr>
-										<th scope="row">ผลสำเร็จทางการเรียน</th>
-										<td class="text-left">0%</td>
+										<td class="text-left"><%= results[0].birthdaypass %></td>
 									</tr>
 								</tbody>
 							</table>

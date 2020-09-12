@@ -32,12 +32,12 @@
 					<div class="row">
 						<div class="col-md-4">
 							<div class="single-defination">
-								<h4 class="mb-20">ชื่อ-นามสกุล : </h4>
+								<h4 class="mb-20">ชื่อ-นามสกุล : <%= results[0].firstname+results[0].surname %></h4>
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="single-defination">
-								<h4 class="mb-20">รหัสประจำตัวนักเรียน : </h4>
+								<h4 class="mb-20">รหัสประจำตัวนักเรียน : <%= results[0].student_number %></h4>
 							</div>
 						</div>
 					</div>
@@ -48,99 +48,66 @@
 					<thead>
 						<tr>
 							<th scope="col">บทที่</th>
-							<th scope="col">คะแนนก่อนเรียน</th>
-							<th scope="col">คะแนนแบบฝึก</th>
-							<th scope="col">การเสริมต่อจำนวน</th>
-							<th scope="col">ระดับการเสริมต่อ</th>
-							<th scope="col">คะแนนหลังเรียน</th>
+							<th scope="col">คะแนนแบบทดสอบ</th>
+							<th scope="col">คะแนนใบงาน</th>
 						</tr>
 					</thead>
 					<tbody>
 								<tr>
 									<td>1</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
+									<td><%= results[0].ch01test %></td>
+									<td><%= results[0].ch01work %></td>
 								</tr>
 								<tr>
 									<td>2</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
+									<td><%= results[0].ch02test %></td>
+									<td><%= results[0].ch02work %></td>
 								</tr>
 								<tr>
 									<td>3</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
+									<td><%= results[0].ch03test %></td>
+									<td><%= results[0].ch03work %></td>
 								</tr>
 								<tr>
 									<td>4</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
+									<td><%= results[0].ch04test %></td>
+									<td><%= results[0].ch04work %></td>
 								</tr>
 								<tr>
 									<td>5</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
+									<td><%= results[0].ch05test %></td>
+									<td><%= results[0].ch05work %></td>
 								</tr>
 								<tr>
 									<td>6</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
+									<td><%= results[0].ch06test %></td>
+									<td><%= results[0].ch06work %></td>
 								</tr>
 								<tr>
 									<td>7</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
+									<td><%= results[0].ch07test %></td>
+									<td><%= results[0].ch07work %></td>
 								</tr>
 								<tr>
 									<td>8</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
+									<td><%= results[0].ch08test %></td>
+									<td><%= results[0].ch08work %></td>
 								</tr>
 								<tr>
 									<td>9</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
+									<td><%= results[0].ch09test %></td>
+									<td><%= results[0].ch09work %></td>
 								</tr>
 								<tr>
 									<td>10</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
-									<td>-</td>
+									<td><%= results[0].ch10test %></td>
+									<td><%= results[0].ch10work %></td>
 								</tr>
 								<tr>
 									<td colspan="3">
 										<div class="button-group-area mt-40 text-right">
-											<a href="#" class="genric-btn primary circle">ผลการเรียนก่อน</a>
-											<a href="#" class="genric-btn warning circle">ผลการเรียนหลัง</a>
+											<a href="#" class="genric-btn primary circle">ผลการเรียนก่อน</a> <%= results[0].pretest %>
+											<a href="#" class="genric-btn warning circle">ผลการเรียนหลัง</a> <%= results[0].posttest %>
 										</div>
 									</td>
 									<td colspan="3" rowspan="3">
