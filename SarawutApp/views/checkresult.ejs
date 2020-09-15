@@ -32,7 +32,7 @@
 					<div class="row">
 						<div class="col-md-4">
 							<div class="single-defination">
-								<h4 class="mb-20">ชื่อ-นามสกุล : <%= results[0].firstname+results[0].surname %></h4>
+								<h4 class="mb-20">ชื่อ-นามสกุล : <%= name %></h4>
 							</div>
 						</div>
 						<div class="col-md-4">
@@ -104,16 +104,16 @@
 									<td><%= results[0].ch10work %></td>
 								</tr>
 								<tr>
-									<td colspan="3">
+									<td colspan="2">
 										<div class="button-group-area mt-40 text-right">
-											<a href="#" class="genric-btn primary circle">ผลการเรียนก่อน</a> <%= results[0].pretest %>
-											<a href="#" class="genric-btn warning circle">ผลการเรียนหลัง</a> <%= results[0].posttest %>
+											<a href="#" class="genric-btn primary circle">ผลการเรียนก่อน</a> <%= results[0].pretest %> คะแนน
+											<a href="#" class="genric-btn warning circle">ผลการเรียนหลัง</a> <%= results[0].posttest %> คะแนน
 										</div>
 									</td>
-									<td colspan="3" rowspan="3">
-										ค่าเฉลี่ยต่างๆ<br>
+									<td rowspan="3">
+										ค่าเฉลี่ยแบบทดสอบ<br>
 										S.D.<br>
-										ค่าเฉลี่ยคะแนน
+										ค่าเฉลี่ยใบงาน
 									</td>
 								</tr>
 							</tbody>

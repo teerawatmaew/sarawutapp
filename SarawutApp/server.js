@@ -11,6 +11,7 @@ const fs = require('fs');
 const readline = require('readline');
 const { google } = require('googleapis');
 const { GoogleSpreadsheet } = require('google-spreadsheet');
+const { connect } = require("net");
 
 var app = express();
 
@@ -85,11 +86,14 @@ app.post('/loginprofile', function (request, response) {
 app.post('/logincheck', function (request, response) {
     var username = request.body.student_number;
     var password = request.body.password;
+    var authenticate;
+    var name;
     connection.query('SELECT * FROM accounts WHERE student_number = ? AND birthdaypass = ?', [username, password], function (error, results, fields) {
         if (results.length > 0) {
+            name = results[0].firstname + " " + results[0].surname;
             connection.query('SELECT * FROM result WHERE student_number = ?', [username], function (error, results, fields) {
                 if (results.length > 0) {
-                    response.render('checkresult.ejs', { results: results });
+                    response.render('checkresult.ejs', { results: results, name });
                 } else {
                     response.send('Error 404 data not found.');
                 }
@@ -97,8 +101,23 @@ app.post('/logincheck', function (request, response) {
         } else {
             response.send('Incorrect Username and/or Password!');
         }
-        response.end();
     });
+    if (authenticate) {
+        connection.query('SELECT * FROM result WHERE student_number = ?', [username], function (error, results, fields) {
+            if (results.length > 0) {
+                response.render('checkresult.ejs', { results: results, name });
+            } else {
+                response.send('Error 404 data not found.');
+            }
+        });
+    }
+    /*connection.query('SELECT * FROM result WHERE student_number = ?', [username], function (error, results, fields) {
+        if (results.length > 0) {
+            response.render('checkresult.ejs', { results: results});
+        } else {
+            response.send('Error 404 data not found.');
+        }
+    });*/
 });
 
 //=========================== for send session to every page after login ============================
