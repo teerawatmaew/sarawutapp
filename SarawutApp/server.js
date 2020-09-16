@@ -43,7 +43,14 @@ app.use(express.static(path.join(__dirname, 'public'))); // configure express to
 //<===================>
 
 app.get('/', function (request, response) {
-    response.render('firstpage.ejs');
+    //var query_target = "announce";
+    //connection.query('SELECT * FROM ?', [query_target], function (error, results, fields) {
+        //if (results.length > 0) {
+            response.render('firstpage.ejs');
+        //} else {
+            //response.send('Can not open index page.');
+        //}
+    //});
 });
 
 //<===================>
@@ -86,7 +93,6 @@ app.post('/loginprofile', function (request, response) {
 app.post('/logincheck', function (request, response) {
     var username = request.body.student_number;
     var password = request.body.password;
-    var authenticate;
     var name;
     connection.query('SELECT * FROM accounts WHERE student_number = ? AND birthdaypass = ?', [username, password], function (error, results, fields) {
         if (results.length > 0) {
@@ -102,22 +108,6 @@ app.post('/logincheck', function (request, response) {
             response.send('Incorrect Username and/or Password!');
         }
     });
-    if (authenticate) {
-        connection.query('SELECT * FROM result WHERE student_number = ?', [username], function (error, results, fields) {
-            if (results.length > 0) {
-                response.render('checkresult.ejs', { results: results, name });
-            } else {
-                response.send('Error 404 data not found.');
-            }
-        });
-    }
-    /*connection.query('SELECT * FROM result WHERE student_number = ?', [username], function (error, results, fields) {
-        if (results.length > 0) {
-            response.render('checkresult.ejs', { results: results});
-        } else {
-            response.send('Error 404 data not found.');
-        }
-    });*/
 });
 
 //=========================== for send session to every page after login ============================
@@ -180,21 +170,43 @@ app.put('/edituser/(:id)', function (request, response) {
     });
 });
 
-app.post('/sentreport', function (request, response) {
+app.post('/announce', function (request, response) {
+    var topic = request.body.topic;
+    var detail = request.body.detail;
+    connection.query('INSERT INTO announce(username,topic,detail,announce_date) VALUE ("¼Ùé´ÙáÅÃĞºº",?,?,NOW())', [topic, detail], function (error, results, fields) {
+        if (error) {
+            throw error;
+        } else {
+            response.render('./admin/adminindex.ejs');
+        }
+    });
+});
+
+app.post('/sendreport', function (request, response) {
     var firstname = request.body.firstname;
     var surname = request.body.surname;
-    var student_number = request.body.student_number;
     var topic = request.body.topic;
-    var image = request.body.image;
     var detail = request.body.detail;
-    connection.query('INSERT INTO accounts(firstname,surname,student_number,topic,image,datail) VALUES(?,?,?,?,?,?)', [firstname, surname, student_number, topic, image, detail], function (error, results, fields) {
-        if (results.length > 0) {
-            response.render('firstpage.ejs');
-        } else {
-            response.send('Can not sent your report. Please try again later...');
-        }
-        response.end();
-    });
+    if (request.body.image) {
+        var image = request.body.image;
+        connection.query('INSERT INTO report(firstname,surname,topic,image,detail,state) VALUES(?,?,?,?,?,0)', [firstname, surname, topic, image, detail], function (error, results, fields) {
+            if (error) {
+                response.send('Can not sent your report. Please try again later...');
+            } else {
+                response.render('firstpage.ejs');
+            }
+            response.end();
+        });
+    } else {
+        connection.query('INSERT INTO report(firstname,surname,topic,detail,state) VALUES(?,?,?,?,0)', [firstname, surname, topic, detail], function (error, results, fields) {
+            if (results.length > 0) {
+                response.send('Can not sent your report. Please try again later...');
+            } else {
+                response.render('firstpage.ejs');
+            }
+            response.end();
+        });
+    }
 });
 
 app.get('/getscore', function (req, res) {

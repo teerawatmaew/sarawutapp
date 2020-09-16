@@ -37,31 +37,28 @@
 			<br>
 			<div class="comment-form">
 				<h4>แจ้งปัญหาการใช้งาน</h4>
-                <form>
+                <form action="sendreport" method="post">
                     <div class="form-group form-inline">
 						<div class="form-group col-lg-6 col-md-6 name">
-							<input type="text" class="form-control" id="firstname" placeholder="ชื่อ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ชื่อ'">
+							<input type="text" class="form-control" name="firstname" placeholder="ชื่อ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ชื่อ'">
 						</div>
                         <div class="form-group col-lg-6 col-md-6">
-	                        <input type="text" class="form-control" id="surname" placeholder="นามสกุล" onfocus="this.placeholder = ''" onblur="this.placeholder = 'นามสกุล'">
+	                        <input type="text" class="form-control" name="surname" placeholder="นามสกุล" onfocus="this.placeholder = ''" onblur="this.placeholder = 'นามสกุล'">
                         </div>										
                     </div>
 					<div class="form-group">
-                        <input type="text" class="form-control" id="student_id" placeholder="เลขประจำตัวนักเรียน" onfocus="this.placeholder = ''" onblur="this.placeholder = 'เลขประจำตัวนักเรียน'">
-					</div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="subject" placeholder="หัวข้อ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'หัวข้อ'">
+                        <input type="text" class="form-control" name="topic" placeholder="หัวข้อ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'หัวข้อ'">
                     </div>
 					<div class="form-group">
 						<div class="custom-file">
-							<input type="file" class="custom-file-input" id="customFile">
-							<label class="custom-file-label" for="customFile">เลือกไฟล์รูปภาพ(ถ้ามี)</label>
+							<input type="file" class="custom-file-input" id="custom_file" name="custom_file">
+							<label class="custom-file-label" for="custom_file">เลือกไฟล์รูปภาพ(ถ้ามี)</label>
 						</div>
 					</div>
                     <div class="form-group">
-                        <textarea class="form-control mb-10" rows="5" name="message" placeholder="เนื้อหาที่ต้องการแจ้ง" onfocus="this.placeholder = ''" onblur="this.placeholder = 'เนื้อหาที่ต้องการแจ้ง'" required=""></textarea>
+                        <textarea class="form-control mb-10" rows="5" name="detail" placeholder="เนื้อหาที่ต้องการแจ้ง" onfocus="this.placeholder = ''" onblur="this.placeholder = 'เนื้อหาที่ต้องการแจ้ง'" required=""></textarea>
                     </div>
-                    <a href="#" class="primary-btn primary_btn">ส่งข้อมูล</a>	
+                    <button type="submit" class="btn btn-primary my-1">แจ้งปัญหา</button>	
                 </form>
             </div>
 			<br>
