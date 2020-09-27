@@ -296,7 +296,30 @@ app.get('/lesson01-firsttest', function (request, response) {
     response.render('./lesson/01/lesson01-firsttest.ejs');
 });
 
-app.get('/lesson01-1-w1', function (request, response) {
+
+app.get('/lesson01-1-work', function (request, response) {
+    var random_page = Math.floor(Math.random() * 5) + 1;
+    switch (random_page) {
+        case 1:
+            response.render('./lesson/01/lesson01-1-w1.ejs');
+            break;
+        case 2:
+            response.render('./lesson/01/lesson01-1-w2.ejs');
+            break;
+        case 3:
+            response.render('./lesson/01/lesson01-1-w3.ejs');
+            break;
+        case 4:
+            response.render('./lesson/01/lesson01-1-w4.ejs');
+            break;
+        case 5:
+            response.render('./lesson/01/lesson01-1-w5.ejs');
+            break;
+        default:
+            response.render('./lesson/01/lesson01-1-w1.ejs');
+    }
+});
+/*app.get('/lesson01-1-w1', function (request, response) {
     response.render('./lesson/01/lesson01-1-w1.ejs');
 });
 app.get('/lesson01-1-w2', function (request, response) {
@@ -311,6 +334,7 @@ app.get('/lesson01-1-w4', function (request, response) {
 app.get('/lesson01-1-w5', function (request, response) {
     response.render('./lesson/01/lesson01-1-w5.ejs');
 });
+*/
 app.get('/lesson01-1-w6', function (request, response) {
     response.render('./lesson/01/lesson01-1-w6.ejs');
 });
@@ -550,18 +574,6 @@ app.get('/lesson10-3', function (request, response) {
 });
 app.get('/lesson10-4', function (request, response) {
     response.render('./lesson/lesson10-4.ejs');
-});
-
-app.get('/admin-profile.ejs', function (request, response) {
-    connection.query('SELECT * FROM accounts WHERE id = 1', (err, results) => {
-        if (err) {
-            throw err;
-        }
-        else {
-            var accounts = results;
-            response.render('admin-profile.ejs', { accounts: accounts });
-        }
-    });
 });
 
 //<================>
