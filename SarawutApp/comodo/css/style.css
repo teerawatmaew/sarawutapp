@@ -1579,6 +1579,7 @@ body.blog_page {
 
 /*============== End Elements Area css ================*/
 /*==============Elements Button Area css ================*/
+
 .elements_button .title_color {
   margin-bottom: 30px;
   color: #222222; }
@@ -1707,6 +1708,17 @@ body.blog_page {
   line-height: 38px;
   padding-top: 0px;
   padding-bottom: 0px; }
+
+.midbt {
+    width: 150px;
+    height: 60px;
+}
+
+.bigbt {
+    width: 200px;
+    height: 100px;
+    line-height: 100px;
+}
 
 /*==============End Elements Button Area css ================*/
 /* =================================== */

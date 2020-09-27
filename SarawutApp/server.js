@@ -69,6 +69,13 @@ app.post('/loginstudy', function (request, response) {
                 response.render('./admin/adminindex.ejs', { sess: sess });
             }
             else {
+                /*connection.query('SELECT * FROM result WHERE student_number = ?', [username], function (error, results, fields) {
+                    if (results.length > 0) {
+                        response.render('./user/userindex.ejs', { results: results, sess: sess });
+                    } else {
+                        response.send('Error 404 data not found.');
+                    }
+                });*/
                 response.render('./user/userindex.ejs', { sess: sess });
             }
         } else {
@@ -116,6 +123,10 @@ app.use(function (request, response, next) {
     next();
 });
 
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
 app.get('/session', (request, response) => {
     let sess = request.session;
     console.log(sess);
@@ -136,39 +147,19 @@ app.get('/logout', function (request, response) {
 //<====== all api ======>
 //<=====================>
 
+const { add_accounts, edit_accounts, delete_accounts, get_accounts, get_accounts_id } = require('./api/v1/accounts');
+app.get('/accounts', get_accounts);
+app.get('/accounts/(:id)', get_accounts_id);
+app.post('/accounts', add_accounts);
+app.put('/accounts/(:id)', edit_accounts);
+app.delete('/accounts/(:id)', delete_accounts);
+
+
 app.get('/myprofile', function (request, response) {
     connection.query('SELECT * FROM accounts WHERE username = ?', [request.header.name], function (error, results, fields) {
         if (results.length > 0) response.status(200).json(results);
     });
 })
-
-app.get('/user', function (request, response) {
-    connection.query('SELECT * FROM accounts', (err, results) => {
-        if (err) {
-            throw err;
-            response.status(404);
-        }
-        else {
-            response.status(200).json(results);
-        }
-    });
-});
-
-app.put('/edituser/(:id)', function (request, response) {
-    var id = request.params.id;
-    var firstname = request.body.editfirstname;
-    var surname = request.body.editsurname;
-    var studentno = request.body.editstudentno;
-    var birthdate = request.body.editbirthdate;
-    var birthdatepass = request.body.editbirthdatepass;
-    connection.query('UPDATE accounts SET firstname=?, surname=?, studentno=?, birthdate=? birthdatepass=? WHERE id=?', [firstname, surname, studentno, birthdate, birthdatepass, id], (err, result) => {
-        if (err) {
-            throw err;
-        } else {
-            response.render('userprofile.ejs');
-        }
-    });
-});
 
 app.post('/announce', function (request, response) {
     var topic = request.body.topic;
