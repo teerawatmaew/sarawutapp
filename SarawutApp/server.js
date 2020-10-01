@@ -319,24 +319,28 @@ app.get('/lesson01-1-work', function (request, response) {
             response.render('./lesson/01/lesson01-1-w1.ejs');
     }
 });
-/*app.get('/lesson01-1-w1', function (request, response) {
-    response.render('./lesson/01/lesson01-1-w1.ejs');
-});
-app.get('/lesson01-1-w2', function (request, response) {
-    response.render('./lesson/01/lesson01-1-w2.ejs');
-});
-app.get('/lesson01-1-w3', function (request, response) {
-    response.render('./lesson/01/lesson01-1-w3.ejs');
-});
-app.get('/lesson01-1-w4', function (request, response) {
-    response.render('./lesson/01/lesson01-1-w4.ejs');
-});
-app.get('/lesson01-1-w5', function (request, response) {
-    response.render('./lesson/01/lesson01-1-w5.ejs');
-});
-*/
-app.get('/lesson01-1-w6', function (request, response) {
-    response.render('./lesson/01/lesson01-1-w6.ejs');
+
+app.get('/lesson01-1-revise', function (request, response) {
+    var random_page = Math.floor(Math.random() * 5) + 1;
+    switch (random_page) {
+        case 1:
+            response.render('./lesson/01/lesson01-1-w6.ejs');
+            break;
+        case 2:
+            response.render('./lesson/01/lesson01-1-w7.ejs');
+            break;
+        case 3:
+            response.render('./lesson/01/lesson01-1-w8.ejs');
+            break;
+        case 4:
+            response.render('./lesson/01/lesson01-1-w9.ejs');
+            break;
+        case 5:
+            response.render('./lesson/01/lesson01-1-w10.ejs');
+            break;
+        default:
+            response.render('./lesson/01/lesson01-1-w6.ejs');
+    }
 });
 app.get('/lesson01-1-2', function (request, response) {
     response.render('./lesson/01/lesson01-1-2.ejs');
