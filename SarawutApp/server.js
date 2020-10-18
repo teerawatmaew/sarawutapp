@@ -1,4 +1,4 @@
-require("dotenv").config();
+Ôªørequire("dotenv").config();
 process.env.PWD = process.cwd()
 
 var mysql = require('mysql');
@@ -123,10 +123,6 @@ app.use(function (request, response, next) {
     next();
 });
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-}
-
 app.get('/session', (request, response) => {
     let sess = request.session;
     console.log(sess);
@@ -154,7 +150,6 @@ app.post('/accounts', add_accounts);
 app.put('/accounts/(:id)', edit_accounts);
 app.delete('/accounts/(:id)', delete_accounts);
 
-
 app.get('/myprofile', function (request, response) {
     connection.query('SELECT * FROM accounts WHERE username = ?', [request.header.name], function (error, results, fields) {
         if (results.length > 0) response.status(200).json(results);
@@ -164,7 +159,7 @@ app.get('/myprofile', function (request, response) {
 app.post('/announce', function (request, response) {
     var topic = request.body.topic;
     var detail = request.body.detail;
-    connection.query('INSERT INTO announce(username,topic,detail,announce_date) VALUE ("ºŸÈ¥Ÿ·≈√–∫∫",?,?,NOW())', [topic, detail], function (error, results, fields) {
+    connection.query('INSERT INTO announce(username,topic,detail,announce_date) VALUE ("‡∏ú‡∏π‡πâ‡∏î‡∏π‡πÅ‡∏•‡∏£‡∏∞‡∏ö‡∏ö",?,?,NOW())', [topic, detail], function (error, results, fields) {
         if (error) {
             throw error;
         } else {
@@ -200,12 +195,98 @@ app.post('/sendreport', function (request, response) {
     }
 });
 
-app.get('/getscore', function (req, res) {
-    // spreadsheet key is the long id in the sheets URL
-    //const doc = new GoogleSpreadsheet('<the sheet ID from the url>');
-    const doc = new GoogleSpreadsheet('<1e5EMwnGJNzkpCKdXJGR9VdjDDKQxhKWjTYgxwuhcOJc>');
+//=====================================================================================
+//=================================== GOOGLE API ======================================
+//=====================================================================================
 
+// If modifying these scopes, delete token.json.
+const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
+// The file token.json stores the user's access and refresh tokens, and is
+// created automatically when the authorization flow completes for the first
+// time.
+const TOKEN_PATH = 'token.json';
+
+// Load client secrets from a local file.
+fs.readFile('credentials.json', (err, content) => {
+    if (err) return console.log('Error loading client secret file:', err);
+    // Authorize a client with credentials, then call the Google Sheets API.
+    authorize(JSON.parse(content), listMajors);
 });
+
+/**
+ * Create an OAuth2 client with the given credentials, and then execute the
+ * given callback function.
+ * @param {Object} credentials The authorization client credentials.
+ * @param {function} callback The callback to call with the authorized client.
+ */
+function authorize(credentials, callback) {
+    const { client_secret, client_id, redirect_uris } = credentials.installed;
+    const oAuth2Client = new google.auth.OAuth2(
+        client_id, client_secret, redirect_uris[0]);
+
+    // Check if we have previously stored a token.
+    fs.readFile(TOKEN_PATH, (err, token) => {
+        if (err) return getNewToken(oAuth2Client, callback);
+        oAuth2Client.setCredentials(JSON.parse(token));
+        callback(oAuth2Client);
+    });
+}
+
+/**
+ * Get and store new token after prompting for user authorization, and then
+ * execute the given callback with the authorized OAuth2 client.
+ * @param {google.auth.OAuth2} oAuth2Client The OAuth2 client to get token for.
+ * @param {getEventsCallback} callback The callback for the authorized client.
+ */
+function getNewToken(oAuth2Client, callback) {
+    const authUrl = oAuth2Client.generateAuthUrl({
+        access_type: 'offline',
+        scope: SCOPES,
+    });
+    console.log('Authorize this app by visiting this url:', authUrl);
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout,
+    });
+    rl.question('Enter the code from that page here: ', (code) => {
+        rl.close();
+        oAuth2Client.getToken(code, (err, token) => {
+            if (err) return console.error('Error while trying to retrieve access token', err);
+            oAuth2Client.setCredentials(token);
+            // Store the token to disk for later program executions
+            fs.writeFile(TOKEN_PATH, JSON.stringify(token), (err) => {
+                if (err) return console.error(err);
+                console.log('Token stored to', TOKEN_PATH);
+            });
+            callback(oAuth2Client);
+        });
+    });
+}
+
+/**
+ * Prints the names and majors of students in a sample spreadsheet:
+ * @see https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
+ * @param {google.auth.OAuth2} auth The authenticated Google OAuth client.
+ */
+function listMajors(auth) {
+    const sheets = google.sheets({ version: 'v4', auth });
+    sheets.spreadsheets.values.get({
+        spreadsheetId: '1t5v0R_L9yrf42lj8dZyA1meNRf4kD8fTGXH4lwWCI9I',
+        range: 'A2:C',
+    }, (err, res) => {
+        if (err) return console.log('The API returned an error: ' + err);
+        const rows = res.data.values;
+        if (rows.length) {
+            console.log('Time, Score, ID:');
+            // Print columns A and E, which correspond to indices 0 and 4.
+            rows.map((row) => {
+                console.log(`${row[0]}, ${row[1]}, ${row[2]}, ${row[3]}`);
+            });
+        } else {
+            console.log('No data found.');
+        }
+    });
+}
 
 //<========================>
 //<======= all site =======>
