@@ -10,6 +10,7 @@ var path = require('path');
 const fs = require('fs');
 const readline = require('readline');
 const { google } = require('googleapis');
+const sheets = google.sheets('v4');
 const { GoogleSpreadsheet } = require('google-spreadsheet');
 const { connect } = require("net");
 
@@ -199,6 +200,7 @@ app.post('/sendreport', function (request, response) {
 //=================================== GOOGLE API ======================================
 //=====================================================================================
 
+
 // If modifying these scopes, delete token.json.
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 // The file token.json stores the user's access and refresh tokens, and is
@@ -280,7 +282,7 @@ function listMajors(auth) {
             console.log('Time, Score, ID:');
             // Print columns A and E, which correspond to indices 0 and 4.
             rows.map((row) => {
-                console.log(`${row[0]}, ${row[1]}, ${row[2]}, ${row[3]}`);
+                console.log(`${row[0]}, ${row[1]}, ${row[2]}`);
             });
         } else {
             console.log('No data found.');
@@ -324,6 +326,10 @@ app.get('/userprofile', function (request, response) {
     response.render('userprofile.ejs');
 });
 
+app.get('/QA', function (request, response) {
+    response.render('qa.ejs');
+});
+
 
 //<==========================>
 //<======= admin site =======>
@@ -347,6 +353,11 @@ app.get('/managecourse', function (request, response) {
 //<=============================>
 
 app.get('/userindex', function (request, response) {
+    /*fs.readFile('credentials.json', (err, content) => {
+        if (err) return console.log('Error loading client secret file:', err);
+        // Authorize a client with credentials, then call the Google Sheets API.
+        authorize(JSON.parse(content), listMajors);
+    });*/
     response.render('./user/userindex.ejs');
 });
 
@@ -376,7 +387,6 @@ app.get('/lesson01', function (request, response) {
 app.get('/lesson01-firsttest', function (request, response) {
     response.render('./lesson/01/lesson01-firsttest.ejs');
 });
-
 
 app.get('/lesson01-1-work', function (request, response) {
     var random_page = Math.floor(Math.random() * 5) + 1;
@@ -423,6 +433,18 @@ app.get('/lesson01-1-revise', function (request, response) {
             response.render('./lesson/01/lesson01-1-w6.ejs');
     }
 });
+app.post('/sheetcomment/(:lesson)/(:state)/(:worksheet)', function (request, response) {
+    var lesson = request.params.lesson;
+    var state = request.params.state;
+    var worksheet = request.params.worksheet;
+    var word1 = request.body.r1;
+    var word2 = request.body.r2;
+    var word3 = request.body.r3;
+    var word4 = request.body.r4;
+    var word5 = request.body.r5;
+    response.render('./lesson/01/lesson01-1-2.ejs');
+});
+
 app.get('/lesson01-1-2', function (request, response) {
     response.render('./lesson/01/lesson01-1-2.ejs');
 });
