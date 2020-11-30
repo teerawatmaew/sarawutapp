@@ -31,30 +31,57 @@
 		<a href="/" class="genric-btn default circle">ย้อนกลับ</a>
 	</div>
 	<br>
-	<div class="whole-wrap">
+	
+	<div class="whole-wrap main">
 		<div class="container">
 			<div class="section-top-border">
 				<div class="row justify-content-md-center">
 					<div class="col-8">
 						<aside class="single_sidebar_widget post_category_widget">
-                            <h4 class="widget_title">คำถามที่พบบ่อย</h4>
+                            <h3 class="widget_title">คำถามที่พบบ่อย</h3>
 							<hr>
+							<% if (report) { %>
+								<% report.forEach((report, index) => { %>
+									<div class="card">
+										<h5 class="card-header">Report : <%= report[i].detail %></h5>
+										<ul class="list-group list-group-flush">
+											<li class="list-group-item"><cite title="Source Title"><%= report[i].firstname %> <%= report[i].surname %></cite></li>
+										</ul>
+										<img src="img/elements/a2.jpg" alt="...">
+										<div class="card-body">
+											<blockquote class="blockquote mb-0">
+												<p><%= report[i].answer %></p>
+												<footer class="blockquote-footer">ผู้ดูแลระบบ</footer>
+											</blockquote>
+										</div>
+									</div>
+									<br>
+								<% }) %>
+							<% } %>
 							<div class="card">
-								<h5 class="card-header">ปรับปรุงเว็บไซต์เรียบร้อยแล้ว</h5>
+								<h5 class="card-header">Report : จะสามารถเข้าเรียนในระบบได้อย่างไร</h5>
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item"><cite title="Source Title">Somsak Rakrien</cite></li>
+								</ul>
+								<img src="img/elements/a2.jpg" alt="...">
 								<div class="card-body">
 									<blockquote class="blockquote mb-0">
-										<p>ขณะนี้เว็บไซต์สามารถใช้งานได้ปรกติแล้ว</p>
-										<footer class="blockquote-footer">ผู้ดูแลระบบ <cite title="Source Title">01-01-2021 00:00</cite></footer>
+										<p>ต้องได้รับการลงทะเบียนรายชื่อโดยอาจารย์ผู้สอนก่อน จึงจะสามารถเข้าสู่ระบบได้</p>
+										<footer class="blockquote-footer">ผู้ดูแลระบบ</footer>
 									</blockquote>
 								</div>
 							</div>
 							<br>
 							<div class="card">
-								<h5 class="card-header">ปรับปรุงเว็บไซต์เรียบร้อยแล้ว</h5>
+								<h5 class="card-header">Report : ปรับปรุงเว็บไซต์เรียบร้อยแล้ว</h5>
+								<ul class="list-group list-group-flush">
+									<li class="list-group-item"><cite title="Source Title">Somsak Rakrien</cite></li>
+								</ul>
+								<img src="img/mw/edu-bg-2.jpg" alt="...">
 								<div class="card-body">
 									<blockquote class="blockquote mb-0">
 										<p>ขณะนี้เว็บไซต์สามารถใช้งานได้ปรกติแล้ว</p>
-										<footer class="blockquote-footer">ผู้ดูแลระบบ <cite title="Source Title">01-01-2021 00:00</cite></footer>
+										<footer class="blockquote-footer">ผู้ดูแลระบบ</footer>
 									</blockquote>
 								</div>
 							</div>
