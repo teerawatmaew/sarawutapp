@@ -63,13 +63,6 @@ app.post('/loginstudy', function (request, response) {
                 response.render('./admin/adminindex.ejs', { sess: sess });
             }
             else {
-                /*connection.query('SELECT * FROM result WHERE student_number = ?', [username], function (error, results, fields) {
-                    if (results.length > 0) {
-                        response.render('./user/userindex.ejs', { results: results, sess: sess });
-                    } else {
-                        response.send('Error 404 data not found.');
-                    }
-                });*/
                 response.render('./user/userindex.ejs', { sess: sess });
             }
         } else {
@@ -159,55 +152,17 @@ app.post('/accounts', add_accounts);
 app.put('/accounts/(:id)', edit_accounts);
 app.delete('/accounts/(:id)', delete_accounts);
 
-app.get('/myprofile', function (request, response) {
-    connection.query('SELECT * FROM accounts WHERE username = ?', [request.header.name], function (error, results, fields) {
-        if (results.length > 0) response.status(200).json(results);
-    });
-})
+const { post_announce, set_lesson } = require('./api/v1/admin_action');
+app.post('/post-announce', post_announce);
+app.put('/set-lesson', set_lesson);
 
-app.post('/announce', function (request, response) {
-    var topic = request.body.topic;
-    var detail = request.body.detail;
-    connection.query('INSERT INTO announce(username,topic,detail,announce_date) VALUE ("ผู้ดูแลระบบ",?,?,NOW())', [topic, detail], function (error, results, fields) {
-        if (error) {
-            throw error;
-        } else {
-            response.render('./admin/adminindex.ejs');
-        }
-    });
-});
-
-app.post('/sendreport', function (request, response) {
-    var firstname = request.body.firstname;
-    var surname = request.body.surname;
-    var topic = request.body.topic;
-    var detail = request.body.detail;
-    if (request.body.image) {
-        var image = request.body.image;
-        connection.query('INSERT INTO report(firstname,surname,topic,image,detail,state) VALUES(?,?,?,?,?,0)', [firstname, surname, topic, image, detail], function (error, results, fields) {
-            if (error) {
-                response.send('Can not sent your report. Please try again later...');
-            } else {
-                response.render('firstpage.ejs');
-            }
-            response.end();
-        });
-    } else {
-        connection.query('INSERT INTO report(firstname,surname,topic,detail,state) VALUES(?,?,?,?,0)', [firstname, surname, topic, detail], function (error, results, fields) {
-            if (results.length > 0) {
-                response.send('Can not sent your report. Please try again later...');
-            } else {
-                response.render('firstpage.ejs');
-            }
-            response.end();
-        });
-    }
-});
+const { get_my_profile, send_report } = require('./api/v1/user');
+app.get('/myprofile', get_my_profile);
+app.post('/sendreport', send_report);
 
 //<==========================>
 //<======= admin site =======>
 //<==========================>
-
 app.get('/adminindex', function (request, response) {
     response.render('./admin/adminindex.ejs');
 });
@@ -226,11 +181,6 @@ app.get('/managecourse', function (request, response) {
 //<=============================>
 
 app.get('/userindex', function (request, response) {
-    /*fs.readFile('credentials.json', (err, content) => {
-        if (err) return console.log('Error loading client secret file:', err);
-        // Authorize a client with credentials, then call the Google Sheets API.
-        authorize(JSON.parse(content), listMajors);
-    });*/
     response.render('./user/userindex.ejs');
 });
 
@@ -262,7 +212,7 @@ app.get('/assessmentform', function (request, response) {
     response.render('./lesson/assessmentform.ejs');
 });
 
-app.get('/submittest/(:lesson)/(:round)', function (request, response) {
+app.get('/submittest/(:lesson)', function (request, response) {
     var url;
     var A = require('./api/v1/test1/round1');
     var lesson = request.params.lesson;
@@ -277,34 +227,50 @@ app.get('/submittest/(:lesson)/(:round)', function (request, response) {
     }
 });
 
-app.get('/checkscore01', function (request, response) {
-    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+app.get('/checkstate', function (request, response) {
+    var student_number = request.session.student_number;
+    connection.query('SELECT * FROM result WHERE student_number = ?', [student_number], function (error, results, fields) {
         var data = results[0];
-        console.log(data.test01);
-        if (data.test01 < 8) {
-            console.log("Fail");
-            response.render('./lesson/01/lesson01-1-2.ejs');
+        if (data.test01 < 7) {
+            if (data.round01 == 0) {
+                connection.query('UPDATE result SET round01 = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                    response.render('./lesson/01/lesson01-1-2.ejs');
+                }
+            } else if (data.round01 == 1) {
+                connection.query('UPDATE result SET round01 = 2 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                    response.render('./lesson/01/lesson01-2-1.ejs');
+                }
+            } else if (data.round01 == 2) {
+                connection.query('UPDATE result SET round01 = 3 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                    response.render('./lesson/01/lesson01-3-1.ejs');
+                }
+            } else {
+                response.render('./lesson/01/lesson01-4-1.ejs');
+            }
         } else {
-            console.log("Pass");
-            var random_page = Math.floor(Math.random() * 5) + 1;
-            switch (random_page) {
-                case 1:
-                    response.render('./lesson/01/lesson01-1-w1.ejs');
-                    break;
-                case 2:
-                    response.render('./lesson/01/lesson01-1-w2.ejs');
-                    break;
-                case 3:
-                    response.render('./lesson/01/lesson01-1-w3.ejs');
-                    break;
-                case 4:
-                    response.render('./lesson/01/lesson01-1-w4.ejs');
-                    break;
-                case 5:
-                    response.render('./lesson/01/lesson01-1-w5.ejs');
-                    break;
-                default:
-                    response.render('./lesson/01/lesson01-1-w1.ejs');
+            if (data.round01 == 0) {
+                var random_page = Math.floor(Math.random() * 5) + 1;
+                switch (random_page) {
+                    case 1:
+                        response.render('./lesson/01/lesson01-1-w1.ejs');
+                        break;
+                    case 2:
+                        response.render('./lesson/01/lesson01-1-w2.ejs');
+                        break;
+                    case 3:
+                        response.render('./lesson/01/lesson01-1-w3.ejs');
+                        break;
+                    case 4:
+                        response.render('./lesson/01/lesson01-1-w4.ejs');
+                        break;
+                    case 5:
+                        response.render('./lesson/01/lesson01-1-w5.ejs');
+                        break;
+                    default:
+                        response.render('./lesson/01/lesson01-1-w1.ejs');
+                }
+            } else if (data.round01 >= 1) {
+                response.render('user/userindex.ejs')
             }
         }
     });
@@ -313,8 +279,6 @@ app.get('/checkscore01', function (request, response) {
 
 //======= lesson01 =======
 app.get('/detail01', function (request, response) {
-    //const A = require('./api/v1/test1/round1');
-    //A.submitscore('1t5v0R_L9yrf42lj8dZyA1meNRf4kD8fTGXH4lwWCI9I', request.session.student_number);
     response.render('./lesson/01/detail01.ejs');
 });
 app.get('/lesson01', function (request, response) {
@@ -378,7 +342,13 @@ app.post('/sheetcomment/(:lesson)/(:state)/(:worksheet)', function (request, res
     var word3 = request.body.r3;
     var word4 = request.body.r4;
     var word5 = request.body.r5;
-    response.render('./lesson/01/lesson01-1-2.ejs');
+    var detail = "1." + word1 + " 2." + word2 + " 3." + word3 + " 4." + word4 + " 5." + word5;
+    connection.query('INSERT INTO sheetcomment VALUE (?,?,?,?,?)', [lesson, state, worksheet, request.session.name, detail], function (error, results2, fields) {
+        if () {
+            response.render('./lesson/01/lesson01-1-2.ejs');
+        }
+            
+    }
 });
 
 app.get('/lesson01-1-2', function (request, response) {

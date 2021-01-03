@@ -100,43 +100,30 @@ module.exports = {
                         if (row[2] == student_number) {
                             var data = row[1].split("/");
                             console.log(data[0]);
-                            switch (lesson) {
-                                case 0:
-                                    connection.query('UPDATE result SET pretest = ?, statecheck = 1 WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
-                                    break;
-                                case 1:
-                                    connection.query('UPDATE result SET test01 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
-                                    break;
-                                case 2:
-                                    connection.query('UPDATE result SET test02 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
-                                    break;
-                                case 3:
-                                    connection.query('UPDATE result SET test03 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
-                                    break;
-                                case 4:
-                                    connection.query('UPDATE result SET test04 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
-                                    break;
-                                case 5:
-                                    connection.query('UPDATE result SET test05 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
-                                    break;
-                                case 6:
-                                    connection.query('UPDATE result SET test06 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
-                                    break;
-                                case 7:
-                                    connection.query('UPDATE result SET test07 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
-                                    break;
-                                case 8:
-                                    connection.query('UPDATE result SET test08 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
-                                    break;
-                                case 9:
-                                    connection.query('UPDATE result SET test09 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
-                                    break;
-                                case 10:
-                                    connection.query('UPDATE result SET test10 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
-                                    break;
-                                case 11:
-                                    connection.query('UPDATE result SET posttest = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
-                                    break;
+                            if (lesson == 0) {
+                                connection.query('UPDATE result SET pretest = ?, statecheck = 1 WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
+                            } else if (lesson == 1) {
+                                connection.query('UPDATE result SET test01 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
+                            } else if (lesson == 2) {
+                                connection.query('UPDATE result SET test02 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
+                            } else if (lesson == 3) {
+                                connection.query('UPDATE result SET test03 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
+                            } else if (lesson == 4) {
+                                connection.query('UPDATE result SET test04 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
+                            } else if (lesson == 5) {
+                                connection.query('UPDATE result SET test05 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
+                            } else if (lesson == 6) {
+                                connection.query('UPDATE result SET test06 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
+                            } else if (lesson == 7) {
+                                connection.query('UPDATE result SET test07 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
+                            } else if (lesson == 8) {
+                                connection.query('UPDATE result SET test08 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
+                            } else if (lesson == 9) {
+                                connection.query('UPDATE result SET test09 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
+                            } else if (lesson == 10) {
+                                connection.query('UPDATE result SET test10 = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
+                            } else if (lesson == 11) {
+                                connection.query('UPDATE result SET posttest = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
                             }
                             //connection.query('UPDATE result SET ch01test = ? WHERE student_number = ?', [data[0], student_number], function (error, results, fields) {
                             //});

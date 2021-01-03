@@ -21,17 +21,29 @@
 </head>
 
 <body>
+	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+		<a href="/detail01" class="genric-btn default circle">ย้อนกลับ</a>
+		<span>Home</span>
+		<h4>ชื่อ-สกุล : <%= sess.name %></h4>
+		<h4>รหัสประจำตัวนักเรียน : <%= sess.student_number %></h4>
+		<a href="/logout" class="genric-btn danger circle">ออกจากระบบ</a>
+	</nav>
+	<br>
 	<!--================Contact Area =================-->
     <section>
 		<div class="container ">
-			<div class="comment-form center">
+			<div class="comment-form">
 				<h4>ระบบกำลังประมวลผลคะแนนของคุณ</h4>
 				<hr>
-				<a href="/checkscore01" class="genric-btn default circle">ต่อไป</a>
+				<a href="/checkstate" class="genric-btn default circle">ต่อไป</a>
 			</div>
 		</div>
     </section>
     <!--================Contact Area =================-->
+
+	<!--================Footer Area =================-->
+	<%- include('../../partials/footeruser.ejs'); -%>
+	<!--================End Footer Area =================-->
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
