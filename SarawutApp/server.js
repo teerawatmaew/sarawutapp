@@ -325,10 +325,16 @@ app.get('/checkroute01', function (request, response) {
                                 detail: 'No data'
                             }];
                     }
-                    response.render('./lesson/01/lesson01-2-2.ejs', {result: result});
+                    response.render('./lesson/01/lesson01-2-2.ejs', { result: result });
                 });
             } else if (data.status_number == 2) {
                 response.render('./lesson/01/lesson01-thirdtest.ejs');
+            }
+        } else if (data.round01 == 3) {
+            if (data.status_number = 1) {
+                response.render('./lesson/01/lesson01-3-webboard.ejs');
+            } else {
+
             }
         }
     });
@@ -338,7 +344,7 @@ app.get('/checkstate01', function (request, response) {
     var student_number = request.session.student_number;
     connection.query('SELECT * FROM result WHERE student_number = ?', [student_number], function (error, results, fields) {
         var data = results[0];
-        if (data.test01 < 9) {
+        if (data.test01 < 11) {
             if (data.round01 == 0) {
                 connection.query('UPDATE result SET round01 = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
                     response.render('./lesson/01/lesson01-1-2.ejs');
@@ -420,8 +426,37 @@ app.get('/checkstate01', function (request, response) {
                         response.render('./lesson/01/lesson01-3-1.ejs');
                     });
                 }
-            } else {
-                response.render('./lesson/01/lesson01-4-1.ejs');
+            } else if (data.round01 == 3) {
+                if (data.status_number == 0) {
+                    if (data.test01 > 9) {
+                        connection.query('UPDATE result SET status_number = 2 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+
+                        });
+                    } else {
+                        connection.query('UPDATE result SET status_number = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+
+                        });
+                    }
+                } else if (data.status_number < 7) {
+                    //todo
+                } else if (data.status_number == 7) {
+                    //todo
+                } else if (data.status_number == 8) {
+                    connection.query('UPDATE result SET status_number = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 1', function (error, results, fields) {
+                            if (results.length > 0) {
+                                var result = results;
+                            } else {
+                                var result = [{
+                                    sheet: 1,
+                                    username: 'No data',
+                                    detail: 'No data'
+                                }];
+                                response.render('./lesson/01/lesson01-4-1.ejs', { result: result });
+                            }
+                        });
+                    });
+                }
             }
         } else {
             if (data.round01 == 0) {
