@@ -32,7 +32,7 @@
 	<!-- Start Align Area -->
 			<div class="whole-wrap">
 				<div class="container">
-					<h2 class="text-center">เรียนรู้เพิ่มเติมบทที่ 1 ครั้งที่ 1 เรื่องภาพพจน์</h2>
+					<h2 class="text-center">เรียนรู้เพิ่มเติมบทที่ 1 ครั้งที่ 2 เรื่องภาพพจน์</h2>
 					<div class="section-top-border">
 						<div class="row">
 							<div class="col-3">
@@ -64,18 +64,16 @@
 														</div>
 													</div>
 												</div>
-												<div class="comment-form">
-													<h3>ความคิดเห็นของ 05850 ธีรวัฒน์ ผ่องสกุล</h3>
-													<p class="text-center">ข้อ 1 จากคำว่า....</p>
-													<p class="text-center">ข้อ 2 จากคำว่า....</p>
-													<p class="text-center">ข้อ 3 จากคำว่า....</p>
-													<p class="text-center">ข้อ 4 จากคำว่า....</p>
-													<p class="text-center">ข้อ 5 จากคำว่า....</p>
-													<div class="button-group-area text-right">
-														<a href="/lesson01-1-3-ask" role="button" class="genric-btn e-large midbt info">คอมเม้นท์กระทู้นี้</a>
-													</div>
-												</div>
-												<br>
+												<% if (result.length > 0) { %>
+													<% for (var i = 0; i < result.length; i++) { %>
+														<% if (result[i].sheet == 1) { %>
+														<div class="comment-form">
+														<h3>ความคิดเห็นของ <%= result[i].username %></h3>
+															<p class="text-center"><%= result[i].detail %></p>
+														</div>
+														<% } %>
+													<% } %>
+												<% } %>
 											</div>
 										</section>
 									</div>
@@ -98,18 +96,18 @@
 														</div>
 													</div>
 												</div>
-												<div class="comment-form">
-													<h3>ความคิดเห็นของ 05847 ศราวุธ น้อยลา</h3>
-													<p class="text-center">ข้อ 1 จากคำว่า....</p>
-													<p class="text-center">ข้อ 2 จากคำว่า....</p>
-													<p class="text-center">ข้อ 3 จากคำว่า....</p>
-													<p class="text-center">ข้อ 4 จากคำว่า....</p>
-													<p class="text-center">ข้อ 5 จากคำว่า....</p>
-													<div class="button-group-area text-right">
-														<a href="/lesson01-1-3-ask" role="button" class="genric-btn e-large midbt info">คอมเม้นท์กระทู้นี้</a>
-													</div>
-												</div>
-												<br>
+												
+												<% if (result.length > 0) { %>
+													<% for (var i = 0; i < result.length; i++) { %>
+														<% if (result[i].sheet == 2) { %>
+														<div class="comment-form">
+														<h3>ความคิดเห็นของ <%= result[i].username %></h3>
+															<p class="text-center"><%= result[i].detail %></p>
+														</div>
+														<br>
+														<% } %>
+													<% } %>
+												<% } %>
 											</div>
 										</section>
 									</div>
@@ -132,18 +130,18 @@
 														</div>
 													</div>
 												</div>
-												<div class="comment-form">
-													<h3>ความคิดเห็นของ 05850 ธีรวัฒน์ ผ่องสกุล</h3>
-													<p class="text-center">ข้อ 1 จากคำว่า....</p>
-													<p class="text-center">ข้อ 2 จากคำว่า....</p>
-													<p class="text-center">ข้อ 3 จากคำว่า....</p>
-													<p class="text-center">ข้อ 4 จากคำว่า....</p>
-													<p class="text-center">ข้อ 5 จากคำว่า....</p>
-													<div class="button-group-area text-right">
-														<a href="/lesson01-1-3-ask" role="button" class="genric-btn e-large midbt info">คอมเม้นท์กระทู้นี้</a>
-													</div>
-												</div>
-												<br>
+												
+												<% if (result.length > 0) { %>
+													<% for (var i = 0; i < result.length; i++) { %>
+														<% if (result[i].sheet == 3) { %>
+														<div class="comment-form">
+														<h3>ความคิดเห็นของ <%= result[i].username %></h3>
+															<p class="text-center"><%= result[i].detail %></p>
+														</div>
+														<br>
+														<% } %>
+													<% } %>
+												<% } %>
 											</div>
 										</section>
 									</div>
@@ -166,18 +164,18 @@
 														</div>
 													</div>
 												</div>
-												<div class="comment-form">
-													<h3>ความคิดเห็นของ 05850 ธีรวัฒน์ ผ่องสกุล</h3>
-													<p class="text-center">ข้อ 1 จากคำว่า....</p>
-													<p class="text-center">ข้อ 2 จากคำว่า....</p>
-													<p class="text-center">ข้อ 3 จากคำว่า....</p>
-													<p class="text-center">ข้อ 4 จากคำว่า....</p>
-													<p class="text-center">ข้อ 5 จากคำว่า....</p>
-													<div class="button-group-area text-right">
-														<a href="/lesson01-1-3-ask" role="button" class="genric-btn e-large midbt info">คอมเม้นท์กระทู้นี้</a>
-													</div>
-												</div>
-												<br>
+												
+												<% if (result.length > 0) { %>
+													<% for (var i = 0; i < result.length; i++) { %>
+														<% if (result[i].sheet == 4) { %>
+														<div class="comment-form">
+														<h3>ความคิดเห็นของ <%= result[i].username %></h3>
+															<p class="text-center"><%= result[i].detail %></p>
+														</div>
+														<br>
+														<% } %>
+													<% } %>
+												<% } %>
 											</div>
 										</section>
 									</div>
@@ -200,18 +198,18 @@
 														</div>
 													</div>
 												</div>
-												<div class="comment-form">
-													<h3>ความคิดเห็นของ 05850 ธีรวัฒน์ ผ่องสกุล</h3>
-													<p class="text-center">ข้อ 1 จากคำว่า....</p>
-													<p class="text-center">ข้อ 2 จากคำว่า....</p>
-													<p class="text-center">ข้อ 3 จากคำว่า....</p>
-													<p class="text-center">ข้อ 4 จากคำว่า....</p>
-													<p class="text-center">ข้อ 5 จากคำว่า....</p>
-													<div class="button-group-area text-right">
-														<a href="/lesson01-1-3-ask" role="button" class="genric-btn e-large midbt info">คอมเม้นท์กระทู้นี้</a>
-													</div>
-												</div>
-												<br>
+												
+												<% if (result.length > 0) { %>
+													<% for (var i = 0; i < result.length; i++) { %>
+														<% if (result[i].sheet == 5) { %>
+														<div class="comment-form">
+														<h3>ความคิดเห็นของ <%= result[i].username %></h3>
+															<p class="text-center"><%= result[i].detail %></p>
+														</div>
+														<br>
+														<% } %>
+													<% } %>
+												<% } %>
 											</div>
 										</section>
 									</div>
@@ -221,7 +219,7 @@
 
 						<div class="row">
 							<div class="button-group-area text-right">
-								<a href="/lesson01-1-revise" role="button" class="genric-btn e-large midbt success">ต่อไป</a>
+								<a href="/checkstate01" role="button" class="genric-btn e-large midbt success">ต่อไป</a>
 							</div>
 						</div>
 

@@ -8,16 +8,16 @@
 		<link rel="icon" href="img/favicon.png" type="image/png">
 		<title>บทที่ 1</title>
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="css/bootstrap.css">
-		<link rel="stylesheet" href="vendors/linericon/style.css">
-		<link rel="stylesheet" href="css/font-awesome.min.css">
-		<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-		<link rel="stylesheet" href="css/magnific-popup.css">
-		<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-		<link rel="stylesheet" href="vendors/animate-css/animate.css">
-		<link rel="stylesheet" href="vendors/flaticon/flaticon.css">
+		<link rel="stylesheet" href="/css/bootstrap.css">
+		<link rel="stylesheet" href="/vendors/linericon/style.css">
+		<link rel="stylesheet" href="/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/vendors/owl-carousel/owl.carousel.min.css">
+		<link rel="stylesheet" href="/css/magnific-popup.css">
+		<link rel="stylesheet" href="/vendors/nice-select/css/nice-select.css">
+		<link rel="stylesheet" href="/vendors/animate-css/animate.css">
+		<link rel="stylesheet" href="/vendors/flaticon/flaticon.css">
 		<!-- main css -->
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="/css/style.css">
 	</head>
 
 	<body>
@@ -32,16 +32,13 @@
 	<!-- Start Align Area -->
 			<div class="whole-wrap">
 				<div class="container">
-					<h2 class="text-center">เรียนรู้เพิ่มเติมบทที่ 1 ครั้งที่ 2 เรื่องภาพพจน์</h2>
+					<h2 class="text-center">เรียนรู้เพิ่มเติมบทที่ 1 ครั้งที่ 3 เรื่องภาพพจน์</h2>
 					<div class="section-top-border">
 						<div class="row">
 							<div class="col-3">
 								<div class="list-group" id="list-tab" role="tablist">
-									<a class="list-group-item list-group-item-action active" id="list-set1-list" data-toggle="list" href="#list-set1" role="tab" aria-controls="home">ใบงานที่1</a>
-									<a class="list-group-item list-group-item-action" id="list-set2-list" data-toggle="list" href="#list-set2" role="tab" aria-controls="home">ใบงานที่2</a>
-									<a class="list-group-item list-group-item-action" id="list-set3-list" data-toggle="list" href="#list-set3" role="tab" aria-controls="home">ใบงานที่3</a>
-									<a class="list-group-item list-group-item-action" id="list-set4-list" data-toggle="list" href="#list-set4" role="tab" aria-controls="home">ใบงานที่4</a>
-									<a class="list-group-item list-group-item-action" id="list-set5-list" data-toggle="list" href="#list-set5" role="tab" aria-controls="home">ใบงานที่5</a>
+									<a class="list-group-item list-group-item-action active" id="list-set1-list" data-toggle="list" href="#list-set1" role="tab" aria-controls="home">ใบงานของนักเรียน</a>
+									
 								</div>
 							</div>
 							<div class="col-9">
@@ -50,10 +47,10 @@
 										<section>
 											<div class="container">
 												<div class="section-top-border text-left">
-													<h3 class="mb-30 title_color">ใบงานที่ 1</h3>
+													<h3 class="mb-30 title_color">ใบงานของนักเรียน</h3>
 													<div class="row">
 														<div class="col-md-9 text-center">
-															<img src="img/lesson/01/01-2.png" alt="post" />
+															<img src="img/lesson/01/2.png" alt="post" />
 														</div>
 														<div class="col-md-3">
 															<div class="blog_info text-right">
@@ -64,132 +61,32 @@
 														</div>
 													</div>
 												</div>
-												<div class="comment-form">
-													<h3>ความคิดเห็นของ 05850 ธีรวัฒน์ ผ่องสกุล</h3>
-													<p class="text-center">ข้อ 1 จากคำว่า....</p>
-													<p class="text-center">ข้อ 2 จากคำว่า....</p>
-												</div>
-												<br>
-											</div>
-										</section>
-									</div>
-									<div class="tab-pane fade" id="list-set2" role="tabpanel" aria-labelledby="list-set2-list">
-										<section>
-											<div class="container">
-												<div class="section-top-border text-left">
-													<h3 class="mb-30 title_color">ใบงานที่ 2</h3>
-													<div class="row">
-														<div class="col-md-9 text-center">
-															<img src="img/lesson/01/01-2.png" alt="post" />
-														</div>
-														<div class="col-md-3">
-															<div class="blog_info text-right">
-																<ul class="blog_meta list">
-																	<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
-																</ul>
-															</div>
-														</div>
-													</div>
+												<div class="button-group-area text-right">
+													<a href="/lesson01-2-2" role="button" class="genric-btn e-large midbt primary">รีเฟรชคำตอบที่นี่</a>
 												</div>
 												<div class="comment-form">
 													<h3>ความคิดเห็นของ 05850 ธีรวัฒน์ ผ่องสกุล</h3>
 													<p class="text-center">ข้อ 1 จากคำว่า....</p>
-													<p class="text-center">ข้อ 2 จากคำว่า....</p>
 												</div>
 												<br>
+												<% if (result.length > 0) { %>
+													<% for (var i = 0; i < result.length; i++) { %>
+														<div class="comment-form">
+														<h3>ความคิดเห็นของ <%= result[i].username %></h3>
+															<p class="text-center"><%= result[i].detail %></p>
+														</div>
+													<% } %>
+												<% } %>
 											</div>
 										</section>
 									</div>
-									<div class="tab-pane fade" id="list-set3" role="tabpanel" aria-labelledby="list-set3-list">
-										<section>
-											<div class="container">
-												<div class="section-top-border text-left">
-													<h3 class="mb-30 title_color">ใบงานที่ 3</h3>
-													<div class="row">
-														<div class="col-md-9 text-center">
-															<img src="img/lesson/01/01-2.png" alt="post" />
-														</div>
-														<div class="col-md-3">
-															<div class="blog_info text-right">
-																<ul class="blog_meta list">
-																	<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
-																</ul>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="comment-form">
-													<h3>ความคิดเห็นของ 05850 ธีรวัฒน์ ผ่องสกุล</h3>
-													<p class="text-center">ข้อ 1 จากคำว่า....</p>
-													<p class="text-center">ข้อ 2 จากคำว่า....</p>
-												</div>
-												<br>
-											</div>
-										</section>
-									</div>
-
-									<div class="tab-pane fade show" id="list-set4" role="tabpanel" aria-labelledby="list-set4-list">
-										<section>
-											<div class="container">
-												<div class="section-top-border text-left">
-													<h3 class="mb-30 title_color">ใบงานที่ 4</h3>
-													<div class="row">
-														<div class="col-md-9 text-center">
-															<img src="img/lesson/01/01-2.png" alt="post" />
-														</div>
-														<div class="col-md-3">
-															<div class="blog_info text-right">
-																<ul class="blog_meta list">
-																	<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
-																</ul>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="comment-form">
-													<h3>ความคิดเห็นของ 05850 ธีรวัฒน์ ผ่องสกุล</h3>
-													<p class="text-center">ข้อ 1 จากคำว่า....</p>
-													<p class="text-center">ข้อ 2 จากคำว่า....</p>
-												</div>
-												<br>
-											</div>
-										</section>
-									</div>
-
-									<div class="tab-pane fade show" id="list-set5" role="tabpanel" aria-labelledby="list-set5-list">
-										<section>
-											<div class="container">
-												<div class="section-top-border text-left">
-													<h3 class="mb-30 title_color">ใบงานที่ 5</h3>
-													<div class="row">
-														<div class="col-md-9 text-center">
-															<img src="img/lesson/01/01-2.png" alt="post" />
-														</div>
-														<div class="col-md-3">
-															<div class="blog_info text-right">
-																<ul class="blog_meta list">
-																	<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
-																</ul>
-															</div>
-														</div>
-													</div>
-												</div>
-												<div class="comment-form">
-													<h3>ความคิดเห็นของ 05850 ธีรวัฒน์ ผ่องสกุล</h3>
-													<p class="text-center">ข้อ 1 จากคำว่า....</p>
-													<p class="text-center">ข้อ 2 จากคำว่า....</p>
-												</div>
-												<br>
-											</div>
-										</section>
-									</div>
-
+									
 								</div>
 							</div>
 						</div>
 
 						<div class="button-group-area text-right">
-							<a href="/lesson01-thirdtest" role="button" class="genric-btn e-large midbt info">ต่อไป</a>
+							<a href="/checkstate01" role="button" class="genric-btn e-large midbt info">ต่อไป</a>
 						</div>
 
 					</div>

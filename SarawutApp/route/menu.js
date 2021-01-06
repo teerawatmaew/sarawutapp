@@ -1,3 +1,12 @@
+var mysql = require('mysql');
+
+var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '1234',
+    database: 'lms'
+});
+
 module.exports = {
     login: (request,response) => {
         response.render('login.ejs');
@@ -32,6 +41,19 @@ module.exports = {
     },
 
     qa: (request, response) => {
-        response.render('qa.ejs');
+        connection.query('SELECT * FROM report WHERE state = 1', function (error, results, fields) {
+            if (results.length > 0) {
+                var report = results;
+            } else {
+                var report = [{
+                    firstname: 'no data',
+                    surname: 'no data',
+                    topic: 'no data',
+                    detail: 'no data',
+                    answer: 'no data'
+                }];
+            }
+            response.render('qa.ejs', { report: report });
+        });
     }
 }

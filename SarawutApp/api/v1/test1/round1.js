@@ -99,7 +99,7 @@ module.exports = {
                         //    console.log(row);
                         if (row[2] == student_number) {
                             var data = row[1].split("/");
-                            console.log(data[0]);
+                            //console.log(data[0]);
                             if (lesson == 0) {
                                 connection.query('UPDATE result SET pretest = ?, statecheck = 1 WHERE student_number = ?', [data[0], student_number], function (error, results, fields) { });
                             } else if (lesson == 1) {

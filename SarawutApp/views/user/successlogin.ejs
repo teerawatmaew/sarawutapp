@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="icon" href="img/favicon.png" type="image/png">
-	<title>เข้าสู่ระบบการเรียนออนไลน์</title>
+	<title>ตรวจสอบสถานะ</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="vendors/linericon/style.css">
@@ -21,36 +21,33 @@
 </head>
 
 <body>
-	<div class="container">
-		<div class="row button-group-area">
-			<div class="col">
-				<a href="/" class="genric-btn default circle">ย้อนกลับ</a>
-			</div>
-			<div class="col-9">
-			</div>
-			<div class="col float-right">
-				<!--a href="/userprofile" class="genric-btn default circle">ต่อไป</a-->
-			</div>
-		</div>
-	</div>
+	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+		<a href="/logout" class="genric-btn default circle">ย้อนกลับ</a>
+		<span>Home</span>
+		<h4>ชื่อ-สกุล : <%= sess.name %></h4>
+		<h4>รหัสประจำตัวนักเรียน : <%= sess.student_number %></h4>
+		<a href="/logout" class="genric-btn danger circle">ออกจากระบบ</a>
+	</nav>
+	<br>
+
 	<!--================Contact Area =================-->
+	
     <section>
-		<div class="container">
+		<div class="container ">
 			<div class="comment-form">
-				<h4>เข้าสู่ระบบ</h4>
-				<form action="loginprofile" method="post">
-					<div class="form-group">
-						<input type="text" class="form-control" name="student_number" placeholder="เลขประจำตัวนักเรียน" required="">
-					</div>
-					<div class="form-group">
-						<input type="text" class="form-control" name="password" placeholder="วันเดือนปีเกิด ex.26062536" required="">
-					</div>
-					<button type="submit" class="btn btn-primary my-1">เข้าสู่ระบบ</button>	
-				</form>
+				<h2>ยินดีต้อนรับ</h2>
+				<h3>เข้าสู่ระบบสำเร็จ</h3>
+				<hr>
+				<a href="/userindex" class="genric-btn primary circle">ต่อไป</a>
 			</div>
 		</div>
     </section>
+
     <!--================Contact Area =================-->
+
+	<!--================Footer Area =================-->
+	<%- include('../partials/footeruser.ejs'); -%>
+	<!--================End Footer Area =================-->
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
