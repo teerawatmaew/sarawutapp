@@ -82,29 +82,37 @@
 														</div>
 													</div>
 												</div>
+												<% if (result.length > 0) { %>
+													<% for (var i = 0; i < result.length; i++) { %>
+														<% if (result[i].sheet == 1) { %>
+															<div class="card text-white bg-secondary w-75">
+														<% } else { %>
+															<div class="card w-75">
+														<% } %>
+																<div class="card-header"><%= result[i].username %></div>
+																<div class="card-body">
+																	<p><%= result[i].detail %></p>
+																</div>
+															</div>
+															<br>
+													<% } %>
+												<% } %>
+								
 												<div class="comment-form">
-													<h3>ความคิดเห็นของ 05850 ธีรวัฒน์ ผ่องสกุล</h3>
-													<p>ผมสงสัยข้อ 1 จากคำว่า....</p>
-												</div>
-												<div class="comment-form">
-													<h3>ความคิดเห็นของอาจารย์</h3>
-													<p>เพราะจากคำว่า....</p>
-													<p>ลองไปหาข้อมูลเพิ่มเติมเรื่อง....</p>
-													<p>แล้วนำลิ้งค์ที่หาได้มาให้ครูดูนะ</p>
-												</div>
-												<div class="comment-form">
-													<form action="postcomment02" method="POST">
+													<h4>แสดงความคิดเห็นกระทู้</h4>
+													<form action="sheetcomment/1/4/2" method="POST">
 														<div class="form-group">
-															<textarea class="form-control mb-10" rows="5" name="message" placeholder="เนื้อหา..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'เนื้อหา...'" required=""></textarea>
+															<textarea class="form-control mb-10" rows="5" name="detail" placeholder="ข้อความ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อความ'" required=""></textarea>
 														</div>
-														<input type="submit" value="ส่งความเห็น" name="login">	
+														<div class="mt-10 text-center">
+															<button type="submit" class="btn btn-primary mb-2">ส่ง</button>	
+														</div>
 													</form>
 												</div>
-												<br>
 											</div>
 										</section>
 										<div class="button-group-area text-right">
-											<a href="/lesson01-fourthtest" role="button" class="genric-btn e-large midbt info">สอบอีกครั้ง</a>
+											<a href="/checkroute01" role="button" class="genric-btn e-large midbt info">เช็คสถานะ</a>
 										</div>
 									</div>
 								</div>
