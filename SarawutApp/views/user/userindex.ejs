@@ -46,144 +46,144 @@
 						</tr>
 					</thead>
 					<tbody>
-					<tr>
-						<td>1</td>
-						<td><%= results[0].round01 %></td>
-						<td><%= results[0].test01 %></td>
-						<td><%= results[0].work01 %></td>
-						<% if(results[0].statecheck>1){ %>
-							<td>ผ่าน</td>
-						<% } else{ %>  
-							<td>ไม่ผ่าน</td>
-						<% } %>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td><%= results[0].round02 %></td>
-						<td><%= results[0].test02 %></td>
-						<td><%= results[0].work02 %></td>
-						<% if(results[0].statecheck>2){ %>
-							<td>ผ่าน</td>
-						<% } else{ %>  
-							<td>ไม่ผ่าน</td>
-						<% } %>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td><%= results[0].round03 %></td>
-						<td><%= results[0].test03 %></td>
-						<td><%= results[0].work03 %></td>
-						<% if(results[0].statecheck>3){ %>
-							<td>ผ่าน</td>
-						<% } else{ %>  
-							<td>ไม่ผ่าน</td>
-						<% } %>
-					</tr>
-					<tr>
-						<td>4</td>
-						<td><%= results[0].round04 %></td>
-						<td><%= results[0].test04 %></td>
-						<td><%= results[0].work04 %></td>
-						<% if(results[0].statecheck>4){ %>
-							<td>ผ่าน</td>
-						<% } else{ %>  
-							<td>ไม่ผ่าน</td>
-						<% } %>
-					</tr>
-					<tr>
-						<td>5</td>
-						<td><%= results[0].round05 %></td>
-						<td><%= results[0].test05 %></td>
-						<td><%= results[0].work05 %></td>
-						<% if(results[0].statecheck>5){ %>
-							<td>ผ่าน</td>
-						<% } else{ %>  
-							<td>ไม่ผ่าน</td>
-						<% } %>
-					</tr>
-					<tr>
-						<td>6</td>
-						<td><%= results[0].round06 %></td>
-						<td><%= results[0].test06 %></td>
-						<td><%= results[0].work06 %></td>
-						<% if(results[0].statecheck>6){ %>
-							<td>ผ่าน</td>
-						<% } else{ %>  
-							<td>ไม่ผ่าน</td>
-						<% } %>
-					</tr>
-					<tr>
-						<td>7</td>
-						<td><%= results[0].round07 %></td>
-						<td><%= results[0].test07 %></td>
-						<td><%= results[0].work07 %></td>
-						<% if(results[0].statecheck>7){ %>
-							<td>ผ่าน</td>
-						<% } else{ %>  
-							<td>ไม่ผ่าน</td>
-						<% } %>
-					</tr>
-					<tr>
-						<td>8</td>
-						<td><%= results[0].round08 %></td>
-						<td><%= results[0].test08 %></td>
-						<td><%= results[0].work08 %></td>
-						<% if(results[0].statecheck>8){ %>
-							<td>ผ่าน</td>
-						<% } else{ %>  
-							<td>ไม่ผ่าน</td>
-						<% } %>
-					</tr>
-					<tr>
-						<td>9</td>
-						<td><%= results[0].round09 %></td>
-						<td><%= results[0].test09 %></td>
-						<td><%= results[0].work09 %></td>
-						<% if(results[0].statecheck>9){ %>
-							<td>ผ่าน</td>
-						<% } else{ %>  
-							<td>ไม่ผ่าน</td>
-						<% } %>
-					</tr>
-					<tr>
-						<td>10</td>
-						<td><%= results[0].round10 %></td>
-						<td><%= results[0].test10 %></td>
-						<td><%= results[0].work10 %></td>
-						<% if(results[0].statecheck>10){ %>
-							<td>ผ่าน</td>
-						<% } else{ %>  
-							<td>ไม่ผ่าน</td>
-						<% } %>
-					</tr>
-					<tr>
-						<td colspan="5"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td class="table-danger">คะแนนก่อนเรียน</td>
-						<td><%= results[0].pretest %></td>
-						<td class="table-danger">คะแนนหลังเรียน</td>
-						<td><%= results[0].posttest %></td>
-					</tr>
-					<tr>
-						<td class="table-warning" colspan="4">แบบสำรวจความพึงพอใจ</td>
-						<% if(results[0].statecheck>13){ %>
-							<td>ทำแบบสำรวจเรียบร้อยแล้ว</td>
-						<% } else{ %>  
-							<td>ยังไม่ได้ทำแบบสำรวจ</td>
-						<% } %>
-					</tr>
-					<tr>
-						<td class="table-success" colspan="4">ผลการประเมินเรื่องภาพพจน์ในวรรณคดีไทย</td>
-						<% if(results[0].statecheck==13){ %>
-							<td>ผ่านการประเมิน</td>
-						<% } else{ %>  
-							<td>ยังไม่สำเร็จการประเมิน</td>
-						<% } %>
-					</tr>
-				</tbody>
-			</table>
+						<tr>
+							<td>1</td>
+							<td><%= results[0].round01 %></td>
+							<td><%= results[0].test01 %></td>
+							<td><%= results[0].work01 %></td>
+							<% if(results[0].statecheck>1){ %>
+								<td>ผ่าน</td>
+							<% } else{ %>  
+								<td>ไม่ผ่าน</td>
+							<% } %>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td><%= results[0].round02 %></td>
+							<td><%= results[0].test02 %></td>
+							<td><%= results[0].work02 %></td>
+							<% if(results[0].statecheck>2){ %>
+								<td>ผ่าน</td>
+							<% } else{ %>  
+								<td>ไม่ผ่าน</td>
+							<% } %>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td><%= results[0].round03 %></td>
+							<td><%= results[0].test03 %></td>
+							<td><%= results[0].work03 %></td>
+							<% if(results[0].statecheck>3){ %>
+								<td>ผ่าน</td>
+							<% } else{ %>  
+								<td>ไม่ผ่าน</td>
+							<% } %>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td><%= results[0].round04 %></td>
+							<td><%= results[0].test04 %></td>
+							<td><%= results[0].work04 %></td>
+							<% if(results[0].statecheck>4){ %>
+								<td>ผ่าน</td>
+							<% } else{ %>  
+								<td>ไม่ผ่าน</td>
+							<% } %>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td><%= results[0].round05 %></td>
+							<td><%= results[0].test05 %></td>
+							<td><%= results[0].work05 %></td>
+							<% if(results[0].statecheck>5){ %>
+								<td>ผ่าน</td>
+							<% } else{ %>  
+								<td>ไม่ผ่าน</td>
+							<% } %>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td><%= results[0].round06 %></td>
+							<td><%= results[0].test06 %></td>
+							<td><%= results[0].work06 %></td>
+							<% if(results[0].statecheck>6){ %>
+								<td>ผ่าน</td>
+							<% } else{ %>  
+								<td>ไม่ผ่าน</td>
+							<% } %>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td><%= results[0].round07 %></td>
+							<td><%= results[0].test07 %></td>
+							<td><%= results[0].work07 %></td>
+							<% if(results[0].statecheck>7){ %>
+								<td>ผ่าน</td>
+							<% } else{ %>  
+								<td>ไม่ผ่าน</td>
+							<% } %>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td><%= results[0].round08 %></td>
+							<td><%= results[0].test08 %></td>
+							<td><%= results[0].work08 %></td>
+							<% if(results[0].statecheck>8){ %>
+								<td>ผ่าน</td>
+							<% } else{ %>  
+								<td>ไม่ผ่าน</td>
+							<% } %>
+						</tr>
+						<tr>
+							<td>9</td>
+							<td><%= results[0].round09 %></td>
+							<td><%= results[0].test09 %></td>
+							<td><%= results[0].work09 %></td>
+							<% if(results[0].statecheck>9){ %>
+								<td>ผ่าน</td>
+							<% } else{ %>  
+								<td>ไม่ผ่าน</td>
+							<% } %>
+						</tr>
+						<tr>
+							<td>10</td>
+							<td><%= results[0].round10 %></td>
+							<td><%= results[0].test10 %></td>
+							<td><%= results[0].work10 %></td>
+							<% if(results[0].statecheck>10){ %>
+								<td>ผ่าน</td>
+							<% } else{ %>  
+								<td>ไม่ผ่าน</td>
+							<% } %>
+						</tr>
+						<tr>
+							<td colspan="5"></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td class="table-danger">คะแนนก่อนเรียน</td>
+							<td><%= results[0].pretest %></td>
+							<td class="table-danger">คะแนนหลังเรียน</td>
+							<td><%= results[0].posttest %></td>
+						</tr>
+						<tr>
+							<td class="table-warning" colspan="4">แบบสำรวจความพึงพอใจ</td>
+							<% if(results[0].statecheck>13){ %>
+								<td>ทำแบบสำรวจเรียบร้อยแล้ว</td>
+							<% } else{ %>  
+								<td>ยังไม่ได้ทำแบบสำรวจ</td>
+							<% } %>
+						</tr>
+						<tr>
+							<td class="table-success" colspan="4">ผลการประเมินเรื่องภาพพจน์ในวรรณคดีไทย</td>
+							<% if(results[0].statecheck==13){ %>
+								<td>ผ่านการประเมิน</td>
+							<% } else{ %>  
+								<td>ยังไม่สำเร็จการประเมิน</td>
+							<% } %>
+						</tr>
+					</tbody>
+				</table>
 			<div class="button-group-area mt-40 text-right">
 				<a href="/selectlesson" class="genric-btn info circle">เข้าสู่บทเรียน</a>
 			</div>

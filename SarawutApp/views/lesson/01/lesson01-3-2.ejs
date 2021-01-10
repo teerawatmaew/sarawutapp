@@ -38,7 +38,6 @@
 					<div class="col-3">
 						<div class="list-group" id="list-tab" role="tablist">
 							<a class="list-group-item list-group-item-action active" id="list-set1-list" data-toggle="list" href="#list-set1" role="tab" aria-controls="home">ใบงานที่1</a>
-							<a class="list-group-item list-group-item-action" href="#list-set2" role="tab">รีเฟรชหน้านี้</a>
 						</div>
 					</div>
 					<div class="col-9">
@@ -61,6 +60,9 @@
 												</div>
 											</div>
 										</div>
+										<div class="button-group-area text-right">
+											<a href="/lesson01-3-2" role="button" class="genric-btn e-large midbt primary">รีเฟรชหน้านี้</a>
+										</div>
 										
 										<% if (result.length > 0) { %>
 											<% for (var i = 0; i < result.length; i++) { %>
@@ -69,7 +71,7 @@
 												<% } else { %>
 													<div class="card w-75">
 												<% } %>
-														<div class="card-header"><%= result[i].username %></div>
+														<div class="card-header"><%= result[i].student_number %> ผู้โพสต์ <%= result[i].username %></div>
 														<div class="card-body">
 															<p><%= result[i].detail %></p>
 														</div>

@@ -40,7 +40,7 @@
 								จัดการบทเรียน<!--span class="badge badge-primary badge-pill">14</span-->
 							</a>
 							<a href="/managereport" class="list-group-item list-group-item-action">
-								ปัญหาที่แจ้งเข้ามา<span class="badge badge-primary badge-pill">22</span>
+								ปัญหาที่แจ้งเข้ามา<!--span class="badge badge-primary badge-pill">22</span-->
 							</a>
 							<a href="/logout" class="list-group-item list-group-item-action">ออกจากระบบ</a>
 						</div>
@@ -52,6 +52,7 @@
 								<label class="my-1 mr-2" for="selectlesson">ส่วนการเรียนที่ต้องการเปิด</label>
 								<select class="custom-select my-1 mr-sm-2" id="selectlesson" name="lessonstate">
 									<option selected>เลือกส่วนที่ต้องการเปิด..</option>
+									<option value="0">ทดสอบก่อนเรียน</option>
 									<option value="1">1</option>
 									<option value="2">2</option>
 									<option value="3">3</option>
@@ -81,6 +82,26 @@
                                 <button type="submit" class="btn btn-primary my-1">ลงประกาศ</button>	
                             </form>
                         </div>
+
+						<div class="comment-form">
+                            <h4>สร้างผู้ใช้ใหม่</h4>
+                            <form action="addaccounts" method="post">
+								<div class="form-group">
+                                    <input type="text" class="form-control" name="id" placeholder="รหัส" onfocus="this.placeholder = ''" onblur="this.placeholder = 'รหัส'">
+                                </div>
+								<div class="form-group">
+                                    <input type="text" class="form-control" name="password" placeholder="รหัสผ่าน" onfocus="this.placeholder = ''" onblur="this.placeholder = 'รหัสผ่าน'">
+                                </div>
+								<div class="form-group">
+                                    <input type="text" class="form-control" name="name" placeholder="ชื่อ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ขื่อ'">
+                                </div>
+								<div class="form-group">
+                                    <input type="text" class="form-control" name="surname" placeholder="นามสกุล" onfocus="this.placeholder = ''" onblur="this.placeholder = 'นามสกุล'">
+                                </div>
+                                <button type="submit" class="btn btn-primary my-1">สร้างผู้ใช้</button>	
+                            </form>
+                        </div>
+
 					</div>
 				</div>
 			</div>

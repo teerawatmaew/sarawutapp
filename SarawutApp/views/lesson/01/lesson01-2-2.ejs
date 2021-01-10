@@ -67,7 +67,7 @@
 												<% if (result.length > 0) { %>
 													<% for (var i = 0; i < result.length; i++) { %>
 														<div class="comment-form">
-														<h3>ความคิดเห็นของ <%= result[i].username %></h3>
+														<h3><%= result[i].student_number %> ผู้โพสต์ <%= result[i].username %></h3>
 															<p class="text-center"><%= result[i].detail %></p>
 														</div>
 													<% } %>

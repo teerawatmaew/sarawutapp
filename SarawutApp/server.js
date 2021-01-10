@@ -27,7 +27,7 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: 60000*5 }
+    cookie: { maxAge: 60000*20 }
 }))
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -115,7 +115,6 @@ app.get('/session', (request, response) => {
     response.status(200).send('name = ' + sess.name + '  ' + 'id = ' + sess.student_number);
 });
 
-
 app.get('/logout', function (request, response) {
     request.session.destroy((err) => {
         if (err) {
@@ -174,7 +173,17 @@ app.get('/answerreport', function (request, response) {
 app.get('/managecourse', function (request, response) {
     response.render('./admin/managecourse.ejs');
 });
-
+app.post('/addaccounts', function (request, response) {
+    var id = request.body.id;
+    var password = request.body.password;
+    var name = request.body.name;
+    var surname = request.body.surname;
+    connection.query('INSERT INTO accounts VALUE (?,?,?,?)', [id, password, name, surname], function (error, results, fields) {
+        connection.query('INSERT INTO result VALUE (?,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)', [id], function (error, results, fields) {
+            response.render('./admin/adminindex.ejs');
+        });
+    });
+});
 //<=============================>
 //<======= learning site =======>
 //<=============================>
@@ -209,11 +218,27 @@ app.get('/pretest', function (request, response) {
 });
 
 app.get('/posttest', function (request, response) {
-    response.render('./lesson/posttest.ejs');
+    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+        if (results[0].statecheck != 11) {
+            connection.query('SELECT * FROM controller', function (error, results, fields) {
+                response.render('./user/selectlesson.ejs', { result: results });
+            });
+        } else {
+            response.render('./lesson/posttest.ejs');
+        }
+    });
 });
 
 app.get('/assessmentform', function (request, response) {
-    response.render('./lesson/assessmentform.ejs');
+    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+        if (results[0].statecheck != 12) {
+            connection.query('SELECT * FROM controller', function (error, results, fields) {
+                response.render('./user/selectlesson.ejs', { result: results });
+            });
+        } else {
+            response.render('./lesson/assessmentform.ejs');
+        }
+    });
 });
 
 app.get('/submittest/(:lesson)/(:state)', function (request, response) {
@@ -222,21 +247,23 @@ app.get('/submittest/(:lesson)/(:state)', function (request, response) {
     var A = require('./api/v1/test1/round1');
     var lesson = request.params.lesson;
     var state = request.params.state;
+    //url_posttest = '1lCbeEt9Ivyuz4FsMWc1v889z_0wUMXGBDJCXUXV3GPQ';
     if (lesson == 0) {
-        url = '1kjkqBrd9WFZVR_PmdBXZvPXvPTHSEvtNkz_CKYCNDcs';
+        url = '19KQmqZM7KXxU_Q0FAKC_LOoaFnvnDhKvQtAc5FycBXs';
         A.submitscore(url, lesson, student_number);
-        connection.query('SELECT * FROM controller', function (error, results, fields) {
-            response.render('./user/selectlesson.ejs', { result: results });
+        connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+            var results = results;
+            response.render('./user/userindex.ejs', { results: results });
         });
     } else if (lesson == 1) {
         if (state == 1) {
-            url = '1t5v0R_L9yrf42lj8dZyA1meNRf4kD8fTGXH4lwWCI9I';
+            url = '1ZA-yJDegKNGgvTn-PrqfFn_cu1nQr2EUxXjG7xDRkw8';
         } else if (state == 2) {
-            url = '1vjCh3LVfP6IGDY3Dh3TYGWm4iaZqYzeAo5Nu6MCRKgE';
+            url = '1goxDvvAskCvul7HCWQNuaXFxKuANXT8NIOS8HF1nwt0';
         } else if (state == 3) {
-            url = '17MOv_04Vk6WiAcVM8ldo74TKgOnb5NizhtQHdvdVghI';
+            url = '1TjOgcuIutxqxj4LDmkUBjpDF4mOpIVwwrpSGU8g5Wmg';
         } else if (state == 4) {
-            url = '1vXC0Q6Bqfg2tPDuNu7pMT893iv_m4C1jpifrg__A7uc';
+            url = '1oACJ2PEePhXkce8L2Ow_Ygn-ulUAfG0INYrMwHHt7A0';
         }
         A.submitscore(url, lesson, student_number);
         response.render('./lesson/01/lesson01-process.ejs');
@@ -260,26 +287,31 @@ app.get('/checkroute01', function (request, response) {
                         var result = [
                             {
                                 sheet: '1',
+                                student_number: 'No data',
                                 username: 'No data',
                                 detail: 'No data'
                             },
                             {
                                 sheet: '2',
+                                student_number: 'No data',
                                 username: 'No data',
                                 detail: 'No data'
                             },
                             {
                                 sheet: '3',
+                                student_number: 'No data',
                                 username: 'No data',
                                 detail: 'No data'
                             },
                             {
                                 sheet: '4',
+                                student_number: 'No data',
                                 username: 'No data',
                                 detail: 'No data'
                             },
                             {
                                 sheet: '5',
+                                student_number: 'No data',
                                 username: 'No data',
                                 detail: 'No data'
                             }];
@@ -321,6 +353,7 @@ app.get('/checkroute01', function (request, response) {
                         var result = [
                             {
                                 sheet: '1',
+                                student_number: 'No data',
                                 username: 'No data',
                                 detail: 'No data'
                             }];
@@ -341,10 +374,12 @@ app.get('/checkroute01', function (request, response) {
                         var result = [
                             {
                                 sheet: '1',
+                                student_number: 'No data',
                                 username: 'No data',
                                 detail: 'No data'
                             }, {
                                 sheet: '2',
+                                student_number: 'No data',
                                 username: 'No data',
                                 detail: 'No data'
                             }];
@@ -355,17 +390,20 @@ app.get('/checkroute01', function (request, response) {
                 response.render('./lesson/01/lesson01-fourthtest.ejs');
             }
         } else if (data.round01 >= 4) {
-            if (data.status_number < 10) {
-                connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 4', function (error, results, fields) {
+            if (data.status_number < 5) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 4 AND student_number = ?', [request, session.student_number], function (error, results, fields) {
                     if (results.length > 0) {
                         var result = results;
                     } else {
                         var result = [{
                             sheet: 1,
+                            student_number: 'No data',
                             username: 'No data',
                             detail: 'No data'
-                        },{
+                        },
+                        {
                             sheet: 2,
+                            student_number: 'No data',
                             username: 'No data',
                             detail: 'No data'
                         }];
@@ -383,7 +421,7 @@ app.get('/checkstate01', function (request, response) {
     var student_number = request.session.student_number;
     connection.query('SELECT * FROM result WHERE student_number = ?', [student_number], function (error, results, fields) {
         var data = results[0];
-        if (data.test01 < 11) {
+        if (data.test01 < 7) {
             if (data.round01 == 0) {
                 connection.query('UPDATE result SET round01 = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
                     response.render('./lesson/01/lesson01-1-2.ejs');
@@ -398,26 +436,31 @@ app.get('/checkstate01', function (request, response) {
                                 var result = [
                                     {
                                         sheet: '1',
+                                        student_number: 'No data',
                                         username: 'No data',
                                         detail: 'No data'
                                     },
                                     {
                                         sheet: '2',
+                                        student_number: 'No data',
                                         username: 'No data',
                                         detail: 'No data'
                                     },
                                     {
                                         sheet: '3',
+                                        student_number: 'No data',
                                         username: 'No data',
                                         detail: 'No data'
                                     },
                                     {
                                         sheet: '4',
+                                        student_number: 'No data',
                                         username: 'No data',
                                         detail: 'No data'
                                     },
                                     {
                                         sheet: '5',
+                                        student_number: 'No data',
                                         username: 'No data',
                                         detail: 'No data'
                                     }];
@@ -467,7 +510,7 @@ app.get('/checkstate01', function (request, response) {
                 }
             } else if (data.round01 == 3) {
                 if (data.status_number == 0) {
-                    if (data.test01 > 9) {
+                    if (data.test01 > 5) {
                         connection.query('UPDATE result SET status_number = 2 WHERE student_number = ?', [student_number], function (error, results2, fields) {
                             connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 3', function (error, results, fields) {
                                 if (results.length > 0) {
@@ -476,10 +519,12 @@ app.get('/checkstate01', function (request, response) {
                                     var result = [
                                         {
                                             sheet: '1',
+                                            student_number: 'No data',
                                             username: 'No data',
                                             detail: 'No data'
                                         }, {
                                             sheet: '2',
+                                            student_number: 'No data',
                                             username: 'No data',
                                             detail: 'No data'
                                         }];
@@ -499,11 +544,13 @@ app.get('/checkstate01', function (request, response) {
                         } else {
                             var result = [{
                                 sheet: 1,
+                                student_number: 'No data',
                                 username: 'No data',
                                 detail: 'No data'
                             },
                             {
                                 sheet: 2,
+                                student_number: 'No data',
                                 username: 'No data',
                                 detail: 'No data'
                             }];
@@ -518,6 +565,7 @@ app.get('/checkstate01', function (request, response) {
                             } else {
                                 var result = [{
                                     sheet: 2,
+                                    student_number: 'No data',
                                     username: 'No data',
                                     detail: 'No data'
                                 }];
@@ -534,6 +582,7 @@ app.get('/checkstate01', function (request, response) {
                         } else {
                             var result = [{
                                 sheet: 2,
+                                student_number: 'No data',
                                 username: 'No data',
                                 detail: 'No data'
                             }];
@@ -581,7 +630,10 @@ app.post('/sheetcomment/(:lesson)/(:state)/(:worksheet)', function (request, res
     var state = request.params.state;
     var worksheet = request.params.worksheet;
     var word1 = request.body.r1;
-    var word2 = request.body.r2;
+    if (request.body.r2) {
+        var word3 = request.body.r2;
+        var detail = "1." + word1 + " 2." + word2;
+    }
     if (request.body.r3) {
         var word3 = request.body.r3;
         var detail = "1." + word1 + " 2." + word2 + " 3." + word3;
@@ -597,8 +649,8 @@ app.post('/sheetcomment/(:lesson)/(:state)/(:worksheet)', function (request, res
     if (request.body.detail) {
         var detail = request.body.detail;
     }
-    
-    connection.query('INSERT INTO sheetcomment(lesson,state,sheet,username,detail) VALUE (?,?,?,?,?)', [lesson, state, worksheet, request.session.name, detail], function (error, results2, fields) {
+
+    connection.query('INSERT INTO sheetcomment(lesson,state,sheet,student_number,username,detail) VALUE (?,?,?,?,?,?)', [lesson, state, worksheet, request.session.student_number, request.session.name, detail], function (error, results2, fields) {
         if (error) {
             response.send('Error 404 data not found.');
         } else {
@@ -624,6 +676,7 @@ app.post('/sheetcomment/(:lesson)/(:state)/(:worksheet)', function (request, res
                             var result = [
                                 {
                                     sheet: '1',
+                                    student_number: 'No data',
                                     username: 'No data',
                                     detail: 'No data'
                                 }];
@@ -636,24 +689,27 @@ app.post('/sheetcomment/(:lesson)/(:state)/(:worksheet)', function (request, res
                     response.render('./lesson/01/lesson01-successcomment.ejs');
                 });
             } else {
-                connection.query('UPDATE result SET status_number = 1 WHERE student_number = ?', [request.session.student_number], function (error, results2, fields) {
-                    connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 4', function (error, results, fields) {
+                connection.query('UPDATE result SET status_number = status_number + 1 WHERE student_number = ?', [request.session.student_number], function (error, results2, fields) {
+                    response.render('./lesson/01/lesson01-successcomment.ejs');
+                    /*connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 4', function (error, results, fields) {
                         if (results.length > 0) {
                             var result = results;
                         } else {
                             var result = [
                                 {
                                     sheet: 1,
+                                    student_number: 'No data',
                                     username: 'No data',
                                     detail: 'No data'
                                 }, {
                                     sheet: 2,
+                                    student_number: 'No data',
                                     username: 'No data',
                                     detail: 'No data'
                                 }];
                         }
-                        response.render('./lesson/01/lesson01-4-1.ejs', { result: result });
-                    });
+                        response.render('./lesson/01/lesson01-successcomment.ejs');
+                    });*/
                 });
             }
         }
@@ -737,16 +793,9 @@ app.get('/lesson01-1-3', function (request, response) {
         response.render('./lesson/01/lesson01-1-3.ejs', { result: sheets });
     });
 });
-app.get('/lesson01-1-3-1', function (request, response) {
-    response.render('./lesson/01/lesson01-1-3-1.ejs');
-});
-app.get('/lesson01-1-3-ask', function (request, response) {
-    response.render('./lesson/01/lesson01-1-3-ask.ejs');
-});
 app.get('/lesson01-secondtest', function (request, response) {
     response.render('./lesson/01/lesson01-secondtest.ejs');
 });
-
 app.get('/lesson01-2-1', function (request, response) {
     response.render('./lesson/01/lesson01-2-1.ejs');
 });
@@ -773,34 +822,62 @@ app.get('/lesson01-3-1', function (request, response) {
     response.render('./lesson/01/lesson01-3-1.ejs');
 });
 app.get('/lesson01-3-2', function (request, response) {
-    response.render('./lesson/01/lesson01-3-2.ejs');
-});
-app.get('/lesson01-3-webboard', function (request, response) {
-    response.render('./lesson/01/lesson01-3-webboard.ejs');
-});
-app.get('/lesson01-3-webboard-1', function (request, response) {
-    response.render('./lesson/01/lesson01-3-webboard-1.ejs');
-});
-app.get('/lesson01-3-webboard-2', function (request, response) {
-    response.render('./lesson/01/lesson01-3-webboard-2.ejs');
-});
-app.get('/lesson01-3-webboard-3', function (request, response) {
-    response.render('./lesson/01/lesson01-3-webboard-3.ejs');
-});
-app.get('/lesson01-3-webboard-4', function (request, response) {
-    response.render('./lesson/01/lesson01-3-webboard-4.ejs');
+    connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 3', function (error, results, fields) {
+        if (results.length > 0) {
+            var result = results;
+        } else {
+            var result = [
+                {
+                    sheet: 1,
+                    student_number: 'No data',
+                    username: 'No data',
+                    detail: 'No data'
+                }, {
+                    sheet: 2,
+                    student_number: 'No data',
+                    username: 'No data',
+                    detail: 'No data'
+                }];
+        }
+        response.render('./lesson/01/lesson01-3-2.ejs', { result: result });
+    });
 });
 app.get('/lesson01-fourthtest', function (request, response) {
     response.render('./lesson/01/lesson01-fourthtest.ejs');
 });
-
 app.get('/lesson01-4-1', function (request, response) {
-    response.render('./lesson/01/lesson01-4-1.ejs');
+    connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 4 AND student_number = ?', [request.session.student_number], function (error, results, fields) {
+        if (results.length > 0) {
+            var result = results;
+        } else {
+            var result = [
+                {
+                    sheet: 1,
+                    student_number: 'No data',
+                    username: 'No data',
+                    detail: 'No data'
+                }, {
+                    sheet: 2,
+                    student_number: 'No data',
+                    username: 'No data',
+                    detail: 'No data'
+                }];
+        }
+        response.render('./lesson/01/lesson01-4-1.ejs', { result: result });
+    });
 });
 
 //======= lesson02 =======
 app.get('/detail02', function (request, response) {
-    response.render('./lesson/02/detail02.ejs');
+    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+        if (results[0].statecheck == 2) {
+            response.render('./lesson/02/detail02.ejs');
+        } else {
+            connection.query('SELECT * FROM controller', function (error, results, fields) {
+                response.render('./user/selectlesson.ejs', { result: results });
+            });
+        }
+    });
 });
 app.get('/lesson02', function (request, response) {
     response.render('./lesson/02/lesson02.ejs');
@@ -823,7 +900,15 @@ app.get('/lesson02-4', function (request, response) {
 
 //======= lesson03 =======
 app.get('/detail03', function (request, response) {
-    response.render('./lesson/detail03.ejs');
+    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+        if (results[0].statecheck == 3) {
+            response.render('./lesson/detail03.ejs');
+        } else {
+            connection.query('SELECT * FROM controller', function (error, results, fields) {
+                response.render('./user/selectlesson.ejs', { result: results });
+            });
+        }
+    });
 });
 app.get('/lesson03', function (request, response) {
     response.render('./lesson/lesson03.ejs');
@@ -843,7 +928,15 @@ app.get('/lesson03-4', function (request, response) {
 
 //======= lesson04 =======
 app.get('/detail04', function (request, response) {
-    response.render('./lesson/detail04.ejs');
+    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+        if (results[0].statecheck == 4) {
+            response.render('./lesson/detail04.ejs');
+        } else {
+            connection.query('SELECT * FROM controller', function (error, results, fields) {
+                response.render('./user/selectlesson.ejs', { result: results });
+            });
+        }
+    });
 });
 app.get('/lesson04', function (request, response) {
     response.render('./lesson/lesson04.ejs');
@@ -863,7 +956,15 @@ app.get('/lesson04-4', function (request, response) {
 
 //=======lesson05=======
 app.get('/detail05', function (request, response) {
-    response.render('./lesson/detail05.ejs');
+    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+        if (results[0].statecheck == 5) {
+            response.render('./lesson/detail05.ejs');
+        } else {
+            connection.query('SELECT * FROM controller', function (error, results, fields) {
+                response.render('./user/selectlesson.ejs', { result: results });
+            });
+        }
+    });
 });
 app.get('/lesson05', function (request, response) {
     response.render('./lesson/lesson05.ejs');
@@ -883,7 +984,15 @@ app.get('/lesson05-4', function (request, response) {
 
 //=======lesson06=======
 app.get('/detail06', function (request, response) {
-    response.render('./lesson/detail06.ejs');
+    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+        if (results[0].statecheck == 6) {
+            response.render('./lesson/detail06.ejs');
+        } else {
+            connection.query('SELECT * FROM controller', function (error, results, fields) {
+                response.render('./user/selectlesson.ejs', { result: results });
+            });
+        }
+    });
 });
 app.get('/lesson06', function (request, response) {
     response.render('./lesson/lesson06.ejs');
@@ -903,7 +1012,15 @@ app.get('/lesson06-4', function (request, response) {
 
 //=======lesson07=======
 app.get('/detail07', function (request, response) {
-    response.render('./lesson/detail07.ejs');
+    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+        if (results[0].statecheck == 7) {
+            response.render('./lesson/detail07.ejs');
+        } else {
+            connection.query('SELECT * FROM controller', function (error, results, fields) {
+                response.render('./user/selectlesson.ejs', { result: results });
+            });
+        }
+    });
 });
 app.get('/lesson07', function (request, response) {
     response.render('./lesson/lesson07.ejs');
@@ -923,7 +1040,15 @@ app.get('/lesson07-4', function (request, response) {
 
 //=======lesson08=======
 app.get('/detail08', function (request, response) {
-    response.render('./lesson/detail08.ejs');
+    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+        if (results[0].statecheck == 8) {
+            response.render('./lesson/detail08.ejs');
+        } else {
+            connection.query('SELECT * FROM controller', function (error, results, fields) {
+                response.render('./user/selectlesson.ejs', { result: results });
+            });
+        }
+    });
 });
 app.get('/lesson08', function (request, response) {
     response.render('./lesson/lesson08.ejs');
@@ -943,7 +1068,15 @@ app.get('/lesson08-4', function (request, response) {
 
 //=======lesson09=======
 app.get('/detail09', function (request, response) {
-    response.render('./lesson/detail09.ejs');
+    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+        if (results[0].statecheck == 9) {
+            response.render('./lesson/detail09.ejs');
+        } else {
+            connection.query('SELECT * FROM controller', function (error, results, fields) {
+                response.render('./user/selectlesson.ejs', { result: results });
+            });
+        }
+    });
 });
 app.get('/lesson09', function (request, response) {
     response.render('./lesson/lesson09.ejs');
@@ -963,7 +1096,15 @@ app.get('/lesson09-4', function (request, response) {
 
 //=======lesson10=======
 app.get('/detail10', function (request, response) {
-    response.render('./lesson/detail10.ejs');
+    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+        if (results[0].statecheck == 10) {
+            response.render('./lesson/detail10.ejs');
+        } else {
+            connection.query('SELECT * FROM controller', function (error, results, fields) {
+                response.render('./user/selectlesson.ejs', { result: results });
+            });
+        }
+    });
 });
 app.get('/lesson10', function (request, response) {
     response.render('./lesson/lesson10.ejs');

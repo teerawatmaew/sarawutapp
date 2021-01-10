@@ -1,4 +1,4 @@
-/*----------------------------------------------------
+bann/*----------------------------------------------------
 @File: Default Styles
 @Author: SPONDON IT
 
@@ -594,7 +594,7 @@ img {
   position: relative;
   min-height: 430px;
   z-index: 1;
-  background: url(../img/banner/home-banner.jpg) no-repeat center center;
+  background: url(../img/banner/bg6-2.jpg) no-repeat center center;
   background-size: cover; }
   .banner_area .banner_inner {
     position: relative;
