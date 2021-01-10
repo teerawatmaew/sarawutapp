@@ -364,7 +364,7 @@ app.get('/checkroute01', function (request, response) {
                 response.render('./lesson/01/lesson01-thirdtest.ejs');
             }
         } else if (data.round01 == 3) {
-            if (data.status_number == 1) {
+            if (data.status_number == 0) {
                 response.render('./lesson/01/lesson01-3-1.ejs');
             } else if (data.status_number < 7) {
                 connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 3', function (error, results, fields) {
@@ -421,7 +421,7 @@ app.get('/checkstate01', function (request, response) {
     var student_number = request.session.student_number;
     connection.query('SELECT * FROM result WHERE student_number = ?', [student_number], function (error, results, fields) {
         var data = results[0];
-        if (data.test01 < 7) {
+        if (data.test01 < 8) {
             if (data.round01 == 0) {
                 connection.query('UPDATE result SET round01 = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
                     response.render('./lesson/01/lesson01-1-2.ejs');
@@ -631,7 +631,7 @@ app.post('/sheetcomment/(:lesson)/(:state)/(:worksheet)', function (request, res
     var worksheet = request.params.worksheet;
     var word1 = request.body.r1;
     if (request.body.r2) {
-        var word3 = request.body.r2;
+        var word2 = request.body.r2;
         var detail = "1." + word1 + " 2." + word2;
     }
     if (request.body.r3) {
