@@ -187,7 +187,6 @@ app.post('/addaccounts', function (request, response) {
 //<=============================>
 //<======= learning site =======>
 //<=============================>
-
 app.get('/userindex', function (request, response) {
     connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
         var results = results;
@@ -196,7 +195,7 @@ app.get('/userindex', function (request, response) {
 });
 
 app.get('/selectlesson', function (request, response) {
-    connection.query('SELECT * FROM controller', function (error, results, fields) {
+    connection.query('SELECT currentstate FROM controller WHERE id = 1', function (error, results, fields) {
         if (error) {
             throw error;
         } else {
@@ -206,7 +205,7 @@ app.get('/selectlesson', function (request, response) {
 });
 
 app.get('/pretest', function (request, response) {
-    connection.query('SELECT * FROM result WHERE student_number = ?',[request.session.student_number], function (error, results, fields) {
+    connection.query('SELECT statecheck FROM result WHERE student_number = ?',[request.session.student_number], function (error, results, fields) {
         if ( results[0].statecheck > 0) {
             connection.query('SELECT * FROM controller', function (error, results, fields) {
                 response.render('./user/selectlesson.ejs', { result: results });
@@ -218,7 +217,7 @@ app.get('/pretest', function (request, response) {
 });
 
 app.get('/posttest', function (request, response) {
-    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+    connection.query('SELECT statecheck FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
         if (results[0].statecheck != 11) {
             connection.query('SELECT * FROM controller', function (error, results, fields) {
                 response.render('./user/selectlesson.ejs', { result: results });
@@ -230,7 +229,7 @@ app.get('/posttest', function (request, response) {
 });
 
 app.get('/assessmentform', function (request, response) {
-    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+    connection.query('SELECT statecheck FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
         if (results[0].statecheck != 12) {
             connection.query('SELECT * FROM controller', function (error, results, fields) {
                 response.render('./user/selectlesson.ejs', { result: results });
@@ -391,7 +390,7 @@ app.get('/checkroute01', function (request, response) {
             }
         } else if (data.round01 >= 4) {
             if (data.status_number < 5) {
-                connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 4 AND student_number = ?', [request, session.student_number], function (error, results, fields) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 4 AND student_number = ?', [request.session.student_number], function (error, results, fields) {
                     if (results.length > 0) {
                         var result = results;
                     } else {
@@ -691,25 +690,6 @@ app.post('/sheetcomment/(:lesson)/(:state)/(:worksheet)', function (request, res
             } else {
                 connection.query('UPDATE result SET status_number = status_number + 1 WHERE student_number = ?', [request.session.student_number], function (error, results2, fields) {
                     response.render('./lesson/01/lesson01-successcomment.ejs');
-                    /*connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 4', function (error, results, fields) {
-                        if (results.length > 0) {
-                            var result = results;
-                        } else {
-                            var result = [
-                                {
-                                    sheet: 1,
-                                    student_number: 'No data',
-                                    username: 'No data',
-                                    detail: 'No data'
-                                }, {
-                                    sheet: 2,
-                                    student_number: 'No data',
-                                    username: 'No data',
-                                    detail: 'No data'
-                                }];
-                        }
-                        response.render('./lesson/01/lesson01-successcomment.ejs');
-                    });*/
                 });
             }
         }
@@ -718,7 +698,7 @@ app.post('/sheetcomment/(:lesson)/(:state)/(:worksheet)', function (request, res
 
 //======= lesson01 =======
 app.get('/detail01', function (request, response) {
-    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+    connection.query('SELECT statecheck FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
         if (results[0].statecheck == 1) {
             response.render('./lesson/01/detail01.ejs');
         } else {
@@ -785,11 +765,6 @@ app.get('/lesson01-1-2', function (request, response) {
 });
 app.get('/lesson01-1-3', function (request, response) {
     connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 1', function (error, sheets, fields) {
-        if (sheets.length > 0) {
-            
-        } else {
-
-        }
         response.render('./lesson/01/lesson01-1-3.ejs', { result: sheets });
     });
 });
@@ -869,7 +844,7 @@ app.get('/lesson01-4-1', function (request, response) {
 
 //======= lesson02 =======
 app.get('/detail02', function (request, response) {
-    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+    connection.query('SELECT statecheck FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
         if (results[0].statecheck == 2) {
             response.render('./lesson/02/detail02.ejs');
         } else {
@@ -900,7 +875,7 @@ app.get('/lesson02-4', function (request, response) {
 
 //======= lesson03 =======
 app.get('/detail03', function (request, response) {
-    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+    connection.query('SELECT statecheck FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
         if (results[0].statecheck == 3) {
             response.render('./lesson/detail03.ejs');
         } else {
@@ -928,7 +903,7 @@ app.get('/lesson03-4', function (request, response) {
 
 //======= lesson04 =======
 app.get('/detail04', function (request, response) {
-    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+    connection.query('SELECT statecheck FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
         if (results[0].statecheck == 4) {
             response.render('./lesson/detail04.ejs');
         } else {
@@ -956,7 +931,7 @@ app.get('/lesson04-4', function (request, response) {
 
 //=======lesson05=======
 app.get('/detail05', function (request, response) {
-    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+    connection.query('SELECT statecheck FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
         if (results[0].statecheck == 5) {
             response.render('./lesson/detail05.ejs');
         } else {
@@ -984,7 +959,7 @@ app.get('/lesson05-4', function (request, response) {
 
 //=======lesson06=======
 app.get('/detail06', function (request, response) {
-    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+    connection.query('SELECT statecheck FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
         if (results[0].statecheck == 6) {
             response.render('./lesson/detail06.ejs');
         } else {
@@ -1012,7 +987,7 @@ app.get('/lesson06-4', function (request, response) {
 
 //=======lesson07=======
 app.get('/detail07', function (request, response) {
-    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+    connection.query('SELECT statecheck FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
         if (results[0].statecheck == 7) {
             response.render('./lesson/detail07.ejs');
         } else {
@@ -1040,7 +1015,7 @@ app.get('/lesson07-4', function (request, response) {
 
 //=======lesson08=======
 app.get('/detail08', function (request, response) {
-    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+    connection.query('SELECT statecheck FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
         if (results[0].statecheck == 8) {
             response.render('./lesson/detail08.ejs');
         } else {
@@ -1068,7 +1043,7 @@ app.get('/lesson08-4', function (request, response) {
 
 //=======lesson09=======
 app.get('/detail09', function (request, response) {
-    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+    connection.query('SELECT statecheck FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
         if (results[0].statecheck == 9) {
             response.render('./lesson/detail09.ejs');
         } else {
@@ -1096,7 +1071,7 @@ app.get('/lesson09-4', function (request, response) {
 
 //=======lesson10=======
 app.get('/detail10', function (request, response) {
-    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+    connection.query('SELECT statecheck FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
         if (results[0].statecheck == 10) {
             response.render('./lesson/detail10.ejs');
         } else {
