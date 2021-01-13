@@ -1,6 +1,7 @@
 var mysql = require('mysql');
 
-var connection = mysql.createConnection({
+var connection = mysql.createPool({
+    connectionLimit: 50,
     host: 'localhost',
     user: 'root',
     password: '1234',
@@ -96,7 +97,7 @@ module.exports = {
                     //console.log('Time, Score, ID:');
                     // Print columns A and E, which correspond to indices 0 and 4.
                     rows.map((row) => {
-                        //    console.log(row);
+                        //console.log(row);
                         if (row[2] == student_number) {
                             var data = row[1].split("/");
                             //console.log(data[0]);

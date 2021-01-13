@@ -15,13 +15,22 @@ const { GoogleSpreadsheet } = require('google-spreadsheet');
 const { connect } = require("net");
 
 var app = express();
-
+/*
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '1234',
     database: 'lms'
 });
+*/
+var connection = mysql.createPool({
+    connectionLimit: 50,
+    host: 'localhost',
+    user: 'root',
+    password: '1234',
+    database: 'lms'
+});
+
 
 app.use(session({
     secret: 'keyboard cat',
@@ -250,10 +259,7 @@ app.get('/submittest/(:lesson)/(:state)', function (request, response) {
     if (lesson == 0) {
         url = '19KQmqZM7KXxU_Q0FAKC_LOoaFnvnDhKvQtAc5FycBXs';
         A.submitscore(url, lesson, student_number);
-        connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
-            var results = results;
-            response.render('./user/userindex.ejs', { results: results });
-        });
+        response.render('./user/successlogin.ejs');
     } else if (lesson == 1) {
         if (state == 1) {
             url = '1ZA-yJDegKNGgvTn-PrqfFn_cu1nQr2EUxXjG7xDRkw8';
