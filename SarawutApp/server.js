@@ -21,6 +21,7 @@ var app = express();
     password: '1234',
     database: 'lms'
 });*/
+//socketPath: '/cloudsql/my-nodejs-express:asia-southeast1:root'
 var connection = mysql.createPool({
     connectionLimit: 100,
     host: 'localhost',
