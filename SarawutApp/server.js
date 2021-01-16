@@ -21,7 +21,7 @@ var app = express();
     password: '1234',
     database: 'lms'
 });*/
-//socketPath: '/cloudsql/my-nodejs-express:asia-southeast1:root'
+//socketPath: '/cloudsql/maenlms:asia-southeast1:root'
 var connection = mysql.createPool({
     connectionLimit: 100,
     host: 'localhost',
@@ -49,7 +49,6 @@ app.use(express.static(path.join(__dirname, 'public'))); // configure express to
 //<===================>
 //<====== index ======>
 //<===================>
-
 app.get('/', function (request, response) {
     response.render('firstpage.ejs');
 });
@@ -57,7 +56,6 @@ app.get('/', function (request, response) {
 //<===================>
 //<====== login ======>
 //<===================>
-
 app.post('/loginstudy', function (request, response) {
     var username = request.body.student_number;
     var password = request.body.password;
@@ -134,7 +132,6 @@ app.get('/logout', function (request, response) {
 //<========================>
 //<======= all menu =======>
 //<========================>
-
 const { login, loginprofile, logincheckresult, report, checkresult, systeminfo, info, userprofile, qa } = require('./route/menu');
 app.get('/login', login);
 app.get('/loginprofile', loginprofile);
@@ -149,7 +146,6 @@ app.get('/QA', qa);
 //<=====================>
 //<====== all api ======>
 //<=====================>
-
 const { add_accounts, edit_accounts, delete_accounts, get_accounts, get_accounts_id } = require('./api/v1/accounts');
 app.get('/accounts', get_accounts);
 app.get('/accounts/(:id)', get_accounts_id);
@@ -168,29 +164,13 @@ app.post('/sendreport', send_report);
 //<==========================>
 //<======= admin site =======>
 //<==========================>
-app.get('/adminindex', function (request, response) {
-    response.render('./admin/adminindex.ejs');
-});
-app.get('/managereport', function (request, response) {
-    response.render('./admin/managereport.ejs');
-});
-app.get('/answerreport', function (request, response) {
-    response.render('./admin/answerreport.ejs');
-});
-app.get('/managecourse', function (request, response) {
-    response.render('./admin/managecourse.ejs');
-});
-app.post('/addaccounts', function (request, response) {
-    var id = request.body.id;
-    var password = request.body.password;
-    var name = request.body.name;
-    var surname = request.body.surname;
-    connection.query('INSERT INTO accounts VALUE (?,?,?,?)', [id, password, name, surname], function (error, results, fields) {
-        connection.query('INSERT INTO result VALUE (?,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)', [id], function (error, results, fields) {
-            response.render('./admin/adminindex.ejs');
-        });
-    });
-});
+const { adminindex, managereport, answerreport, managecourse, addaccounts } = require('./route/adminmenu');
+app.get('/adminindex', adminindex);
+app.get('/managereport', managereport);
+app.get('/answerreport', answerreport);
+app.get('/managecourse', managecourse);
+app.post('/addaccounts', addaccounts);
+
 //<=============================>
 //<======= learning site =======>
 //<=============================>
@@ -711,7 +691,6 @@ app.get('/lesson01', function (request, response) {
 app.get('/lesson01-firsttest', function (request, response) {
     response.render('./lesson/01/lesson01-firsttest.ejs');
 });
-
 app.get('/lesson01-1-work', function (request, response) {
     var random_page = Math.floor(Math.random() * 5) + 1;
     switch (random_page) {
