@@ -171,6 +171,80 @@ app.get('/answerreport', answerreport);
 app.get('/managecourse', managecourse);
 app.post('/addaccounts', addaccounts);
 
+app.get('/manage01', function (request, response) {
+    response.render('./admin/manage01.ejs');
+});
+
+app.get('/manage01-1', function (request, response) {
+    connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 1', function (error, results, fields) {
+        if (error) {
+            throw (error);
+        } else {
+            response.render('./admin/manage01-1.ejs', { result: results });
+        }
+    });
+});
+app.get('/manage01-2', function (request, response) {
+    connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 2', function (error, results, fields) {
+        if (error) {
+            throw (error);
+        } else {
+            response.render('./admin/manage01-2.ejs', { result: results });
+        }
+    });
+});
+app.get('/manage01-3', function (request, response) {
+    connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 3', function (error, results, fields) {
+        if (error) {
+            throw (error);
+        } else {
+            response.render('./admin/manage01-3.ejs', { result: results });
+        }
+    });
+});
+app.get('/manage01-4', function (request, response) {
+    connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 4', function (error, results, fields) {
+        if (error) {
+            throw (error);
+        } else {
+            response.render('./admin/manage01-4.ejs', { result: results });
+        }
+    });
+});
+
+app.post('/addworkscore/(:id)/(:lesson)', function (request, response) {
+    var id = request.params.id;
+    var lesson = request.params.lesson;
+    var score = request.body.score;
+    if (lesson == 1) {
+        connection.query('UPDATE result SET work01 = ? WHERE student_number = ?', [score, id], function (error, results, fields) {
+            if (error) {
+                throw (error);
+            } else {
+                response.render('./admin/successprocess.ejs');
+            }
+        });
+    } else if (lesson == 2) {
+
+    } else if (lesson == 3) {
+
+    } else if (lesson == 4) {
+
+    } else if (lesson == 5) {
+
+    } else if (lesson == 6) {
+
+    } else if (lesson == 7) {
+
+    } else if (lesson == 8) {
+
+    } else if (lesson == 9) {
+
+    } else if (lesson == 10) {
+
+    }
+});
+
 //<=============================>
 //<======= learning site =======>
 //<=============================>
