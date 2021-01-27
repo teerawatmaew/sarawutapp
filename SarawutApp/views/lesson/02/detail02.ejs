@@ -1,6 +1,5 @@
 ﻿<!doctype html>
 <html lang="en">
-
 <head>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
@@ -30,32 +29,67 @@
 	</nav>
 	<br>
 	<!--================Contact Area =================-->
-    <section>
+        <section>
 		<div class="row justify-content-md-center">
 			<div class="jumbotron col-lg-8 col-sm-8">
-				<h2>วัตถุประสงค์</h2>
+				<h2>จุดประสงค์การเรียนรู้บทที่ 2</h2>
 				<hr>
 				<div>
-					<ol class="ordered-list">
-						<li><span>a</span></li>
-						<li><span>b</span></li>
-						<li><span>c</span>
-							<ol class="ordered-list-alpha">
-								<li><span>d</span>
-									<ol class="ordered-list-roman">
-										<li><span>e</span></li>
-									</ol>
-								</li>
+					<ul>
+						<li>
+							<ol class="ordered-list">
+								<li><h4>นักเรียนสามารถอธิบายความหมายของภาพพจน์ได้ (K)</h4></li>
+								<li><h4>นักเรียนสามารถอธิบายความสำคัญของภาพพจน์ได้ (K)</h4></li>
+								<li><h4>นักเรียนสามารถวิเคราะห์ภาพพจน์ในบทประพันธ์ได้ (P)</h4></li>
+								<li><h4>นักเรียนสามารถประเมินค่าภาพพจน์ในบทประพันธ์ได้ (P)</h4></li>
+								<li><h4>นักเรียนมีความมุ่งมั่นในการทำงานและตอบคำถาม (A)</h4></li>
 							</ol>
 						</li>
-					</ol>
+					</ul>
 				</div>
 				<hr>
-				<a class="btn btn-primary btn-lg" href="/lesson02" role="button">เข้าสู่บทเรียน</a>
+				<a class="btn btn-primary btn-lg" data-toggle="modal" href="#myModal" role="button">เข้าสู่บทเรียน</a>
 			</div>
 		</div>
     </section>
     <!--================Contact Area =================-->
+	<div class="modal hide fade" id="myModal" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">ข้อความจากอาจารย์</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body text-center">
+					<script type="text/javascript">
+                        //var random_images_array = ["01.png", "02.png", "03.png", "04.png", "05.png", "06.png", "07.png"];
+                        var random_images_array = ["1AY1drFqOGJI3mzbakD6HA5gPt1i2oVuU", "1o4e5qeQVFVe1fXQWzkjEtt_zCaaIoY6d", "19Dhi7AmA21awpUwAElpl7LnXMbHj3HtJ", "143_pP7aFHHm8ExIY-OvxeIdZdTNnS94k", "1XKUTUAXO15z5BSEGsUr4u-cy7HyXlbEB", "11LL5eSIckLTz7olppvzNm_GeFfx2SrKU", "1A6RrsrBgUUb4onOYktDC8i2jFcEbGJgC"];
+
+                        function getRandomImage(imgAr, path) {
+                            path = path || 'images/'; // default path here
+                            var num = Math.floor(Math.random() * imgAr.length);
+                            var img = imgAr[num];
+                            var imgStr = '<img style="height:200px;width:200px;" src="' + path + img + '" alt="">';
+                            document.write(imgStr); document.close();
+						}
+
+                        //getRandomImage(random_images_array, "/img/sticker/Talk/");
+                        getRandomImage(random_images_array, "https://drive.google.com/uc?id=");
+                    </script>
+					<p>พร้อมเข้าสู่บทเรียนแล้วหรือยัง ?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+					<a class="btn btn-primary" href="/checkroute02" role="button">เข้าสู่บทเรียน</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--================Footer Area =================-->
+	<%- include('../../partials/footeruser.ejs'); -%>
+	<!--================End Footer Area =================-->
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

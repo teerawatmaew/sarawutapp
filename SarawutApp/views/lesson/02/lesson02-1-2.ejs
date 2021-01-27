@@ -1,0 +1,100 @@
+﻿<!doctype html>
+<html lang="en">
+
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="icon" href="img/favicon.png" type="image/png">
+		<title>บทที่ 2</title>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="vendors/linericon/style.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+		<link rel="stylesheet" href="css/magnific-popup.css">
+		<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+		<link rel="stylesheet" href="vendors/animate-css/animate.css">
+		<link rel="stylesheet" href="vendors/flaticon/flaticon.css">
+		<!-- main css -->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body>
+		<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+			<a href="/detail01" class="genric-btn default circle">ย้อนกลับ</a>
+			<span>Home</span>
+			<h4>ชื่อ-สกุล : <%= sess.name %></h4>
+			<h4>รหัสประจำตัวนักเรียน : <%= sess.student_number %></h4>
+			<a href="/logout" class="genric-btn danger circle">ออกจากระบบ</a>
+		</nav>
+		<br>
+	<!-- Start Align Area -->
+			<div class="whole-wrap">
+				<div class="container">
+					<h2 class="text-center">เรียนรู้เพิ่มเติมบทที่ 2 ครั้งที่ 2 เรื่องอุปมา</h2>
+					<div class="section-top-border">
+						<div class="row">
+							<div class="col-3">
+								<div class="list-group" id="list-tab" role="tablist">
+									<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">เนิ้อหาบทเรียน</a>
+									<a class="list-group-item list-group-item-action" id="list-learn1-list" data-toggle="list" href="#list-learn1" role="tab" aria-controls="test">วิดิโอเนิ้อหา</a>
+								</div>
+							</div>
+							<div class="col-9">
+								<div class="tab-content" id="nav-tabContent">
+									<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+										<h3 class="text-center">ความรู้เรื่องอุปมา</h3>
+										<p>&emsp;๑. อุปมา (Simile) การเปรียบเทียบของสองสิ่งที่มีลักษณะคล้ายกัน ซึ่งสามารถเปรียบเทียบได้ทั้ง คน สัตว์ สิ่งของ และนามธรรม จับต้องไม่ได้ ทั้งนี้สิ่งที่นำมาเปรียบเทียบต้องเป็นสิ่งที่คนทั่วไปมักรู้จักลักษณะหรือคุณสมบัติของสิ่งนั้น ๆ กันดีอยู่แล้ว สิ่งที่นำมาเปรียบเทียบกันจะต้องมีลักษณะบางอย่างที่มีร่วมกัน โดยที่การเปรียบเทียบนี้จะต้องเปรียบเทียบระหว่างสิ่งที่ต่างจำพวกกัน และมีคำเชื่อมที่บ่งบอกถึงการเปรียบเทียบ มักใช้คำเปรียบว่า เหมือน ดุจ ดัง ดั่ง เฉก เช่น ราว ราวกับ เล่ห์ ประหนึ่ง กล เพียง ฯลฯ โดยให้ท่องจำว่า อุปมาเปรียบเหมือน</p>
+										<p>ตัวอย่าง</p>
+										<p class="text-center">“แอบไม้ลอบดูอยู่ช้านาน&emsp;&emsp;พิศพักตร์เยาวมาลย์เพียงดวงเดือน</p>
+										<p class="text-right">(อิเหนา: พระบาทสมเด็จพระพุทธเลิศหล้านภาลัย)</p>
+										<p>&emsp;จากบทประพันธ์ข้างต้น ปรากฏคำเชื่อม “เพียง” ในบทประพันธ์ เป็นการเปรียบเทียบ ใบหน้า เหมือน พระจันทร์ ความเหมือนในที่นี้ผู้ประพันธ์หมายถึง ความนวล ความกระจ่าง ความสดใส</p>
+										<p class="text-center">“พี่หมายน้องดุจปองปาริกชาติ&emsp;&emsp;มณฑาไทเทวราชในสวนสวรรค์”</p>
+										<p class="text-right">(เพลงยาวนายนรินทรธิเบศร์: นรินทรธิเบศร์)</p>
+										<p>&emsp;จากตัวอย่างข้างต้นจะเห็นได้ว่า ปรากฏคำเชื่อม “ดุจ” ในบทประพันธ์ แปลความหมายได้ว่า พี่ต้องการน้อง(นางอันเป็นที่รัก) เหมือนดอกไม้ในสวนสวรรค์ ซึ่งความเหมือนในที่นี้ผู้ประพันธ์หมายถึง มีค่า ความสวยงามสูงส่ง</p>
+										<p class="text-center">“สุวรรณหงส์ทรงภู่ห้อย&emsp;งามชดช้อยลอยหลังสินธุ์</p>
+										<p class="text-center">เพียงหงส์ทรงพรหมินทร์&emsp;&emsp;ลินลาศเลื่อนเตือนตาชม”</p>
+										<p class="text-right">(กาพย์เห่เรือ: เจ้าฟ้าธรรมธิเบศ)</p>
+										<p>&emsp;*ข้อควรระวัง การเปรียบเทียบสิ่งเดียวกันจะไม่นับว่าเป็นอุปมา เช่น แม่สวยเหมือนยาย หรือ ลูกสวยเหมือนแม่ หรือ กรุงเทพฯเหมือนนิวยอร์ก</p>
+									</div>
+									<div class="tab-pane fade" id="list-learn1" role="tabpanel" aria-labelledby="list-learn1-list">
+										<iframe width="560" height="315" src="https://www.youtube.com/embed/vcLBwmWyfkA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										<div class="button-group-area text-right">
+											<a href="/checkstate02" role="button" class="genric-btn e-large midbt success">ศึกษาใบงาน</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+    <!--================Footer Area =================-->
+	<%- include('../../partials/footeruser.ejs'); -%>
+	<!--================End Footer Area =================-->
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/stellar.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+	<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+	<script src="vendors/isotope/isotope-min.js"></script>
+	<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+	<script src="js/jquery.ajaxchimp.min.js"></script>
+	<script src="vendors/counter-up/jquery.waypoints.min.js"></script>
+	<script src="vendors/counter-up/jquery.counterup.min.js"></script>
+	<script src="js/mail-script.js"></script>
+	<!--gmaps Js-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+	<script src="js/gmaps.min.js"></script>
+	<script src="js/theme.js"></script>
+</body>
+
+</html>
+

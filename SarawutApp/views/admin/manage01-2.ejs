@@ -29,70 +29,66 @@
 	<br>
 
 	<div class="whole-wrap">
-				<div class="container">
-					<h2 class="text-center">เรียนรู้เพิ่มเติมบทที่ 1 ครั้งที่ 2 เรื่องภาพพจน์</h2>
-					<div class="section-top-border">
-						<div class="row">
-							<div class="col-3">
-								<div class="list-group" id="list-tab" role="tablist">
-									<a class="list-group-item list-group-item-action active" id="list-set1-list" data-toggle="list" href="#list-set1" role="tab" aria-controls="home">ใบงานของนักเรียน</a>
-									
-								</div>
-							</div>
-							<div class="col-9">
-								<div class="tab-content" id="nav-tabContent">
-									<div class="tab-pane fade show active" id="list-set1" role="tabpanel" aria-labelledby="list-set1-list">
-										<section>
-											<div class="container">
-												<div class="section-top-border text-left">
-													<h3 class="mb-30 title_color">ใบงานของนักเรียน</h3>
-													<div class="row">
-														<div class="col-md-9 text-center">
-															<img src="https://drive.google.com/uc?id=1JjEI-uqAIGXECRw8ex7RC-GwooYmTao9" alt="post" />
-														</div>
-														<div class="col-md-3">
-															<div class="blog_info text-right">
-																<ul class="blog_meta list">
-																	<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
-																</ul>
-															</div>
-														</div>
+		<div class="container">
+			<h2 class="text-center">เรียนรู้เพิ่มเติมบทที่ 1 ครั้งที่ 2 เรื่องภาพพจน์</h2>
+			<div class="section-top-border">
+				<div class="row">
+					<div class="col-3">
+						<div class="list-group" id="list-tab" role="tablist">
+							<a class="list-group-item list-group-item-action active" id="list-set1-list" data-toggle="list" href="#list-set1" role="tab" aria-controls="home">ใบงานของนักเรียน</a>
+						</div>
+					</div>
+					<div class="col-9">
+						<div class="tab-content" id="nav-tabContent">
+							<div class="tab-pane fade show active" id="list-set1" role="tabpanel" aria-labelledby="list-set1-list">
+								<section>
+									<div class="container">
+										<div class="section-top-border text-left">
+											<h3 class="mb-30 title_color">ใบงานของนักเรียน</h3>
+											<div class="row">
+												<div class="col-md-9 text-center">
+													<img src="https://drive.google.com/uc?id=1JjEI-uqAIGXECRw8ex7RC-GwooYmTao9" alt="post" />
+												</div>
+												<div class="col-md-3">
+													<div class="blog_info text-right">
+														<ul class="blog_meta list">
+															<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
+														</ul>
 													</div>
 												</div>
-												<div class="button-group-area text-right">
-													<a href="/manage01-2" role="button" class="genric-btn e-large midbt primary">รีเฟรชคำตอบที่นี่</a>
-												</div>
-												<% if (result.length > 0) { %>
-													<% for (var i = 0; i < result.length; i++) { %>
-													<div class="card text-white bg-secondary w-75">
-														<div class="card-header"><%= result[i].student_number %> ผู้โพสต์ <%= result[i].username %></div>
-														<div class="card-body">
-															<p><%= result[i].detail %></p>
-														</div>
-														<div class="card-body">
-															<form action="addworkscore/<%= result[i].student_number %>/1" method="post">
-																<input name="score" type="number" value="5">
-																<input type="submit">
-															</form>
-														</div>
-													</div>
-													<br>
-												<% } %>
-											<% } %>
 											</div>
-										</section>
-									</div>
-									
+										</div>
+										<div class="button-group-area text-right">
+											<a href="/manage01-2" role="button" class="genric-btn e-large midbt primary">รีเฟรชคำตอบที่นี่</a>
+										</div>
+										<% if (result.length > 0) { %>
+											<% for (var i = 0; i < result.length; i++) { %>
+											<div class="card text-white bg-secondary w-75">
+												<div class="card-header"><%= result[i].student_number %> ผู้โพสต์ <%= result[i].username %></div>
+												<div class="card-body">
+													<p><%= result[i].detail %></p>
+												</div>
+												<div class="card-body">
+													<form action="addworkscore/<%= result[i].student_number %>/1" method="post">
+														<input name="score" type="number" value="5">
+														<input type="submit">
+													</form>
+												</div>
+											</div>
+											<br>
+											<% } %>
+										<% } %>
+										</div>
+									</section>
 								</div>
+					
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
-	<br>
-
-
+		</div>
+		<br>
 
 	<!--================Footer Area =================-->
 	<%- include('../partials/footeruser.ejs'); -%>
