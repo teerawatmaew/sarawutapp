@@ -22,7 +22,7 @@
 
 <body>
 	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-		<a href="/selectlesson" class="genric-btn default circle">ย้อนกลับ</a>
+		<a href="/detail04" class="genric-btn default circle">ย้อนกลับ</a>
 		<span>Home</span>
 		<h4>ชื่อ-สกุล : <%= sess.name %></h4>
 		<h4>รหัสประจำตัวนักเรียน : <%= sess.student_number %></h4>
@@ -33,62 +33,56 @@
 	<!--================Contact Area =================-->
 	<section>
         <div class="container">
-			<div class="section-top-border text-left">
-				<h3 class="mb-30 title_color">เลือก ๑ บรรทัดแล้วอธิบายการอุปมาตามความเข้าใจ</h3>
-				<div class="row">
-					<div class="col-md-9 text-center">
-						<img src="img/mw/2-9.PNG" alt="" class="img-fluid">
+			<div class="row">
+				<div class="col-3">
+					<div class="list-group" id="list-tab" role="tablist">
+						<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">ใบงานที่</a>
 					</div>
-					<div class="col-md-3">
-						<div class="blog_info text-right">
-                            <ul class="blog_meta list">
-								<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
-                            </ul>
-                        </div>
+				</div>
+				<div class="col-9">
+					<div class="tab-content" id="nav-tabContent">
+						<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+							<h3>เสริมต่อครั้งที่ 1 แบบฝึกที่ 5 เรื่องบุคคลวัต</h3>
+							<hr>
+							<form action="sheetcomment/4/1/5" method="POST">
+								<div class="mt-10">
+									<img src="https://drive.google.com/uc?id=1c4t9jFH6ZyeZr-7awt9aB0nrT_V9zgzM" alt="post" />
+								</div>
+								<div class="mt-10">
+									<input type="text" class="single-input" name="r1" placeholder="ข้อ 1." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 1.'" required>									
+								</div>
+								<br>
+								<div class="mt-10">
+									<input type="text" class="single-input" name="r2" placeholder="ข้อ 2." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 2.'" required>
+								</div>
+								<br>
+								<div class="mt-10">
+									<input type="text" class="single-input" name="r3" placeholder="ข้อ 3." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 3.'" required>
+								</div>
+								<br>
+								<div class="mt-10">
+									<input type="text" class="single-input" name="r4" placeholder="ข้อ 4." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 4.'" required>
+								</div>
+								<br>
+								<div class="mt-10">
+									<input type="text" class="single-input" name="r5" placeholder="ข้อ 5." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 5.'" required>
+								</div>
+								<br>
+								<div class="mt-10 text-center">
+									<button type="submit" class="btn btn-primary mb-2">ส่งคำตอบ</button>	
+								</div>
+							</form>
+							<br>
+						</div>
 					</div>
 				</div>
 			</div>
-			<div class="comment-form">
-				<form action="postcomment02" method="POST">
-					<div class="form-group">
-                        <textarea class="form-control mb-10" rows="5" name="message" placeholder="เนื้อหา..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'เนื้อหา...'" required=""></textarea>
-                    </div>
-                    <input type="submit" value="ส่งความเห็น" name="login">	
-                </form>
-            </div>
-			<div class="row">
-				<div class="button-group-area text-center">
-					<a href="/userindex" class="genric-btn primary">จบบทเรียน</a>
-                </div>
-			</div>
-			<br>
         </div>
     </section>    
     <!--================Contact Area =================-->
 
 	<!--================Footer Area =================-->
-	<footer class="footer_area section_gap_top">
-		<div class="container">
-			<div class="row single-footer-widget">
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="copy_right_text">
-						<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="social_widget">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-dribbble"></i></a>
-						<a href="#"><i class="fa fa-behance"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</footer>
+	<%- include('../../partials/footeruser.ejs'); -%>
 	<!--================End Footer Area =================-->
 
 	<!-- Optional JavaScript -->

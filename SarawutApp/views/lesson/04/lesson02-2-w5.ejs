@@ -1,0 +1,123 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+	<title>บทที่ 2</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="vendors/linericon/style.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+	<link rel="stylesheet" href="vendors/animate-css/animate.css">
+	<link rel="stylesheet" href="vendors/flaticon/flaticon.css">
+	<!-- main css -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+		<a href="/detail02" class="genric-btn default circle">ย้อนกลับ</a>
+		<span>Home</span>
+		<h4>ชื่อ-สกุล : <%= sess.name %></h4>
+		<h4>รหัสประจำตัวนักเรียน : <%= sess.student_number %></h4>
+		<a href="/logout" class="genric-btn danger circle">ออกจากระบบ</a>
+	</nav>
+	<br>
+
+	<!--================Contact Area =================-->
+	<section>
+        <div class="container">
+			<div class="row">
+				<div class="col-3">
+					<div class="list-group" id="list-tab" role="tablist">
+						<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">ใบงานที่</a>
+					</div>
+				</div>
+				<div class="col-9">
+					<div class="tab-content" id="nav-tabContent">
+						<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+							<h3>เสริมต่อครั้งที่ 2 เรื่องอุปมา</h3>
+							<hr>
+							<form action="sheetcomment/2/2/5" method="POST">
+								<div class="mt-10">
+									<img src="https://drive.google.com/uc?id=1nKAWQo1o6DoBtKwMN0F74D-rdVK2DOCR" alt="post" />
+								</div>
+								<div class="mt-10">
+									<input type="text" class="single-input" name="s1" placeholder="ข้อย่อย 1." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อย่อย 1.'" required>									
+								</div>
+								<div class="mt-10">
+									<input type="text" class="single-input" name="s2" placeholder="ข้อย่อย 2." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อย่อย 2.'" required>									
+								</div>
+								<div class="mt-10">
+									<input type="text" class="single-input" name="s3" placeholder="ข้อย่อย 3." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อย่อย 3.'" required>									
+								</div>
+								<div class="mt-10">
+									<input type="text" class="single-input" name="s4" placeholder="ข้อย่อย 4." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อย่อย 4.'" required>									
+								</div>
+								<div class="mt-10">
+									<input type="text" class="single-input" name="s5" placeholder="ข้อย่อย 5." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อย่อย 5.'" required>									
+								</div>
+								<div class="mt-10">
+									<input type="text" class="single-input" name="r1" placeholder="ข้อ 1." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 1.'" required>									
+								</div>
+								<br>
+								<div class="mt-10">
+									<input type="text" class="single-input" name="r2" placeholder="ข้อ 2." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 2.'" required>
+								</div>
+								<br>
+								<div class="mt-10">
+									<input type="text" class="single-input" name="r3" placeholder="ข้อ 3." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 3.'" required>
+								</div>
+								<br>
+								<div class="mt-10">
+									<input type="text" class="single-input" name="r4" placeholder="ข้อ 4." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 4.'" required>
+								</div>
+								<br>
+								<div class="mt-10">
+									<input type="text" class="single-input" name="r5" placeholder="ข้อ 5." onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อ 5.'" required>
+								</div>
+								<br>
+								<div class="mt-10 text-center">
+									<button type="submit" class="btn btn-primary mb-2">ส่งคำตอบ</button>	
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    </section>    
+    <!--================Contact Area =================-->
+
+	<!--================Footer Area =================-->
+	<%- include('../../partials/footeruser.ejs'); -%>
+	<!--================End Footer Area =================-->
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/stellar.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+	<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+	<script src="vendors/isotope/isotope-min.js"></script>
+	<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+	<script src="js/jquery.ajaxchimp.min.js"></script>
+	<script src="vendors/counter-up/jquery.waypoints.min.js"></script>
+	<script src="vendors/counter-up/jquery.counterup.min.js"></script>
+	<script src="js/mail-script.js"></script>
+	<!--gmaps Js-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+	<script src="js/gmaps.min.js"></script>
+	<script src="js/theme.js"></script>
+</body>
+
+</html>
