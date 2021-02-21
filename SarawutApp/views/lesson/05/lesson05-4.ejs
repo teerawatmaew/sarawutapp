@@ -1,49 +1,50 @@
 ﻿<!doctype html>
 <html lang="en">
 
-<head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="icon" href="img/favicon.png" type="image/png">
-	<title>บทที่ 5</title>
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="vendors/linericon/style.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/magnific-popup.css">
-	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
-	<link rel="stylesheet" href="vendors/animate-css/animate.css">
-	<link rel="stylesheet" href="vendors/flaticon/flaticon.css">
-	<!-- main css -->
-	<link rel="stylesheet" href="css/style.css">
-</head>
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="icon" href="img/favicon.png" type="image/png">
+		<title>บทที่ 5</title>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="/css/bootstrap.css">
+		<link rel="stylesheet" href="/vendors/linericon/style.css">
+		<link rel="stylesheet" href="/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/vendors/owl-carousel/owl.carousel.min.css">
+		<link rel="stylesheet" href="/css/magnific-popup.css">
+		<link rel="stylesheet" href="/vendors/nice-select/css/nice-select.css">
+		<link rel="stylesheet" href="/vendors/animate-css/animate.css">
+		<link rel="stylesheet" href="/vendors/flaticon/flaticon.css">
+		<!-- main css -->
+		<link rel="stylesheet" href="/css/style.css">
+	</head>
 
-<body>
-  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-    <a href="/detail05" class="genric-btn default circle">ย้อนกลับ</a>
-    <span>Home</span>
-    <h4>ชื่อ-สกุล : <%= sess.name %></h4>
-    <h4>รหัสประจำตัวนักเรียน : <%= sess.student_number %></h4>
-    <a href="/logout" class="genric-btn danger circle">ออกจากระบบ</a>
-  </nav>
-  <br>
+	<body>
+		<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+			<a href="/detail05" class="genric-btn default circle">ย้อนกลับ</a>
+			<span>Home</span>
+			<h4>ชื่อ-สกุล : <%= sess.name %></h4>
+			<h4>รหัสประจำตัวนักเรียน : <%= sess.student_number %></h4>
+			<a href="/logout" class="genric-btn danger circle">ออกจากระบบ</a>
+		</nav>
+		<br>
 	<!-- Start Align Area -->
 			<div class="whole-wrap">
 				<div class="container">
-					<h2 class="text-center">บทที่ 5</h2>
+					<h2 class="text-center">เรียนรู้เพิ่มเติมบทที่ 5 ครั้งที่ 4</h2>
 					<div class="section-top-border">
 						<div class="row">
 							<div class="col-3">
 								<div class="list-group" id="list-tab" role="tablist">
-									<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">เนิ้อหา</a>
-									<a class="list-group-item list-group-item-action" id="list-test-list" data-toggle="list" href="#list-test" role="tab" aria-controls="test">แบบทดสอบ</a>
+									<a class="list-group-item list-group-item-action" id="list-detail-list" data-toggle="list" href="#list-detail" role="tab" aria-controls="detail">เนิ้อหา</a>
+									<a class="list-group-item list-group-item-action" id="list-learn1-list" data-toggle="list" href="#list-learn1" role="tab" aria-controls="learn1">วิดิโอเนิ้อหา</a>
+									<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">คุยกับอาจารย์</a>
 								</div>
 							</div>
 							<div class="col-9">
 								<div class="tab-content" id="nav-tabContent">
-									<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+									<div class="tab-pane fade show" id="list-detail" role="tabpanel" aria-labelledby="list-detail-list">
 										<p>๔. อติพจน์ (Hyperbole) คือการกล่าวเกินความจริงเพื่อเน้นความรู้สึกอารมณ์สะเทือนใจว่ามีมากเพียงใด ทั้งความรัก ความเศร้าโศกเสียใจ ความปลื้มปิติ ความโกรธ ความมหัศจรรย์ใจในความยิ่งใหญ่ แต่ไม่ใช่เป็นการหลอกลวงแต่อย่างใด โดยภาพพจน์ชนิดนี้มักจะปรากฏอยู่ในชีวิตประจำวันเป็นปรกติ เมื่อเราต้องการจะเน้นความรู้สึกใด เราอาจจะพูดว่า “ร้องไห้น้ำตาเป็นสายเลือด” หรือ “เจ็บจนใจจะขาด”</p>
 										<p>ตัวอย่าง</p>
 										<p>โคลงบทหนึ่งที่กล่าวกันว่าศรีปราชญ์เป็นผู้แต่ง ว่า</p>
@@ -59,11 +60,60 @@
 										<p class="text-right">(ลิลิตพระลอ)</p>
 										<p>&emsp;จากบทประพันธ์ข้างต้นแสดงให้เห็นถึงความโศกเศร้าเสียใจอย่างเกินจริง เมื่อพระลอสิ้นพระชนม์ ทุกบ้านเรือนต่างพากันร่ำไห้ สั่นสะเทือนเหมือนแผ่นดินจะคว่ำ ไม่เห็นเดือนเห็นตะวัน เป็นแห่งใดหากเห็นน้ำน้ำนั้นคือน้ำตาของราษฎร บทนี้จึงเป็นบทที่เน้นความโศกเศร้า</p>
 									</div>
-									<div class="tab-pane fade" id="list-test" role="tabpanel" aria-labelledby="list-test-list">
-										<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSegNjxnfQ30YQ_3e5ix5hx0JlnRIUa_bp4WXgCde8GSg7incg/viewform?embedded=true" width="800" height="3710" frameborder="0" marginheight="0" marginwidth="0">กำลังโหลด…</iframe>
+									<div class="tab-pane fade" id="list-learn1" role="tabpanel" aria-labelledby="list-learn1-list">
+										<iframe width="560" height="315" src="https://www.youtube.com/embed/vcLBwmWyfkA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+									</div>
+									<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+										<section>
+											<div class="container">
+												<div class="section-top-border text-left">
+													<div class="row">
+														<div class="col-md-9 text-center">
+															<img src="https://drive.google.com/uc?id=1BfWFwZE1z5_Kss3-Ky3sn-dEWQzqABJu" alt="post" />
+														</div>
+														<div class="col-md-3">
+															<div class="blog_info text-right">
+																<ul class="blog_meta list">
+																	<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="button-group-area text-right">
+													<a href="/lesson05-4" role="button" class="genric-btn e-large midbt primary">รีเฟรชหน้านี้</a>
+												</div>
+												<% if (result.length > 0) { %>
+													<% for (var i = 0; i < result.length; i++) { %>
+														<% if (result[i].sheet == 1) { %>
+															<div class="card text-white bg-secondary w-75">
+														<% } else { %>
+															<div class="card w-75">
+														<% } %>
+																<div class="card-header"><%= result[i].student_number %> ผู้โพสต์ <%= result[i].username %></div>
+																<div class="card-body">
+																	<p><%= result[i].detail %></p>
+																</div>
+															</div>
+															<br>
+													<% } %>
+												<% } %>
+								
+												<div class="comment-form">
+													<h4>แสดงความคิดเห็นกระทู้</h4>
+													<form action="sheetcomment/5/4/2" method="POST">
+														<div class="form-group">
+															<textarea class="form-control mb-10" rows="5" name="detail" placeholder="ข้อความ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อความ'" required=""></textarea>
+														</div>
+														<div class="mt-10 text-center">
+															<button type="submit" class="btn btn-primary mb-2">ส่ง</button>	
+														</div>
+													</form>
+												</div>
+											</div>
+										</section>
 										<div class="button-group-area text-right">
-											<a href="/lesson05-1" class="genric-btn default">ต่อไป(1)</a>
-											<a href="/lesson05-2" class="genric-btn primary">ต่อไป(2)</a>
+											<a href="/checkroute05" role="button" class="genric-btn e-large midbt info">เช็คสถานะ</a>
 										</div>
 									</div>
 								</div>
@@ -74,28 +124,7 @@
 			</div>
 
     <!--================Footer Area =================-->
-	<footer class="footer_area section_gap_top">
-		<div class="container">
-			<div class="row single-footer-widget">
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="copy_right_text">
-						<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-					</div>
-				</div>
-				<div class="col-lg-6 col-md-6 col-sm-12">
-					<div class="social_widget">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-dribbble"></i></a>
-						<a href="#"><i class="fa fa-behance"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</footer>
+	<%- include('../../partials/footeruser.ejs'); -%>
 	<!--================End Footer Area =================-->
 
 	<!-- Optional JavaScript -->

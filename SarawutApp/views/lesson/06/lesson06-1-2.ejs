@@ -1,0 +1,100 @@
+﻿<!doctype html>
+<html lang="en">
+
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="icon" href="img/favicon.png" type="image/png">
+		<title>บทที่ 6</title>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="vendors/linericon/style.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+		<link rel="stylesheet" href="css/magnific-popup.css">
+		<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+		<link rel="stylesheet" href="vendors/animate-css/animate.css">
+		<link rel="stylesheet" href="vendors/flaticon/flaticon.css">
+		<!-- main css -->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body>
+		<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+			<a href="/detail06" class="genric-btn default circle">ย้อนกลับ</a>
+			<span>Home</span>
+			<h4>ชื่อ-สกุล : <%= sess.name %></h4>
+			<h4>รหัสประจำตัวนักเรียน : <%= sess.student_number %></h4>
+			<a href="/logout" class="genric-btn danger circle">ออกจากระบบ</a>
+		</nav>
+		<br>
+	<!-- Start Align Area -->
+			<div class="whole-wrap">
+				<div class="container">
+					<h2 class="text-center">เรียนรู้เพิ่มเติมบทที่ 6 ครั้งที่ 1 เรื่องอรรถวิภาษ</h2>
+					<div class="section-top-border">
+						<div class="row">
+							<div class="col-3">
+								<div class="list-group" id="list-tab" role="tablist">
+									<a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">เนิ้อหาบทเรียน</a>
+									<a class="list-group-item list-group-item-action" id="list-learn1-list" data-toggle="list" href="#list-learn1" role="tab" aria-controls="test">วิดิโอเนิ้อหา</a>
+								</div>
+							</div>
+							<div class="col-9">
+								<div class="tab-content" id="nav-tabContent">
+									<div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+										<p>๕. อรรถวิภาษหรือปฏิพากย์(Paradox) คือภาพพจน์ที่มีความหมายต่างกันหรือขัดแย้งเหมือนจะเข้ากันไม่ได้ แต่เมื่อพิจารณาแล้วจะพบว่ามีความกลมกลืนกันหรือเป็นไปได้อยู่ เช่น ยิ่งรีบยิ่งช้า เมื่อพิจารณาดูแล้ว หากเราเร่งรีบทำอะไรแข่งกับเวลาหรือให้ทันเวลา จะยิ่งทำให้ช้า เพราะอาจจะเกิดการลืมสิ่งของต่างๆจากความไม่รอบคอบ ต้องย้อนทำสิ่งต่าง ๆ ให้ ส่งผลให้เสียเวลากว่าเดิม</p>
+										<p>ตัวอย่างร้อยกรองตอนหนึ่งจาก คำเตือน...จากเพื่อนเก่า ของจิตร ภูมิศักดิ์ ว่า</p>
+										<p class="text-center">&emsp;ตัวเป็นไทแต่ใจเป็นทาส&emsp;เข้าเทียมแอกอนาถอา</p>
+										<p class="text-center">ซื้อได้ด้วยราคา&emsp;&emsp;ฉะนี้หรือที่เรียกคน</p>
+										<p>&emsp;จากบทร้อยกรองจะเห็นว่าตัวเป็นไทใจเป็นทาสมีความขัดแย้งกัน แต่มีความกลมกลืนและเป็นไปได้ ตัวเป็นไทคือมีความเป็นอิสระ แต่ใจเป็นทาสไม่สามารถทำอะไรตามใจของตนเองได้ เนื่องจากถูกพันธนาการด้วยอำนาจเงิน จึงต้องทำตามที่ผู้ซื้อสั่งการ</p>
+										<p class="text-center">&emsp;แทบฝั่งธารที่เราเฝ้าฝันถึง&emsp;เสียงน้ำซึ่งกระซิบสาดปราศจากเสียง</p>
+										<p class="text-center">จักรวาลวุ่นวายไร้สำเนียง&emsp;&emsp;โลกนี้เพียงแผ่นภพสงบเย็น</p>
+										<p class="text-right">(วารีดุริยางค์: เนาวรัตน์ พงษ์ไพบูลย์)</p>
+										<p>&emsp;จากบทประพันธ์ข้างต้น มีการบอกว่าเสียงซิบของน้ำ แต่กลับไม่มีเสียง และโลกที่วุ่นวายกลับไม่มีเสียง</p>
+										<p class="text-center">&emsp;มีความเมตตากรุณานัก&emsp;จึ่งชักพรหมาสตร์ธนูศร</p>
+										<p class="text-center">ผาดแผลงด้วยกำลังฤทธิรอน&emsp;&emsp;อัมพรมืดมนอนธกาล</p>
+										<p class="text-right">(รามเกียรติ์: พระบาทสมเด็จพระพุทธเลิศหล้านภาลัย)</p>
+										<p>&emsp;จากพระราชนิพนธ์แสดงให้เห็นว่า พระรามมีเมตตามาก แต่กลับใช้ศรยิงกุมพลจนถึงแก่ความตาย ซึ่งเนื้อหาขัดแย้งกัน แต่เมื่อพิจารณาแล้ว ความเมตตาในบทนี้หมายถึง ความตายที่ไม่ทรมาน</p>
+									</div>
+									<div class="tab-pane fade" id="list-learn1" role="tabpanel" aria-labelledby="list-learn1-list">
+										<iframe width="560" height="315" src="https://www.youtube.com/embed/vcLBwmWyfkA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+										<div class="button-group-area text-right">
+											<a href="/checkstate06" role="button" class="genric-btn e-large midbt success">ศึกษาใบงาน</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+    <!--================Footer Area =================-->
+	<%- include('../../partials/footeruser.ejs'); -%>
+	<!--================End Footer Area =================-->
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/stellar.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+	<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+	<script src="vendors/isotope/isotope-min.js"></script>
+	<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+	<script src="js/jquery.ajaxchimp.min.js"></script>
+	<script src="vendors/counter-up/jquery.waypoints.min.js"></script>
+	<script src="vendors/counter-up/jquery.counterup.min.js"></script>
+	<script src="js/mail-script.js"></script>
+	<!--gmaps Js-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+	<script src="js/gmaps.min.js"></script>
+	<script src="js/theme.js"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,256 @@
+﻿<!doctype html>
+<html lang="en">
+
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="icon" href="img/favicon.png" type="image/png">
+		<title>บทที่ 5</title>
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<link rel="stylesheet" href="vendors/linericon/style.css">
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+		<link rel="stylesheet" href="css/magnific-popup.css">
+		<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+		<link rel="stylesheet" href="vendors/animate-css/animate.css">
+		<link rel="stylesheet" href="vendors/flaticon/flaticon.css">
+		<!-- main css -->
+		<link rel="stylesheet" href="css/style.css">
+	</head>
+
+	<body>
+		<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+			<a href="/detail05" class="genric-btn default circle">ย้อนกลับ</a>
+			<span>Home</span>
+			<h4>ชื่อ-สกุล : <%= sess.name %></h4>
+			<h4>รหัสประจำตัวนักเรียน : <%= sess.student_number %></h4>
+			<a href="/logout" class="genric-btn danger circle">ออกจากระบบ</a>
+		</nav>
+		<br>
+	<!-- Start Align Area -->
+			<div class="whole-wrap">
+				<div class="container">
+					<h2 class="text-center">เรียนรู้เพิ่มเติมบทที่ 5 ครั้งที่ 2 เรื่องอติพจน์</h2>
+					<div class="section-top-border">
+						<div class="row">
+							<div class="col-3">
+								<div class="list-group" id="list-tab" role="tablist">
+									<a class="list-group-item list-group-item-action active" id="list-set1-list" data-toggle="list" href="#list-set1" role="tab" aria-controls="home">ใบงานที่1</a>
+									<a class="list-group-item list-group-item-action" id="list-set2-list" data-toggle="list" href="#list-set2" role="tab" aria-controls="home">ใบงานที่2</a>
+									<a class="list-group-item list-group-item-action" id="list-set3-list" data-toggle="list" href="#list-set3" role="tab" aria-controls="home">ใบงานที่3</a>
+									<a class="list-group-item list-group-item-action" id="list-set4-list" data-toggle="list" href="#list-set4" role="tab" aria-controls="home">ใบงานที่4</a>
+									<a class="list-group-item list-group-item-action" id="list-set5-list" data-toggle="list" href="#list-set5" role="tab" aria-controls="home">ใบงานที่5</a>
+								</div>
+							</div>
+							<div class="col-9">
+								<div class="tab-content" id="nav-tabContent">
+									<div class="tab-pane fade show active" id="list-set1" role="tabpanel" aria-labelledby="list-set1-list">
+										<section>
+											<div class="container">
+												<div class="section-top-border text-left">
+													<h3 class="mb-30 title_color">ใบงานที่ 1</h3>
+													<div class="row">
+														<div class="col-md-9 text-center">
+															<img src="https://drive.google.com/uc?id=14Gz1VKHduOJuGiXIC_CMouTBT6STNlM2" alt="post" />
+														</div>
+														<div class="col-md-3">
+															<div class="blog_info text-right">
+																<ul class="blog_meta list">
+																	<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+												<% if (result.length > 0) { %>
+													<% for (var i = 0; i < result.length; i++) { %>
+														<% if (result[i].sheet == 1) { %>
+														<div class="comment-form">
+														<h3><%= result[i].student_number %> ผู้โพสต์ <%= result[i].username %></h3>
+															<p class="text-center"><%= result[i].detail %></p>
+														</div>
+														<% } %>
+													<% } %>
+												<% } %>
+											</div>
+										</section>
+									</div>
+
+									<div class="tab-pane fade" id="list-set2" role="tabpanel" aria-labelledby="list-set2-list">
+										<section>
+											<div class="container">
+												<div class="section-top-border text-left">
+													<h3 class="mb-30 title_color">ใบงานที่ 2</h3>
+													<div class="row">
+														<div class="col-md-9 text-center">
+															<img src="https://drive.google.com/uc?id=1BTOPOF8FMSr70_PfbOWcF4bN3yjFO-2s" alt="post" />
+														</div>
+														<div class="col-md-3">
+															<div class="blog_info text-right">
+																<ul class="blog_meta list">
+																	<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+												
+												<% if (result.length > 0) { %>
+													<% for (var i = 0; i < result.length; i++) { %>
+														<% if (result[i].sheet == 2) { %>
+														<div class="comment-form">
+														<h3>ความคิดเห็นของ <%= result[i].username %></h3>
+															<p class="text-center"><%= result[i].detail %></p>
+														</div>
+														<br>
+														<% } %>
+													<% } %>
+												<% } %>
+											</div>
+										</section>
+									</div>
+
+									<div class="tab-pane fade" id="list-set3" role="tabpanel" aria-labelledby="list-set3-list">
+										<section>
+											<div class="container">
+												<div class="section-top-border text-left">
+													<h3 class="mb-30 title_color">ใบงานที่ 3</h3>
+													<div class="row">
+														<div class="col-md-9 text-center">
+															<img src="https://drive.google.com/uc?id=1gd6oeVgbbgB6pLVo4AjI4GlQlFisdcD7" alt="post" />
+														</div>
+														<div class="col-md-3">
+															<div class="blog_info text-right">
+																<ul class="blog_meta list">
+																	<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+												
+												<% if (result.length > 0) { %>
+													<% for (var i = 0; i < result.length; i++) { %>
+														<% if (result[i].sheet == 3) { %>
+														<div class="comment-form">
+														<h3>ความคิดเห็นของ <%= result[i].username %></h3>
+															<p class="text-center"><%= result[i].detail %></p>
+														</div>
+														<br>
+														<% } %>
+													<% } %>
+												<% } %>
+											</div>
+										</section>
+									</div>
+
+									<div class="tab-pane fade show" id="list-set4" role="tabpanel" aria-labelledby="list-set4-list">
+										<section>
+											<div class="container">
+												<div class="section-top-border text-left">
+													<h3 class="mb-30 title_color">ใบงานที่ 4</h3>
+													<div class="row">
+														<div class="col-md-9 text-center">
+															<img src="https://drive.google.com/uc?id=1VUnC7kytH12B4fGwt3CRylB8BB8bezaN" alt="post" />
+														</div>
+														<div class="col-md-3">
+															<div class="blog_info text-right">
+																<ul class="blog_meta list">
+																	<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+												
+												<% if (result.length > 0) { %>
+													<% for (var i = 0; i < result.length; i++) { %>
+														<% if (result[i].sheet == 4) { %>
+														<div class="comment-form">
+														<h3>ความคิดเห็นของ <%= result[i].username %></h3>
+															<p class="text-center"><%= result[i].detail %></p>
+														</div>
+														<br>
+														<% } %>
+													<% } %>
+												<% } %>
+											</div>
+										</section>
+									</div>
+
+									<div class="tab-pane fade show" id="list-set5" role="tabpanel" aria-labelledby="list-set5-list">
+										<section>
+											<div class="container">
+												<div class="section-top-border text-left">
+													<h3 class="mb-30 title_color">ใบงานที่ 5</h3>
+													<div class="row">
+														<div class="col-md-9 text-center">
+															<img src="https://drive.google.com/uc?id=1TZZsnfCCQ_zelA0bPdq1bQO9uHU7TJhM" alt="post" />
+														</div>
+														<div class="col-md-3">
+															<div class="blog_info text-right">
+																<ul class="blog_meta list">
+																	<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</div>
+												
+												<% if (result.length > 0) { %>
+													<% for (var i = 0; i < result.length; i++) { %>
+														<% if (result[i].sheet == 5) { %>
+														<div class="comment-form">
+														<h3>ความคิดเห็นของ <%= result[i].username %></h3>
+															<p class="text-center"><%= result[i].detail %></p>
+														</div>
+														<br>
+														<% } %>
+													<% } %>
+												<% } %>
+											</div>
+										</section>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="button-group-area text-right">
+								<a href="/checkstate05" role="button" class="genric-btn e-large midbt success">ต่อไป</a>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+    <!--================Footer Area =================-->
+	<%- include('../../partials/footeruser.ejs'); -%>
+	<!--================End Footer Area =================-->
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/stellar.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+	<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+	<script src="vendors/isotope/isotope-min.js"></script>
+	<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+	<script src="js/jquery.ajaxchimp.min.js"></script>
+	<script src="vendors/counter-up/jquery.waypoints.min.js"></script>
+	<script src="vendors/counter-up/jquery.counterup.min.js"></script>
+	<script src="js/mail-script.js"></script>
+	<!--gmaps Js-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+	<script src="js/gmaps.min.js"></script>
+	<script src="js/theme.js"></script>
+</body>
+
+</html>
+
