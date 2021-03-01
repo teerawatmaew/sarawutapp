@@ -59,7 +59,21 @@ var json_no_datasheet = [{ sheet: '1', student_number: 'No data', username: 'No 
 function random_workpage(lesson, state, pagefirst, pagelast) {
     var range = pagelast - pagefirst + 1; //number
     var random_number = Math.floor(Math.random() * range) + pagefirst;
-    var url = './lesson/0' + lesson + '/lesson0' + lesson + '-' + state + '-w' + random_number + '.ejs';
+    if (lesson < 10) {
+        var url = './lesson/0' + lesson + '/lesson0' + lesson + '-' + state + '-w' + random_number + '.ejs';
+    } else {
+        var url = './lesson/' + lesson + '/lesson' + lesson + '-' + state + '-w' + random_number + '.ejs';
+    }
+    return (url);
+}
+
+function choose_managepage(lesson, state) {
+    //'./admin/manage01-1.ejs'
+    if (lesson < 10) {
+        var url = './admin/0' + lesson + '/manage0' + lesson + '-' + state + '.ejs';
+    } else {
+        var url = './admin/10/manage10-' + state + '.ejs';
+    }
     return (url);
 }
 
@@ -190,42 +204,17 @@ app.get('/managecourse', managecourse);
 app.post('/addaccounts', addaccounts);
 
 app.get('/manage01', function (request, response) {
-    response.render('./admin/manage01.ejs');
+    response.render('./admin/01/manage01.ejs');
 });
 
-app.get('/manage01-1', function (request, response) {
-    connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 1', function (error, results, fields) {
+app.get('/manage/(:lesson)/(:state)', function (request, response) {
+    var lesson = request.params.lesson;
+    var state = request.params.state;
+    connection.query('SELECT * FROM sheetcomment WHERE lesson = ? AND state = ?', [lesson, state], function (error, results, fields) {
         if (error) {
             throw (error);
         } else {
-            response.render('./admin/manage01-1.ejs', { result: results });
-        }
-    });
-});
-app.get('/manage01-2', function (request, response) {
-    connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 2', function (error, results, fields) {
-        if (error) {
-            throw (error);
-        } else {
-            response.render('./admin/manage01-2.ejs', { result: results });
-        }
-    });
-});
-app.get('/manage01-3', function (request, response) {
-    connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 3', function (error, results, fields) {
-        if (error) {
-            throw (error);
-        } else {
-            response.render('./admin/manage01-3.ejs', { result: results });
-        }
-    });
-});
-app.get('/manage01-4', function (request, response) {
-    connection.query('SELECT * FROM sheetcomment WHERE lesson = 1 AND state = 4', function (error, results, fields) {
-        if (error) {
-            throw (error);
-        } else {
-            response.render('./admin/manage01-4.ejs', { result: results });
+            response.render(choose_managepage(lesson,state), { result: results });
         }
     });
 });
@@ -1079,7 +1068,7 @@ app.get('/checkstate02', function (request, response) {
                     response.render(random_workpage(2, 1, 6, 10));
                 } else if (data.status_number == 2) {
                     connection.query('UPDATE result SET round02 = 2,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
-                        response.render('./lesson/02/lesson02-2-1.ejs');
+                        response.render(random_workpage(2, 2, 1, 5));
                     });
                 } else if (data.status_number == 3) {
                     connection.query('UPDATE result SET round02 = 2,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
@@ -1151,7 +1140,7 @@ app.get('/checkstate02', function (request, response) {
             if (data.round02 == 0) {
                 response.render(random_workpage(2, 1, 1, 5));
             } else if (data.round02 > 0) {
-                connection.query('UPDATE result SET statecheck = 2,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                connection.query('UPDATE result SET statecheck = 3,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
                     connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
                         var results = results;
                         response.render('./user/userindex.ejs', { results: results });
@@ -1288,7 +1277,7 @@ app.get('/checkstate03', function (request, response) {
                     response.render(random_workpage(3, 1, 6, 10));
                 } else if (data.status_number == 2) {
                     connection.query('UPDATE result SET round03 = 2,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
-                        response.render('./lesson/03/lesson03-2-1.ejs');
+                        response.render(random_workpage(3, 2, 1, 5));
                     });
                 } else if (data.status_number == 3) {
                     connection.query('UPDATE result SET round03 = 2,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
@@ -1360,7 +1349,7 @@ app.get('/checkstate03', function (request, response) {
             if (data.round03 == 0) {
                 response.render(random_workpage(3, 1, 1, 5));
             } else if (data.round03 > 0) {
-                connection.query('UPDATE result SET statecheck = 3,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                connection.query('UPDATE result SET statecheck = 4,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
                     connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
                         var results = results;
                         response.render('./user/userindex.ejs', { results: results });
@@ -1497,7 +1486,7 @@ app.get('/checkstate04', function (request, response) {
                     response.render(random_workpage(4, 1, 6, 10));
                 } else if (data.status_number == 2) {
                     connection.query('UPDATE result SET round04 = 2,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
-                        response.render('./lesson/04/lesson04-2-1.ejs');
+                        response.render(random_workpage(4, 2, 1, 5));
                     });
                 } else if (data.status_number == 3) {
                     connection.query('UPDATE result SET round04 = 2,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
@@ -1569,7 +1558,7 @@ app.get('/checkstate04', function (request, response) {
             if (data.round04 == 0) {
                 response.render(random_workpage(4, 1, 1, 5));
             } else if (data.round04 > 0) {
-                connection.query('UPDATE result SET statecheck = 4,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                connection.query('UPDATE result SET statecheck = 5,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
                     connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
                         var results = results;
                         response.render('./user/userindex.ejs', { results: results });
@@ -1706,7 +1695,7 @@ app.get('/checkstate05', function (request, response) {
                     response.render(random_workpage(5, 1, 6, 10));
                 } else if (data.status_number == 2) {
                     connection.query('UPDATE result SET round05 = 2,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
-                        response.render('./lesson/05/lesson05-2-1.ejs');
+                        response.render(random_workpage(5, 2, 1, 5));
                     });
                 } else if (data.status_number == 3) {
                     connection.query('UPDATE result SET round05 = 2,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
@@ -1778,7 +1767,7 @@ app.get('/checkstate05', function (request, response) {
             if (data.round05 == 0) {
                 response.render(random_workpage(5, 1, 1, 5));
             } else if (data.round05 > 0) {
-                connection.query('UPDATE result SET statecheck = 5,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                connection.query('UPDATE result SET statecheck = 6,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
                     connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
                         var results = results;
                         response.render('./user/userindex.ejs', { results: results });
@@ -1987,7 +1976,7 @@ app.get('/checkstate06', function (request, response) {
             if (data.round06 == 0) {
                 response.render('./lesson/06/lesson06-1-w1.ejs');
             } else if (data.round06 > 0) {
-                connection.query('UPDATE result SET statecheck = 6,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                connection.query('UPDATE result SET statecheck = 7,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
                     connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
                         var results = results;
                         response.render('./user/userindex.ejs', { results: results });
@@ -2029,6 +2018,184 @@ app.get('/lesson06-4', function (request, response) {
 });
 
 //=======lesson07=======
+app.get('/checkroute07', function (request, response) {
+    var student_number = request.session.student_number;
+    connection.query('SELECT * FROM result WHERE student_number = ?', [student_number], function (error, results, fields) {
+        var data = results[0];
+        if (data.round07 == 0) {
+            response.render('./lesson/07/lesson07-firsttest.ejs');
+        } else if (data.round07 == 1) {
+            if (data.status_number == 0) {
+                response.render('./lesson/07/lesson07-1-2.ejs');
+            } else if (data.status_number == 1) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 7 AND state = 1', function (error, results, fields) {
+                    if (results.length > 0) {
+                        var result = results;
+                    } else {
+                        var result = json_no_datasheet; //sheet 1
+                    }
+                    response.render('./lesson/07/lesson07-1-3.ejs', { result: result });
+                });
+            } else if (data.status_number == 2) {
+                response.render('./lesson/07/lesson07-1-w6.ejs');
+            } else if (data.status_number == 3) {
+                response.render('./lesson/07/lesson07-secondtest.ejs');
+            }
+        } else if (data.round07 == 2) {
+            if (data.status_number == 0) {
+                response.render('./lesson/07/lesson07-2-w1.ejs');
+            } else if (data.status_number == 1) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 7 AND state = 2', function (error, results, fields) {
+                    if (results.length > 0) {
+                        var result = results;
+                    } else {
+                        var result = json_no_datasheet; //sheet 1
+                    }
+                    response.render('./lesson/07/lesson07-2-2.ejs', { result: result });
+                });
+            } else if (data.status_number == 2) {
+                response.render('./lesson/07/lesson07-thirdtest.ejs');
+            }
+        } else if (data.round07 == 3) {
+            if (data.status_number == 0) {
+                response.render('./lesson/07/lesson07-3-w1.ejs');
+            } else if (data.status_number < 7) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 7 AND state = 3', function (error, results, fields) {
+                    if (results.length > 0) {
+                        var result = results;
+                    } else {
+                        var result = json_no_datasheet; //sheet 1
+                    }
+                    response.render('./lesson/07/lesson07-3-2.ejs', { result: result });
+                });
+            } else {
+                response.render('./lesson/07/lesson07-fourthtest.ejs');
+            }
+        } else if (data.round07 >= 4) {
+            if (data.status_number < 5) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 7 AND state = 4 AND student_number = ?', [request.session.student_number], function (error, results, fields) {
+                    if (results.length > 0) {
+                        var result = results;
+                    } else {
+                        var result = json_no_datasheet; //sheet 1-2
+                    }
+                    response.render('./lesson/07/lesson07-4.ejs', { result: result });
+                });
+            } else {
+                response.render('./lesson/07/lesson07-fourthtest.ejs');
+            }
+        }
+    });
+});
+
+app.get('/checkstate07', function (request, response) {
+    var student_number = request.session.student_number;
+    connection.query('SELECT * FROM result WHERE student_number = ?', [student_number], function (error, results, fields) {
+        var data = results[0];
+        if (data.test07 < 8) { // failed test
+            if (data.round07 == 0) {
+                connection.query('UPDATE result SET round07 = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                    response.render('./lesson/07/lesson07-1-2.ejs');
+                });
+            } else if (data.round07 == 1) {
+                if (data.status_number == 0) {
+                    connection.query('UPDATE result SET status_number = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        connection.query('SELECT * FROM sheetcomment WHERE lesson = 7 AND state = 1', function (error, results, fields) {
+                            if (results.length > 0) {
+                                var result = results;
+                            } else {
+                                var result = json_no_datasheet; //sheet 1
+                            }
+                            response.render('./lesson/07/lesson07-1-3.ejs', { result: result });
+                        });
+                    });
+                } else if (data.status_number == 1) {
+                    response.render('./lesson/07/lesson07-1-w6.ejs');
+                } else if (data.status_number == 2) {
+                    connection.query('UPDATE result SET round07 = 2,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        response.render('./lesson/07/lesson07-2-1.ejs');
+                    });
+                } else if (data.status_number == 3) {
+                    connection.query('UPDATE result SET round07 = 2,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        response.render('./lesson/07/lesson07-2-w1.ejs');
+                    });
+                }
+            } else if (data.round07 == 2) {
+                if (data.status_number == 1) {
+                    connection.query('UPDATE result SET status_number = 2 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        response.render('./lesson/07/lesson07-thirdtest.ejs');
+                    });
+                } else if (data.status_number == 2) {
+                    connection.query('UPDATE result SET round07 = 3,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        response.render('./lesson/07/lesson07-3-w1.ejs');
+                    });
+                }
+            } else if (data.round07 == 3) {
+                if (data.status_number == 0) {
+                    if (data.test07 > 5) {
+                        connection.query('UPDATE result SET status_number = 2 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                            connection.query('SELECT * FROM sheetcomment WHERE lesson = 7 AND state = 3', function (error, results, fields) {
+                                if (results.length > 0) {
+                                    var result = results;
+                                } else {
+                                    var result = json_no_datasheet; //sheet 1
+                                }
+                                response.render('./lesson/07/lesson07-3-2.ejs', { result: result });
+                            });
+                        });
+                    } else {
+                        connection.query('UPDATE result SET status_number = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                            response.render('./lesson/07/lesson07-3-w1.ejs');
+                        });
+                    }
+                } else if (data.status_number < 7) {
+                    connection.query('SELECT * FROM sheetcomment WHERE lesson = 7 AND state = 3', function (error, results, fields) {
+                        if (results.length > 0) {
+                            var result = results;
+                        } else {
+                            var result = json_no_datasheet; //sheet 1
+                        }
+                        response.render('./lesson/07/lesson07-3-2.ejs', { result: result });
+                    });
+                } else if (data.status_number == 7) {
+                    connection.query('UPDATE result SET status_number = 0,round07 = 4 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        connection.query('SELECT * FROM sheetcomment WHERE lesson = 7 AND state = 4', function (error, results, fields) {
+                            if (results.length > 0) {
+                                var result = results;
+                            } else {
+                                var result = json_no_datasheet; //sheet 2
+                            }
+                            response.render('./lesson/07/lesson07-4.ejs', { result: result });
+                        });
+                    });
+                }
+            } else if (data.round06 >= 4) {
+                connection.query('UPDATE result SET status_number = 0,round07 = round07 + 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                    connection.query('SELECT * FROM sheetcomment WHERE lesson = 7 AND state = 4', function (error, results, fields) {
+                        if (results.length > 0) {
+                            var result = results;
+                        } else {
+                            var result = json_no_datasheet; //sheet 2
+                        }
+                        response.render('./lesson/07/lesson07-4.ejs', { result: result });
+                    });
+                });
+            }
+        } else { // pass the test
+            if (data.round07 == 0) {
+                response.render('./lesson/07/lesson07-1-w1.ejs');
+            } else if (data.round07 > 0) {
+                connection.query('UPDATE result SET statecheck = 8,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+                        var results = results;
+                        response.render('./user/userindex.ejs', { results: results });
+                    });
+                });
+            }
+        }
+    });
+});
+
 app.get('/detail07', function (request, response) {
     if (request.session.statecheck == 7) {
         response.render('./lesson/detail07.ejs');
@@ -2060,6 +2227,184 @@ app.get('/lesson07-4', function (request, response) {
 });
 
 //=======lesson08=======
+app.get('/checkroute08', function (request, response) {
+    var student_number = request.session.student_number;
+    connection.query('SELECT * FROM result WHERE student_number = ?', [student_number], function (error, results, fields) {
+        var data = results[0];
+        if (data.round08 == 0) {
+            response.render('./lesson/08/lesson08-firsttest.ejs');
+        } else if (data.round08 == 1) {
+            if (data.status_number == 0) {
+                response.render('./lesson/08/lesson08-1-2.ejs');
+            } else if (data.status_number == 1) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 8 AND state = 1', function (error, results, fields) {
+                    if (results.length > 0) {
+                        var result = results;
+                    } else {
+                        var result = json_no_datasheet; //sheet 1-5
+                    }
+                    response.render('./lesson/08/lesson08-1-3.ejs', { result: result });
+                });
+            } else if (data.status_number == 2) {
+                response.render(random_workpage(8, 1, 6, 10));
+            } else if (data.status_number == 3) {
+                response.render('./lesson/08/lesson08-secondtest.ejs');
+            }
+        } else if (data.round08 == 2) {
+            if (data.status_number == 0) {
+                response.render(random_workpage(8, 2, 1, 4));
+            } else if (data.status_number == 1) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 8 AND state = 2', function (error, results, fields) {
+                    if (results.length > 0) {
+                        var result = results;
+                    } else {
+                        var result = json_no_datasheet; //sheet 1-4
+                    }
+                    response.render('./lesson/08/lesson08-2-2.ejs', { result: result });
+                });
+            } else if (data.status_number == 2) {
+                response.render('./lesson/08/lesson08-thirdtest.ejs');
+            }
+        } else if (data.round08 == 3) {
+            if (data.status_number == 0) {
+                response.render(random_workpage(8, 3, 1, 5));
+            } else if (data.status_number < 7) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 8 AND state = 3', function (error, results, fields) {
+                    if (results.length > 0) {
+                        var result = results;
+                    } else {
+                        var result = json_no_datasheet; //sheet 1-5
+                    }
+                    response.render('./lesson/08/lesson08-3-2.ejs', { result: result });
+                });
+            } else {
+                response.render('./lesson/08/lesson08-fourthtest.ejs');
+            }
+        } else if (data.round08 >= 4) {
+            if (data.status_number < 5) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 8 AND state = 4 AND student_number = ?', [request.session.student_number], function (error, results, fields) {
+                    if (results.length > 0) {
+                        var result = results;
+                    } else {
+                        var result = json_no_datasheet; //sheet 1-2
+                    }
+                    response.render('./lesson/08/lesson08-4.ejs', { result: result });
+                });
+            } else {
+                response.render('./lesson/08/lesson08-fourthtest.ejs');
+            }
+        }
+    });
+});
+
+app.get('/checkstate08', function (request, response) {
+    var student_number = request.session.student_number;
+    connection.query('SELECT * FROM result WHERE student_number = ?', [student_number], function (error, results, fields) {
+        var data = results[0];
+        if (data.test08 < 8) { // failed test
+            if (data.round08 == 0) {
+                connection.query('UPDATE result SET round08 = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                    response.render('./lesson/08/lesson08-1-2.ejs');
+                });
+            } else if (data.round08 == 1) {
+                if (data.status_number == 0) {
+                    connection.query('UPDATE result SET status_number = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        connection.query('SELECT * FROM sheetcomment WHERE lesson = 8 AND state = 1', function (error, results, fields) {
+                            if (results.length > 0) {
+                                var result = results;
+                            } else {
+                                var result = json_no_datasheet; //sheet 1-5
+                            }
+                            response.render('./lesson/08/lesson08-1-3.ejs', { result: result });
+                        });
+                    });
+                } else if (data.status_number == 1) {
+                    response.render(random_workpage(8, 1, 6, 10));
+                } else if (data.status_number == 2) {
+                    connection.query('UPDATE result SET round08 = 2,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        response.render(random_workpage(8, 2, 1, 4));
+                    });
+                } else if (data.status_number == 3) {
+                    connection.query('UPDATE result SET round08 = 2,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        response.render(random_workpage(8, 2, 1, 4));
+                    });
+                }
+            } else if (data.round08 == 2) {
+                if (data.status_number == 1) {
+                    connection.query('UPDATE result SET status_number = 2 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        response.render('./lesson/08/lesson08-thirdtest.ejs');
+                    });
+                } else if (data.status_number == 2) {
+                    connection.query('UPDATE result SET round08 = 3,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        response.render(random_workpage(8, 3, 1, 5));
+                    });
+                }
+            } else if (data.round08 == 3) {
+                if (data.status_number == 0) {
+                    if (data.test08 > 5) {
+                        connection.query('UPDATE result SET status_number = 2 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                            connection.query('SELECT * FROM sheetcomment WHERE lesson = 8 AND state = 3', function (error, results, fields) {
+                                if (results.length > 0) {
+                                    var result = results;
+                                } else {
+                                    var result = json_no_datasheet; //sheet 1-5
+                                }
+                                response.render('./lesson/08/lesson08-3-2.ejs', { result: result });
+                            });
+                        });
+                    } else {
+                        connection.query('UPDATE result SET status_number = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                            response.render(random_workpage(8, 3, 1, 5));
+                        });
+                    }
+                } else if (data.status_number < 7) {
+                    connection.query('SELECT * FROM sheetcomment WHERE lesson = 8 AND state = 3', function (error, results, fields) {
+                        if (results.length > 0) {
+                            var result = results;
+                        } else {
+                            var result = json_no_datasheet; //sheet 1-5
+                        }
+                        response.render('./lesson/08/lesson08-3-2.ejs', { result: result });
+                    });
+                } else if (data.status_number == 7) {
+                    connection.query('UPDATE result SET status_number = 0,round08 = 4 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        connection.query('SELECT * FROM sheetcomment WHERE lesson = 8 AND state = 4', function (error, results, fields) {
+                            if (results.length > 0) {
+                                var result = results;
+                            } else {
+                                var result = json_no_datasheet; //sheet 2
+                            }
+                            response.render('./lesson/08/lesson08-4.ejs', { result: result });
+                        });
+                    });
+                }
+            } else if (data.round08 >= 4) {
+                connection.query('UPDATE result SET status_number = 0,round08 = round08 + 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                    connection.query('SELECT * FROM sheetcomment WHERE lesson = 8 AND state = 4', function (error, results, fields) {
+                        if (results.length > 0) {
+                            var result = results;
+                        } else {
+                            var result = json_no_datasheet; //sheet 2
+                        }
+                        response.render('./lesson/08/lesson08-4.ejs', { result: result });
+                    });
+                });
+            }
+        } else { // pass the test
+            if (data.round08 == 0) {
+                response.render(random_workpage(8, 1, 1, 5));
+            } else if (data.round08 > 0) {
+                connection.query('UPDATE result SET statecheck = 9,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+                        var results = results;
+                        response.render('./user/userindex.ejs', { results: results });
+                    });
+                });
+            }
+        }
+    });
+});
+
 app.get('/detail08', function (request, response) {
     if (request.session.statecheck == 8) {
         response.render('./lesson/detail08.ejs');
@@ -2091,6 +2436,184 @@ app.get('/lesson08-4', function (request, response) {
 });
 
 //=======lesson09=======
+app.get('/checkroute09', function (request, response) {
+    var student_number = request.session.student_number;
+    connection.query('SELECT * FROM result WHERE student_number = ?', [student_number], function (error, results, fields) {
+        var data = results[0];
+        if (data.round09 == 0) {
+            response.render('./lesson/09/lesson09-firsttest.ejs');
+        } else if (data.round09 == 1) {
+            if (data.status_number == 0) {
+                response.render('./lesson/09/lesson09-1-2.ejs');
+            } else if (data.status_number == 1) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 9 AND state = 1', function (error, results, fields) {
+                    if (results.length > 0) {
+                        var result = results;
+                    } else {
+                        var result = json_no_datasheet; //sheet 1-5
+                    }
+                    response.render('./lesson/09/lesson09-1-3.ejs', { result: result });
+                });
+            } else if (data.status_number == 2) {
+                response.render(random_workpage(9, 1, 6, 10));
+            } else if (data.status_number == 3) {
+                response.render('./lesson/09/lesson09-secondtest.ejs');
+            }
+        } else if (data.round09 == 2) {
+            if (data.status_number == 0) {
+                response.render(random_workpage(9, 2, 1, 4));
+            } else if (data.status_number == 1) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 9 AND state = 2', function (error, results, fields) {
+                    if (results.length > 0) {
+                        var result = results;
+                    } else {
+                        var result = json_no_datasheet; //sheet 1-4
+                    }
+                    response.render('./lesson/09/lesson09-2-2.ejs', { result: result });
+                });
+            } else if (data.status_number == 2) {
+                response.render('./lesson/09/lesson09-thirdtest.ejs');
+            }
+        } else if (data.round09 == 3) {
+            if (data.status_number == 0) {
+                response.render('./lesson/08/lesson08-3-w1.ejs');
+            } else if (data.status_number < 7) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 9 AND state = 3', function (error, results, fields) {
+                    if (results.length > 0) {
+                        var result = results;
+                    } else {
+                        var result = json_no_datasheet; //sheet 1
+                    }
+                    response.render('./lesson/09/lesson09-3-2.ejs', { result: result });
+                });
+            } else {
+                response.render('./lesson/09/lesson09-fourthtest.ejs');
+            }
+        } else if (data.round09 >= 4) {
+            if (data.status_number < 5) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 9 AND state = 4 AND student_number = ?', [request.session.student_number], function (error, results, fields) {
+                    if (results.length > 0) {
+                        var result = results;
+                    } else {
+                        var result = json_no_datasheet; //sheet 1-2
+                    }
+                    response.render('./lesson/09/lesson09-4.ejs', { result: result });
+                });
+            } else {
+                response.render('./lesson/09/lesson09-fourthtest.ejs');
+            }
+        }
+    });
+});
+
+app.get('/checkstate09', function (request, response) {
+    var student_number = request.session.student_number;
+    connection.query('SELECT * FROM result WHERE student_number = ?', [student_number], function (error, results, fields) {
+        var data = results[0];
+        if (data.test09 < 8) { // failed test
+            if (data.round09 == 0) {
+                connection.query('UPDATE result SET round09 = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                    response.render('./lesson/09/lesson09-1-2.ejs');
+                });
+            } else if (data.round09 == 1) {
+                if (data.status_number == 0) {
+                    connection.query('UPDATE result SET status_number = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        connection.query('SELECT * FROM sheetcomment WHERE lesson = 9 AND state = 1', function (error, results, fields) {
+                            if (results.length > 0) {
+                                var result = results;
+                            } else {
+                                var result = json_no_datasheet; //sheet 1-5
+                            }
+                            response.render('./lesson/09/lesson09-1-3.ejs', { result: result });
+                        });
+                    });
+                } else if (data.status_number == 1) {
+                    response.render(random_workpage(9, 1, 6, 10));
+                } else if (data.status_number == 2) {
+                    connection.query('UPDATE result SET round09 = 2,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        response.render(random_workpage(9, 2, 1, 4));
+                    });
+                } else if (data.status_number == 3) {
+                    connection.query('UPDATE result SET round09 = 2,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        response.render(random_workpage(9, 2, 1, 4));
+                    });
+                }
+            } else if (data.round09 == 2) {
+                if (data.status_number == 1) {
+                    connection.query('UPDATE result SET status_number = 2 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        response.render('./lesson/09/lesson09-thirdtest.ejs');
+                    });
+                } else if (data.status_number == 2) {
+                    connection.query('UPDATE result SET round09 = 3,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        response.render('./lesson/08/lesson08-3-w1.ejs');
+                    });
+                }
+            } else if (data.round09 == 3) {
+                if (data.status_number == 0) {
+                    if (data.test09 > 5) {
+                        connection.query('UPDATE result SET status_number = 2 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                            connection.query('SELECT * FROM sheetcomment WHERE lesson = 9 AND state = 3', function (error, results, fields) {
+                                if (results.length > 0) {
+                                    var result = results;
+                                } else {
+                                    var result = json_no_datasheet; //sheet 1
+                                }
+                                response.render('./lesson/09/lesson09-3-2.ejs', { result: result });
+                            });
+                        });
+                    } else {
+                        connection.query('UPDATE result SET status_number = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                            response.render('./lesson/08/lesson08-3-w1.ejs');
+                        });
+                    }
+                } else if (data.status_number < 7) {
+                    connection.query('SELECT * FROM sheetcomment WHERE lesson = 9 AND state = 3', function (error, results, fields) {
+                        if (results.length > 0) {
+                            var result = results;
+                        } else {
+                            var result = json_no_datasheet; //sheet 1
+                        }
+                        response.render('./lesson/09/lesson09-3-2.ejs', { result: result });
+                    });
+                } else if (data.status_number == 7) {
+                    connection.query('UPDATE result SET status_number = 0,round09 = 4 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        connection.query('SELECT * FROM sheetcomment WHERE lesson = 9 AND state = 4', function (error, results, fields) {
+                            if (results.length > 0) {
+                                var result = results;
+                            } else {
+                                var result = json_no_datasheet; //sheet 2
+                            }
+                            response.render('./lesson/09/lesson09-4.ejs', { result: result });
+                        });
+                    });
+                }
+            } else if (data.round09 >= 4) {
+                connection.query('UPDATE result SET status_number = 0,round09 = round09 + 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                    connection.query('SELECT * FROM sheetcomment WHERE lesson = 9 AND state = 4', function (error, results, fields) {
+                        if (results.length > 0) {
+                            var result = results;
+                        } else {
+                            var result = json_no_datasheet; //sheet 2
+                        }
+                        response.render('./lesson/09/lesson09-4.ejs', { result: result });
+                    });
+                });
+            }
+        } else { // pass the test
+            if (data.round09 == 0) {
+                response.render(random_workpage(9, 1, 1, 5));
+            } else if (data.round09 > 0) {
+                connection.query('UPDATE result SET statecheck = 10,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+                        var results = results;
+                        response.render('./user/userindex.ejs', { results: results });
+                    });
+                });
+            }
+        }
+    });
+});
+
 app.get('/detail09', function (request, response) {
     if (request.session.statecheck == 9) {
         response.render('./lesson/detail09.ejs');
@@ -2122,6 +2645,184 @@ app.get('/lesson09-4', function (request, response) {
 });
 
 //=======lesson10=======
+app.get('/checkroute10', function (request, response) {
+    var student_number = request.session.student_number;
+    connection.query('SELECT * FROM result WHERE student_number = ?', [student_number], function (error, results, fields) {
+        var data = results[0];
+        if (data.round10 == 0) {
+            response.render('./lesson/10/lesson10-firsttest.ejs');
+        } else if (data.round10 == 1) {
+            if (data.status_number == 0) {
+                response.render('./lesson/10/lesson10-1-2.ejs');
+            } else if (data.status_number == 1) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 10 AND state = 1', function (error, results, fields) {
+                    if (results.length > 0) {
+                        var result = results;
+                    } else {
+                        var result = json_no_datasheet; //sheet 1-5
+                    }
+                    response.render('./lesson/10/lesson10-1-3.ejs', { result: result });
+                });
+            } else if (data.status_number == 2) {
+                response.render(random_workpage(10, 1, 6, 10));
+            } else if (data.status_number == 3) {
+                response.render('./lesson/10/lesson10-secondtest.ejs');
+            }
+        } else if (data.round10 == 2) {
+            if (data.status_number == 0) {
+                response.render(random_workpage(10, 2, 1, 5));
+            } else if (data.status_number == 1) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 10 AND state = 2', function (error, results, fields) {
+                    if (results.length > 0) {
+                        var result = results;
+                    } else {
+                        var result = json_no_datasheet; //sheet 1-5
+                    }
+                    response.render('./lesson/10/lesson10-2-2.ejs', { result: result });
+                });
+            } else if (data.status_number == 2) {
+                response.render('./lesson/10/lesson10-thirdtest.ejs');
+            }
+        } else if (data.round10 == 3) {
+            if (data.status_number == 0) {
+                response.render(random_workpage(10, 3, 1, 5));
+            } else if (data.status_number < 7) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 10 AND state = 3', function (error, results, fields) {
+                    if (results.length > 0) {
+                        var result = results;
+                    } else {
+                        var result = json_no_datasheet; //sheet 1-5
+                    }
+                    response.render('./lesson/10/lesson10-3-2.ejs', { result: result });
+                });
+            } else {
+                response.render('./lesson/10/lesson10-fourthtest.ejs');
+            }
+        } else if (data.round10 >= 4) {
+            if (data.status_number < 5) {
+                connection.query('SELECT * FROM sheetcomment WHERE lesson = 10 AND state = 4 AND student_number = ?', [request.session.student_number], function (error, results, fields) {
+                    if (results.length > 0) {
+                        var result = results;
+                    } else {
+                        var result = json_no_datasheet; //sheet 1-2
+                    }
+                    response.render('./lesson/10/lesson10-4.ejs', { result: result });
+                });
+            } else {
+                response.render('./lesson/10/lesson10-fourthtest.ejs');
+            }
+        }
+    });
+});
+
+app.get('/checkstate10', function (request, response) {
+    var student_number = request.session.student_number;
+    connection.query('SELECT * FROM result WHERE student_number = ?', [student_number], function (error, results, fields) {
+        var data = results[0];
+        if (data.test10 < 8) { // failed test
+            if (data.round10 == 0) {
+                connection.query('UPDATE result SET round10 = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                    response.render('./lesson/10/lesson10-1-2.ejs');
+                });
+            } else if (data.round10 == 1) {
+                if (data.status_number == 0) {
+                    connection.query('UPDATE result SET status_number = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        connection.query('SELECT * FROM sheetcomment WHERE lesson = 10 AND state = 1', function (error, results, fields) {
+                            if (results.length > 0) {
+                                var result = results;
+                            } else {
+                                var result = json_no_datasheet; //sheet 1-5
+                            }
+                            response.render('./lesson/10/lesson10-1-3.ejs', { result: result });
+                        });
+                    });
+                } else if (data.status_number == 1) {
+                    response.render(random_workpage(10, 1, 6, 10));
+                } else if (data.status_number == 2) {
+                    connection.query('UPDATE result SET round10 = 2,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        response.render(random_workpage(10, 2, 1, 5));
+                    });
+                } else if (data.status_number == 3) {
+                    connection.query('UPDATE result SET round10 = 2,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        response.render(random_workpage(10, 2, 1, 5));
+                    });
+                }
+            } else if (data.round10 == 2) {
+                if (data.status_number == 1) {
+                    connection.query('UPDATE result SET status_number = 2 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        response.render('./lesson/10/lesson10-thirdtest.ejs');
+                    });
+                } else if (data.status_number == 2) {
+                    connection.query('UPDATE result SET round10 = 3,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        response.render(random_workpage(10, 3, 1, 5));
+                    });
+                }
+            } else if (data.round10 == 3) {
+                if (data.status_number == 0) {
+                    if (data.test10 > 5) {
+                        connection.query('UPDATE result SET status_number = 2 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                            connection.query('SELECT * FROM sheetcomment WHERE lesson = 10 AND state = 3', function (error, results, fields) {
+                                if (results.length > 0) {
+                                    var result = results;
+                                } else {
+                                    var result = json_no_datasheet; //sheet 1-5
+                                }
+                                response.render('./lesson/10/lesson10-3-2.ejs', { result: result });
+                            });
+                        });
+                    } else {
+                        connection.query('UPDATE result SET status_number = 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                            response.render(random_workpage(10, 3, 1, 5));
+                        });
+                    }
+                } else if (data.status_number < 7) {
+                    connection.query('SELECT * FROM sheetcomment WHERE lesson = 10 AND state = 3', function (error, results, fields) {
+                        if (results.length > 0) {
+                            var result = results;
+                        } else {
+                            var result = json_no_datasheet; //sheet 1-5
+                        }
+                        response.render('./lesson/10/lesson10-3-2.ejs', { result: result });
+                    });
+                } else if (data.status_number == 7) {
+                    connection.query('UPDATE result SET status_number = 0,round10 = 4 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                        connection.query('SELECT * FROM sheetcomment WHERE lesson = 10 AND state = 4', function (error, results, fields) {
+                            if (results.length > 0) {
+                                var result = results;
+                            } else {
+                                var result = json_no_datasheet; //sheet 2
+                            }
+                            response.render('./lesson/10/lesson10-4.ejs', { result: result });
+                        });
+                    });
+                }
+            } else if (data.round10 >= 4) {
+                connection.query('UPDATE result SET status_number = 0,round10 = round10 + 1 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                    connection.query('SELECT * FROM sheetcomment WHERE lesson = 10 AND state = 4', function (error, results, fields) {
+                        if (results.length > 0) {
+                            var result = results;
+                        } else {
+                            var result = json_no_datasheet; //sheet 2
+                        }
+                        response.render('./lesson/10/lesson10-4.ejs', { result: result });
+                    });
+                });
+            }
+        } else { // pass the test
+            if (data.round10 == 0) {
+                response.render(random_workpage(10, 1, 1, 5));
+            } else if (data.round10 > 0) {
+                connection.query('UPDATE result SET statecheck = 11,status_number = 0 WHERE student_number = ?', [student_number], function (error, results2, fields) {
+                    connection.query('SELECT * FROM result WHERE student_number = ?', [request.session.student_number], function (error, results, fields) {
+                        var results = results;
+                        response.render('./user/userindex.ejs', { results: results });
+                    });
+                });
+            }
+        }
+    });
+});
+
 app.get('/detail10', function (request, response) {
     if (request.session.statecheck == 10) {
         response.render('./lesson/detail10.ejs');
