@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="icon" href="img/favicon.png" type="image/png">
-	<title>ดูแลบทที่ 2 ขั้น 4</title>
+	<title>ดูแลบทที่ 5 ขั้น 4</title>
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="/css/bootstrap.css">
 	<link rel="stylesheet" href="/vendors/linericon/style.css">
@@ -30,7 +30,7 @@
 
 	<div class="whole-wrap">
 		<div class="container">
-			<h2 class="text-center">เรียนรู้เพิ่มเติมบทที่ 2 ครั้งที่ 4 เรื่องอุปมา</h2>
+			<h2 class="text-center">เรียนรู้เพิ่มเติมบทที่ 5 ครั้งที่ 4 เรื่องอติพจน์</h2>
 			<div class="section-top-border">
 				<div class="row">
 					<div class="col-3">
@@ -58,7 +58,7 @@
 											</div>
 										</div>
 										<div class="button-group-area text-right">
-											<a href="/manage/2/4" role="button" class="genric-btn e-large midbt primary">รีเฟรชหน้านี้</a>
+											<a href="/manage/5/4" role="button" class="genric-btn e-large midbt primary">รีเฟรชหน้านี้</a>
 										</div>
 										<% if (result.length > 0) { %>
 											<% for (var i = 0; i < result.length; i++) { %>
@@ -72,7 +72,7 @@
 															<p><%= result[i].detail %></p>
 														</div>
 														<div class="card-body">
-															<form action="addworkscore/<%= result[i].student_number %>/2" method="post">
+															<form action="addworkscore/<%= result[i].student_number %>/5" method="post">
 																<input name="score" type="number" value="5">
 																<input type="submit">
 															</form>
@@ -84,7 +84,7 @@
 								
 										<div class="comment-form">
 											<h4>แสดงความคิดเห็นกระทู้</h4>
-											<form action="sheetcomment/2/4/2" method="POST">
+											<form action="sheetcomment/5/4/2" method="POST">
 												<div class="form-group">
 													<textarea class="form-control mb-10" rows="5" name="detail" placeholder="ข้อความ" onfocus="this.placeholder = ''" onblur="this.placeholder = 'ข้อความ'" required=""></textarea>
 												</div>
