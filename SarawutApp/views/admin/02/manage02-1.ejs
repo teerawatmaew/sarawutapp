@@ -30,7 +30,7 @@
 	<!--================Contact Area =================-->
 	<div class="whole-wrap">
 		<div class="container">
-			<h2 class="text-center">เรียนรู้เพิ่มเติมบทที่ 2 ครั้งที่ 2 เรื่องภาพพจน์</h2>
+			<h2 class="text-center">เรียนรู้เพิ่มเติมบทที่ 2 ครั้งที่ 1 เรื่องอุปมา</h2>
 			<div class="section-top-border">
 				<div class="row">
 					<div class="col-3">
@@ -57,7 +57,7 @@
 											<h3 class="mb-30 title_color">ใบงานที่ 1</h3>
 											<div class="row">
 												<div class="col-md-9 text-center">
-													<img src="https://drive.google.com/uc?id=10G09nQjkaLAJdWDJ7OhWYcNHpqUeo47W" alt="post" />
+													<img src="https://drive.google.com/uc?id=1o9GlFzlp4Eh6JXW_teEG2bKIOIS2n1xB" alt="post" />
 												</div>
 												<div class="col-md-3">
 													<div class="blog_info text-right">
@@ -68,52 +68,10 @@
 												</div>
 											</div>
 										</div>
-							<% if (result.length > 0) { %>
-								<% for (var i = 0; i < result.length; i++) { %>
-									<% if (result[i].sheet == 1) { %>
-										<div class="card text-white bg-secondary w-75">
-											<div class="card-header"><%= result[i].student_number %> ผู้โพสต์ <%= result[i].username %></div>
-											<div class="card-body">
-												<p><%= result[i].detail %></p>
-											</div>
-											<div class="card-body">
-												<form action="addworkscore/<%= result[i].student_number %>/2" method="post">
-													<input name="score" type="number" value="5">
-													<input type="submit">
-												</form>
-											</div>
-										</div>
-										<br>
-									<% } %>
-								<% } %>
-							<% } %>
-									</div>
-								</section>
-							</div>
-
-							<div class="tab-pane fade" id="list-set2" role="tabpanel" aria-labelledby="list-set2-list">
-								<section>
-									<div class="container">
-										<div class="section-top-border text-left">
-											<h3 class="mb-30 title_color">ใบงานที่ 2</h3>
-											<div class="row">
-												<div class="col-md-9 text-center">
-													<img src="https://drive.google.com/uc?id=1G_iLDJBvqTUe3uPyULWZFET3eZlxSrUO" alt="post" />
-												</div>
-												<div class="col-md-3">
-													<div class="blog_info text-right">
-														<ul class="blog_meta list">
-															<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
-														</ul>
-													</div>
-												</div>
-											</div>
-										</div>
-										
 										<% if (result.length > 0) { %>
 											<% for (var i = 0; i < result.length; i++) { %>
-												<% if (result[i].sheet == 2) { %>
-												<div class="card text-white bg-secondary w-75">
+												<% if (result[i].sheet == 1) { %>
+													<div class="card text-white bg-secondary w-75">
 														<div class="card-header"><%= result[i].student_number %> ผู้โพสต์ <%= result[i].username %></div>
 														<div class="card-body">
 															<p><%= result[i].detail %></p>
@@ -133,141 +91,183 @@
 								</section>
 							</div>
 
-									<div class="tab-pane fade" id="list-set3" role="tabpanel" aria-labelledby="list-set3-list">
-										<section>
-											<div class="container">
-												<div class="section-top-border text-left">
-													<h3 class="mb-30 title_color">ใบงานที่ 3</h3>
-													<div class="row">
-														<div class="col-md-9 text-center">
-															<img src="https://drive.google.com/uc?id=1LxOA2JrJUiV9Nxx6rgVvh2Z2vdhxZQay" alt="post" />
-														</div>
-														<div class="col-md-3">
-															<div class="blog_info text-right">
-																<ul class="blog_meta list">
-																	<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
-																</ul>
-															</div>
-														</div>
+							<div class="tab-pane fade" id="list-set2" role="tabpanel" aria-labelledby="list-set2-list">
+								<section>
+									<div class="container">
+										<div class="section-top-border text-left">
+											<h3 class="mb-30 title_color">ใบงานที่ 2</h3>
+											<div class="row">
+												<div class="col-md-9 text-center">
+													<img src="https://drive.google.com/uc?id=1Z8EBuypmAl4HvYak09US-Azsi1yHBYmE" alt="post" />
+												</div>
+												<div class="col-md-3">
+													<div class="blog_info text-right">
+														<ul class="blog_meta list">
+															<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
+														</ul>
 													</div>
 												</div>
-												
-												<% if (result.length > 0) { %>
-													<% for (var i = 0; i < result.length; i++) { %>
-														<% if (result[i].sheet == 3) { %>
-														<div class="card text-white bg-secondary w-75">
-															<div class="card-header"><%= result[i].student_number %> ผู้โพสต์ <%= result[i].username %></div>
-															<div class="card-body">
-																<p><%= result[i].detail %></p>
-															</div>
-															<div class="card-body">
-																<form action="addworkscore/<%= result[i].student_number %>/2" method="post">
-																	<input name="score" type="number" value="5">
-																	<input type="submit">
-																</form>
-															</div>
-														</div>
-														<br>
-														<% } %>
-													<% } %>
-												<% } %>
 											</div>
-										</section>
+										</div>
+										
+										<% if (result.length > 0) { %>
+											<% for (var i = 0; i < result.length; i++) { %>
+												<% if (result[i].sheet == 2) { %>
+													<div class="card text-white bg-secondary w-75">
+														<div class="card-header"><%= result[i].student_number %> ผู้โพสต์ <%= result[i].username %></div>
+														<div class="card-body">
+															<p><%= result[i].detail %></p>
+														</div>
+														<div class="card-body">
+															<form action="addworkscore/<%= result[i].student_number %>/2" method="post">
+																<input name="score" type="number" value="5">
+																<input type="submit">
+															</form>
+														</div>
+													</div>
+													<br>
+												<% } %>
+											<% } %>
+										<% } %>
 									</div>
+								</section>
+							</div>
 
-									<div class="tab-pane fade show" id="list-set4" role="tabpanel" aria-labelledby="list-set4-list">
-										<section>
-											<div class="container">
-												<div class="section-top-border text-left">
-													<h3 class="mb-30 title_color">ใบงานที่ 4</h3>
-													<div class="row">
-														<div class="col-md-9 text-center">
-															<img src="https://drive.google.com/uc?id=1-yq5WcLPKSC6f_USOqh2zlw9-X6OUkOi" alt="post" />
-														</div>
-														<div class="col-md-3">
-															<div class="blog_info text-right">
-																<ul class="blog_meta list">
-																	<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
-																</ul>
-															</div>
-														</div>
+							<div class="tab-pane fade" id="list-set3" role="tabpanel" aria-labelledby="list-set3-list">
+								<section>
+									<div class="container">
+										<div class="section-top-border text-left">
+											<h3 class="mb-30 title_color">ใบงานที่ 3</h3>
+											<div class="row">
+												<div class="col-md-9 text-center">
+													<img src="https://drive.google.com/uc?id=1pmOAOKXeJE-F9zGtrhDJqLp6C-fHNavy" alt="post" />
+												</div>
+												<div class="col-md-3">
+													<div class="blog_info text-right">
+														<ul class="blog_meta list">
+															<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
+														</ul>
 													</div>
 												</div>
-												
-												<% if (result.length > 0) { %>
-													<% for (var i = 0; i < result.length; i++) { %>
-														<% if (result[i].sheet == 4) { %>
-														<div class="card text-white bg-secondary w-75">
-															<div class="card-header"><%= result[i].student_number %> ผู้โพสต์ <%= result[i].username %></div>
-															<div class="card-body">
-																<p><%= result[i].detail %></p>
-															</div>
-															<div class="card-body">
-																<form action="addworkscore/<%= result[i].student_number %>/2" method="post">
-																	<input name="score" type="number" value="5">
-																	<input type="submit">
-																</form>
-															</div>
-														</div>
-														<br>
-														<% } %>
-													<% } %>
-												<% } %>
 											</div>
-										</section>
+										</div>
+												
+										<% if (result.length > 0) { %>
+											<% for (var i = 0; i < result.length; i++) { %>
+												<% if (result[i].sheet == 3) { %>
+													<div class="card text-white bg-secondary w-75">
+														<div class="card-header"><%= result[i].student_number %> ผู้โพสต์ <%= result[i].username %></div>
+														<div class="card-body">
+															<p><%= result[i].detail %></p>
+														</div>
+														<div class="card-body">
+															<form action="addworkscore/<%= result[i].student_number %>/2" method="post">
+																<input name="score" type="number" value="5">
+																<input type="submit">
+															</form>
+														</div>
+													</div>
+													<br>
+												<% } %>
+											<% } %>
+										<% } %>
 									</div>
+								</section>
+							</div>
 
-									<div class="tab-pane fade show" id="list-set5" role="tabpanel" aria-labelledby="list-set5-list">
-										<section>
-											<div class="container">
-												<div class="section-top-border text-left">
-													<h3 class="mb-30 title_color">ใบงานที่ 5</h3>
-													<div class="row">
-														<div class="col-md-9 text-center">
-															<img src="https://drive.google.com/uc?id=1do9eUXMx1jHRWh3mnmzpP8JjAN9EAw33" alt="post" />
-														</div>
-														<div class="col-md-3">
-															<div class="blog_info text-right">
-																<ul class="blog_meta list">
-																	<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
-																</ul>
-															</div>
-														</div>
+							<div class="tab-pane fade show" id="list-set4" role="tabpanel" aria-labelledby="list-set4-list">
+								<section>
+									<div class="container">
+										<div class="section-top-border text-left">
+											<h3 class="mb-30 title_color">ใบงานที่ 4</h3>
+											<div class="row">
+												<div class="col-md-9 text-center">
+													<img src="https://drive.google.com/uc?id=1d9cNkAV4AiNDeBUkFTS0-DaGqBQuctP8" alt="post" />
+												</div>
+												<div class="col-md-3">
+													<div class="blog_info text-right">
+														<ul class="blog_meta list">
+															<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
+														</ul>
 													</div>
 												</div>
-												
-												<% if (result.length > 0) { %>
-													<% for (var i = 0; i < result.length; i++) { %>
-														<% if (result[i].sheet == 5) { %>
-														<div class="card text-white bg-secondary w-75">
-															<div class="card-header"><%= result[i].student_number %> ผู้โพสต์ <%= result[i].username %></div>
-															<div class="card-body">
-																<p><%= result[i].detail %></p>
-															</div>
-															<div class="card-body">
-																<form action="addworkscore/<%= result[i].student_number %>/2" method="post">
-																	<input name="score" type="number" value="5">
-																	<input type="submit">
-																</form>
-															</div>
-														</div>
-														<br>
-														<% } %>
-													<% } %>
-												<% } %>
 											</div>
-										</section>
+										</div>
+										
+										<% if (result.length > 0) { %>
+											<% for (var i = 0; i < result.length; i++) { %>
+												<% if (result[i].sheet == 4) { %>
+													<div class="card text-white bg-secondary w-75">
+														<div class="card-header"><%= result[i].student_number %> ผู้โพสต์ <%= result[i].username %></div>
+														<div class="card-body">
+															<p><%= result[i].detail %></p>
+														</div>
+														<div class="card-body">
+															<form action="addworkscore/<%= result[i].student_number %>/2" method="post">
+																<input name="score" type="number" value="5">
+																<input type="submit">
+															</form>
+														</div>
+													</div>
+													<br>
+												<% } %>
+											<% } %>
+										<% } %>
 									</div>
+								</section>
+							</div>
+
+							<div class="tab-pane fade show" id="list-set5" role="tabpanel" aria-labelledby="list-set5-list">
+								<section>
+									<div class="container">
+										<div class="section-top-border text-left">
+											<h3 class="mb-30 title_color">ใบงานที่ 5</h3>
+											<div class="row">
+												<div class="col-md-9 text-center">
+													<img src="https://drive.google.com/uc?id=1vuEpTeQ5i9rWrz0EjNu19mNmp8Pini_W" alt="post" />
+												</div>
+												<div class="col-md-3">
+													<div class="blog_info text-right">
+														<ul class="blog_meta list">
+															<li><a href="#">ระบบ<i class="lnr lnr-user"></i></a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+										<% if (result.length > 0) { %>
+											<% for (var i = 0; i < result.length; i++) { %>
+												<% if (result[i].sheet == 5) { %>
+													<div class="card text-white bg-secondary w-75">
+														<div class="card-header"><%= result[i].student_number %> ผู้โพสต์ <%= result[i].username %></div>
+														<div class="card-body">
+															<p><%= result[i].detail %></p>
+														</div>
+														<div class="card-body">		
+															<form action="addworkscore/<%= result[i].student_number %>/2" method="post">
+																<input name="score" type="number" value="5">
+																<input type="submit">
+															</form>
+														</div>
+													</div>
+													<br>
+												<% } %>
+											<% } %>
+										<% } %>
+									</div>
+								</section>
+							</div>
 								
 
-				<div class="tab-pane fade show" id="list-set6" role="tabpanel" aria-labelledby="list-set6-list">
+							<div class="tab-pane fade show" id="list-set6" role="tabpanel" aria-labelledby="list-set6-list">
 								<section>
 									<div class="container">
 										<div class="section-top-border text-left">
 											<h3 class="mb-30 title_color">ใบงานที่ 6</h3>
 											<div class="row">
 												<div class="col-md-9 text-center">
-													<img src="https://drive.google.com/uc?id=1IZ904zqVWQBWvdd-1Pr745kZDlOxCHUD" alt="post" />
+													<img src="https://drive.google.com/uc?id=1lahpWkF3Rkw66OrLt6iqxj1kCbc63tEi" alt="post" />
 												</div>
 												<div class="col-md-3">
 													<div class="blog_info text-right">
@@ -301,14 +301,14 @@
 								</section>
 							</div>
 
-				<div class="tab-pane fade show" id="list-set7" role="tabpanel" aria-labelledby="list-set7-list">
+							<div class="tab-pane fade show" id="list-set7" role="tabpanel" aria-labelledby="list-set7-list">
 								<section>
 									<div class="container">
 										<div class="section-top-border text-left">
 											<h3 class="mb-30 title_color">ใบงานที่ 7</h3>
 											<div class="row">
 												<div class="col-md-9 text-center">
-													<img src="https://drive.google.com/uc?id=1n82AWkieNcZsLn3R0D9qdF7aA13DSW9i" alt="post" />
+													<img src="https://drive.google.com/uc?id=1aFtAy-lXFSXFSP2011bieiKLm_IRQkpn" alt="post" />
 												</div>
 												<div class="col-md-3">
 													<div class="blog_info text-right">
@@ -342,14 +342,14 @@
 								</section>
 							</div>
 
-				<div class="tab-pane fade show" id="list-set8" role="tabpanel" aria-labelledby="list-set8-list">
+							<div class="tab-pane fade show" id="list-set8" role="tabpanel" aria-labelledby="list-set8-list">
 								<section>
 									<div class="container">
 										<div class="section-top-border text-left">
 											<h3 class="mb-30 title_color">ใบงานที่ 8</h3>
 											<div class="row">
 												<div class="col-md-9 text-center">
-													<img src="https://drive.google.com/uc?id=1_whI6IhfxM87PEbgH8m7DpmoMGQxJQX3" alt="post" />
+													<img src="https://drive.google.com/uc?id=1KMnV5EZtJrpbkWxG7Er_EBIROh5JzKkk" alt="post" />
 												</div>
 												<div class="col-md-3">
 													<div class="blog_info text-right">
@@ -383,14 +383,14 @@
 								</section>
 							</div>
 
-				<div class="tab-pane fade show" id="list-set9" role="tabpanel" aria-labelledby="list-set9-list">
+							<div class="tab-pane fade show" id="list-set9" role="tabpanel" aria-labelledby="list-set9-list">
 								<section>
 									<div class="container">
 										<div class="section-top-border text-left">
 											<h3 class="mb-30 title_color">ใบงานที่ 9</h3>
 											<div class="row">
 												<div class="col-md-9 text-center">
-													<img src="https://drive.google.com/uc?id=1X8iTNru08wJFmlYUJUxkK-HrIX3CodRO" alt="post" />
+													<img src="https://drive.google.com/uc?id=1TYl1o64yGgQ3-y82kDMTPm5HCTSutv3v" alt="post" />
 												</div>
 												<div class="col-md-3">
 													<div class="blog_info text-right">
@@ -424,14 +424,14 @@
 								</section>
 							</div>
 
-				<div class="tab-pane fade show" id="list-set10" role="tabpanel" aria-labelledby="list-set10-list">
+							<div class="tab-pane fade show" id="list-set10" role="tabpanel" aria-labelledby="list-set10-list">
 								<section>
 									<div class="container">
 										<div class="section-top-border text-left">
 											<h3 class="mb-30 title_color">ใบงานที่ 10</h3>
 											<div class="row">
 												<div class="col-md-9 text-center">
-													<img src="https://drive.google.com/uc?id=15nrbPrmPCwVFnU_vAeSzNnasrkDmlpIA" alt="post" />
+													<img src="https://drive.google.com/uc?id=1K0Ybp22ZSVnpK0uA9KWoYqxqZP9JPmW7" alt="post" />
 												</div>
 												<div class="col-md-3">
 													<div class="blog_info text-right">
@@ -464,10 +464,14 @@
 									</div>
 								</section>
 							</div>
+
+						</div>
 					</div>
 				</div>
 			</div>
-			<br>
+		</div>
+	</div>
+	<br>
     <!--================Contact Area =================-->
 	
     <!--================Footer Area =================-->
